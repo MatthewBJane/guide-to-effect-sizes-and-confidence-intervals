@@ -1,0 +1,168 @@
+project:
+  type: book
+
+book:
+  title: "Guide to Effect Sizes and Confidence Intervals"
+  downloads: [pdf, docx]
+  cover-image: cover-image.png
+  twitter-card:
+    image: social-preview.png
+    creator: "@MatthewBJane"
+    title: "Guide to Effect Sizes and Confidence Intervals"
+  site-url: https://matthewbjane.quarto.pub/effect-size-and-confidence-intervals-guide/
+  sidebar: 
+    background: 'white'
+    border: true
+    header: |
+      ![](margin-header.png)
+    title: "Table of Contents"
+  author:
+  - name: Matthew B. Jané
+    email: matthew.jane@uconn.edu
+    url: https://matthewbjane.com
+    orcid: 0000-0002-3121-7769
+    affiliations:
+      - name: University of Connecticut
+        department: Department of Psychological Sciences
+  - name: Qinyu Xiao
+    email: qinyu.xiao@univie.ac.at
+    orcid: 0000-0002-9824-9247
+    affiliations:
+      - name: University of Vienna
+        department: Department of Occupational, Economic, and Social Psychology
+  - name: Siu Kit Yeung
+    email: yskjdmmh@gmail.com
+    orcid: 0000-0002-5835-0981
+    affiliations:
+      - name: Chinese University of Hong Kong
+        department: Department of Psychology
+  - name: Daniel J. Dunleavy
+    email: djd09e@my.fsu.edu
+    orcid: 0000-0002-3597-7714
+    affiliations:
+      - id: id4
+        name: Florida State
+        department: College of Social Work
+  - name: Lukas Röseler
+    email: roeseler.lukas@gmail.com
+    orcid: 0000-0002-6446-1901
+    affiliations:
+      - id: id5
+        name: University of Bamberg
+  - name: Mahmoud Elsherif
+    email: mahmoud.medhat.elsherif@gmail.com
+    orcid: 0000-0002-0540-3998
+    affiliations:
+      - id: id6
+        name: University of Birmingham
+  - name: Denis Cousineau
+    email: denis.cousineau@uottawa.ca
+    orcid: 0000-0001-5908-0402
+    affiliations:
+      - id: id7
+        name: Université d’Ottawa
+  - name: Aaron R. Caldwell
+    orcid: 0000-0002-4541-6283
+    affiliations:
+      - name: University of Arkansas for Medical Sciences
+        department: Fay W. Boozman College of Public Health
+  - name: Blair T. Johnson
+    email: blair.t.johnson@uconn.edu
+    affiliations:
+      - name: University of Connecticut
+        department: Department of Psychological Sciences
+  - name: David Moreau
+    orcid: 0000-0002-1957-1941
+    affiliations:
+      - name: University of Auckland
+        department: Centre for Brain Research
+  - name: Felipe F. Vieira
+    orcid: 0009-0006-0949-6569
+    affiliations:
+      - name: Ghent University
+        department: Department of Applied Mathematics, Computer Science and Statistics
+  - name: Mircea Zloteanu
+    orcid: 0000-0002-2753-637X
+    affiliations:
+      - name: Kingston University London
+  - name: Gilad Feldman
+    corresponding: true
+    email: gfeldman@hku.hk
+    orcid: 0000-0003-2812-6599
+    affiliations:
+      - name: University of Hong Kong
+        department: Department of Psychology
+  date: "10/28/2023"
+  date-format: "YYYY"
+  chapters:
+    - text: "Home"
+      href: index.qmd
+    - text: "Defining Effect Sizes"
+      href: Defining-Effect-Sizes.qmd
+    - text: "Benchmarks"
+      href: Benchmarks.qmd
+    - text: "Reporting Effect Sizes"
+      href: Reporting-Effect-Sizes.qmd
+    - text: "Interpreting Confidence Intervals"
+      href: Interpreting-Confidence-Intervals.qmd
+    - text: "Reporting Confidence Intervals"
+      href: Reporting-Confidence-Intervals.qmd
+    - text: "Using R"
+      href: Useful-R-Packages.qmd
+    - text: "Artifacts and Bias in Effect Sizes"
+      href: Artifacts-and-Bias.qmd
+    - part: "**Standardized Effect Sizes**"
+      chapters:
+        - text: "Standardized-Mean-Differences"
+          href: Standardized-Mean-Differences.qmd
+        - text: "Correlations"
+          href: Correlations.qmd
+        - text: "Categorical/Proportional Data"
+          href: Categorical-Proportional-Data.qmd
+        - text: "Effect Sizes for ANOVAs"
+          href: Effect-Sizes-for-ANOVAs.qmd
+        - text: "Differences in Variance"
+          href: Differences-in-Variance.qmd
+        - text: "Non-Parametric Effect Sizes"
+          href: Non-Parametric-Effect-Sizes.qmd
+    - part: "**Converting Between Effect Sizes**"
+      chapters:
+        - text: "Converting to Cohen's d"
+          href: Converting-to-Cohens-d.qmd
+        - text: "Converting to Correlations"
+          href: Converting-to-Correlation.qmd
+        - text: "Converting to Odds Ratios"
+          href: Converting-to-Odds-Ratio.qmd
+    - part: "**Conclusion**"
+      chapters:
+      - text: "Conclusion"
+        href: Conclusion.qmd
+      - text: "References"
+        href: references.qmd
+    
+keywords: [collaboration, confidence interval, effect size, open educational resource, open scholarship, open science]
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: Simplex
+    backgroundcolor: 'white'
+    title-block-style: default
+    code-block-bg: '#f1f1f1'
+  pdf:
+    documentclass: scrreprt
+    mainfont: 'Arial'
+    code-block-bg: '#f1f1f1'
+    code-block-border-left: false
+    header-includes: |
+      \titlehead{\includegraphics[width=6in]{cover-image.png}}
+  docx:
+    documentclass: scrreprt
+    mainfont: 'Arial'
+    code-block-bg: '#f1f1f1'
+    code-block-border-left: false
+    toc: true
+
+editor: source
+

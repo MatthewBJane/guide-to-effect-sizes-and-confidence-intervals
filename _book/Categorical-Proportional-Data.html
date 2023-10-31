@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.361">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="keywords" content="collaboration, confidence interval, effect size, open educational resource, open scholarship, open science">
+
+<title>Guide to Effect Sizes and Confidence Intervals - 10&nbsp; Effect Sizes for Categorical Variables</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Effect-Sizes-for-ANOVAs.html" rel="next">
+<link href="./Correlations.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<meta name="twitter:title" content="Guide to Effect Sizes and Confidence Intervals">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://matthewbjane.quarto.pub/effect-size-and-confidence-intervals-guide/social-preview.png">
+<meta name="twitter:creator" content="@MatthewBJane">
+<meta name="twitter:image-height" content="1181">
+<meta name="twitter:image-width" content="2362">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar floating">
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Standardized-Mean-Differences.html"><strong>Standardized Effect Sizes</strong></a></li><li class="breadcrumb-item"><a href="./Categorical-Proportional-Data.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Categorical/Proportional Data</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="quarto-sidebar-header"><div class="sidebar-header-item">
+<p><img src="margin-header.png" class="img-fluid"></p>
+</div></div>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Table of Contents</a> 
+        <div class="sidebar-tools-main">
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Guide-to-Effect-Sizes-and-Confidence-Intervals.pdf">
+              <i class="bi bi-bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Guide-to-Effect-Sizes-and-Confidence-Intervals.docx">
+              <i class="bi bi-bi-file-word pe-1"></i>
+            Download Docx
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Defining-Effect-Sizes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Defining Effect Sizes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Benchmarks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Benchmarks</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Reporting-Effect-Sizes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Reporting Effect Sizes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Interpreting-Confidence-Intervals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Interpreting Confidence Intervals</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Reporting-Confidence-Intervals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Reporting Confidence Intervals</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Useful-R-Packages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Using R</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Artifacts-and-Bias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Artifacts and Bias in Effect Sizes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text"><strong>Standardized Effect Sizes</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Standardized-Mean-Differences.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Standardized-Mean-Differences</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Correlations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Correlations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Categorical-Proportional-Data.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Categorical/Proportional Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Effect-Sizes-for-ANOVAs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Effect Sizes for ANOVAs</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Differences-in-Variance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Differences in Variance</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Non-Parametric-Effect-Sizes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Non-Parametric Effect Sizes</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text"><strong>Converting Between Effect Sizes</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Converting-to-Cohens-d.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Converting to Cohen’s d</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Converting-to-Correlation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Converting to Correlations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Converting-to-Odds-Ratio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Converting to Odds Ratios</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text"><strong>Conclusion</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Conclusion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#phi-coefficient-phi" id="toc-phi-coefficient-phi" class="nav-link active" data-scroll-target="#phi-coefficient-phi"><span class="header-section-number">10.1</span> Phi Coefficient (<span class="math inline">\(\phi\)</span>)</a></li>
+  <li><a href="#cramers-v" id="toc-cramers-v" class="nav-link" data-scroll-target="#cramers-v"><span class="header-section-number">10.2</span> Cramer’s <span class="math inline">\(V\)</span></a></li>
+  <li><a href="#cohens-h" id="toc-cohens-h" class="nav-link" data-scroll-target="#cohens-h"><span class="header-section-number">10.3</span> Cohen’s <span class="math inline">\(h\)</span></a></li>
+  <li><a href="#cohens-omega-omega" id="toc-cohens-omega-omega" class="nav-link" data-scroll-target="#cohens-omega-omega"><span class="header-section-number">10.4</span> Cohen’s omega (<span class="math inline">\(\omega\)</span>)</a></li>
+  <li><a href="#ben-shachars-fei-פ" id="toc-ben-shachars-fei-פ" class="nav-link" data-scroll-target="#ben-shachars-fei-פ"><span class="header-section-number">10.5</span> Ben-Shachar’s Fei (פ)</a></li>
+  <li><a href="#odds-ratio-or" id="toc-odds-ratio-or" class="nav-link" data-scroll-target="#odds-ratio-or"><span class="header-section-number">10.6</span> Odds Ratio (<span class="math inline">\(OR\)</span>)</a></li>
+  <li><a href="#risk-difference-rd" id="toc-risk-difference-rd" class="nav-link" data-scroll-target="#risk-difference-rd"><span class="header-section-number">10.7</span> Risk Difference (<span class="math inline">\(RD\)</span>)</a></li>
+  <li><a href="#relative-risk-rr" id="toc-relative-risk-rr" class="nav-link" data-scroll-target="#relative-risk-rr"><span class="header-section-number">10.8</span> Relative Risk (<span class="math inline">\(RR\)</span>)</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Effect Sizes for Categorical Variables</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>For dichotomous relationships that involve proportions, there are many variations of effect sizes that one can use. Commonly used effect size measures for statistical procedures on categorical data include: phi coefficient (<span class="math inline">\(\phi\)</span>), Cramer’s <span class="math inline">\(V\)</span>, Cohen’s <span class="math inline">\(h\)</span>, Cohen’s <span class="math inline">\(\omega\)</span>, odds ratio (<span class="math inline">\(OR\)</span>), risk difference (<span class="math inline">\(RD\)</span>), and relative risk (<span class="math inline">\(RR\)</span>).</p>
+<section id="phi-coefficient-phi" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="phi-coefficient-phi"><span class="header-section-number">10.1</span> Phi Coefficient (<span class="math inline">\(\phi\)</span>)</h2>
+<p>Phi coefficient (<span class="math inline">\(\phi\)</span>) is a measure of association between two binary variables (therefore, it ONLY applies to 2 by 2 contingency tables, i.e., each variable has only two levels). It is a special case of the Pearson correlation coefficient and an <span class="math inline">\(r\)</span> for two binary variables is equal to phi. Note that unlike <span class="math inline">\(r\)</span> that ranges from -1 to 1, phi ranges from 0 to 1. Also, the sign of <span class="math inline">\(r\)</span> indicates the direction of association, whereas to get the direction of an association given a 2 by 2 contingency table, we need to look at the table itself; phi only provides a measure of strength. The 2 by 2 contingency table is illustrated by <a href="#tbl-contingency">Table&nbsp;<span>10.1</span></a>.</p>
+<div id="tbl-contingency" class="anchored">
+<table class="table">
+<caption>Table&nbsp;10.1: Contingency table between two binary variables</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;"><span class="math inline">\(X=0\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(X=1\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(Y=0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(n_{00}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(n_{10}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(Y=1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(n_{01}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(n_{11}\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The sample sizes within each cell provide us with the necessary information to estimate the relationship between the two variables. A large phi coefficient would be expected to have relatively large sample sizes in the diagonal cells (<span class="math inline">\(n_{00}\)</span> and <span class="math inline">\(n_{11}\)</span>) and relatively low sample sizes in the off-diagonal cells (<span class="math inline">\(n_{01}\)</span> and <span class="math inline">\(n_{10}\)</span>). To calculate phi, it can be calculated from the cells of the contingency table directly,</p>
+<p><span class="math display">\[
+\phi = \frac{n_{11}n_{00} -n_{10}n_{01}}{\sqrt{(n_{00} + n_{01})(n_{10} + n_{11})(n_{00} + n_{10})(n_{01} + n_{11})}}
+\]</span></p>
+<p>or more conveniently, from the <span class="math inline">\(\chi^2\)</span>-statistic,</p>
+<p><span class="math display">\[
+\phi = \sqrt{\frac{\chi^2}{n}}
+\]</span></p>
+<p>Where <span class="math inline">\(n\)</span> is the total sample size (i.e., the sum of all the cells). Using the <code>psych</code> package in R, we can calculate the the phi coefficient using the <code>phi</code> function directly from the contingency table</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example contingency table:</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#  40  17</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#  11  45</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(effectsize)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>contingency_table <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">40</span>, <span class="dv">11</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>                              <span class="dv">17</span>, <span class="dv">45</span>),<span class="at">ncol =</span> <span class="dv">2</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>phi_coefficient <span class="ot">&lt;-</span> <span class="fu">phi</span>(contingency_table, <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>phi_coefficient</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Phi (adj.) |       95% CI
+-------------------------
+0.50       | [0.31, 0.69]</code></pre>
+</div>
+</div>
+<p>In our example we obtained a phi coefficient of <span class="math inline">\(\phi\)</span> = .50 [0.31, 0.69].</p>
+</section>
+<section id="cramers-v" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="cramers-v"><span class="header-section-number">10.2</span> Cramer’s <span class="math inline">\(V\)</span></h2>
+<p>Cramer’s V, sometimes also referred to as Cramer’s phi (<span class="math inline">\(\phi\)</span>), is a generalized effect size measure of the association between two nominal variables. It applies to contingency tables of any size (<span class="math inline">\(2\times 2\)</span>, <span class="math inline">\(3\times 3\)</span>, <span class="math inline">\(3\times 4\)</span>, <span class="math inline">\(5\times 3\)</span>, etc.). Cramer’s <span class="math inline">\(V\)</span> on a <span class="math inline">\(2\times 2\)</span> contingency table is equivalent to the phi coefficient. For an illustration of a higher order contingency table, <a href="#tbl-contingency-2">Table&nbsp;<span>10.2</span></a> represents a <span class="math inline">\(3\times 4\)</span> contingency table of two variables.</p>
+<div id="tbl-contingency-2" class="anchored">
+<table class="table">
+<caption>Table&nbsp;10.2: Contingency table between two categorical variables</caption>
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: center;"><span class="math inline">\(X=0\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(X=1\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(X=2\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(X=3\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(Y=0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(n_{00}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(n_{10}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(n_{21}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(n_{31}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(Y=1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(n_{01}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(n_{11}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(n_{21}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(n_{31}\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(Y=2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(n_{02}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(n_{12}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(n_{22}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(n_{32}\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Similarly to the phi coefficient, the value of Cramer’s <span class="math inline">\(V\)</span> ranges from 0 to 1 and can interpreted in a similar way to a phi coefficient. Again we can use the <span class="math inline">\(\chi^2\)</span> statistic to compute the value, however, since there can be more than 2 levels to each variable, we also need to take into account the number of levels, <span class="math inline">\(k\)</span>, of the variable with the least number of levels (e.g., a <span class="math inline">\(3 \times 4\)</span> contingency table, <span class="math inline">\(k\)</span> would be equal to 3),</p>
+<p><span class="math display">\[
+V = \sqrt{\frac{\chi^2}{n(k-1)}}
+\]</span></p>
+<p>The standard error of a Cramer’s <span class="math inline">\(V\)</span> is similar to that of a Pearson correlation and a <span class="math inline">\(\phi\)</span> coefficient.</p>
+<p><span class="math display">\[
+SE_V = \sqrt{\frac{1-V^2}{n-2}}
+\]</span></p>
+<p>Where <span class="math inline">\(n\)</span> is the total sample size (i.e., the sum of all cells). Like the pearson correlation, we can not calculate the confidence interval directly from the standard error, instead, we must convert <span class="math inline">\(V\)</span> to a Fisher’s Z statistic, <span class="math inline">\(Z_V = \text{arctanh}(V)\)</span>. We can then calculate the 95% confidence interval for <span class="math inline">\(V\)</span> by back-transforming the confidence interval for <span class="math inline">\(Z_V\)</span>:</p>
+<p><span class="math display">\[
+SE_{Z_V} = \frac{1}{\sqrt{n-3}}
+\]</span></p>
+<p><span class="math display">\[
+CI_{V} = \tanh(Z_V \pm 1.96\times SE_{Z_V})
+\]</span></p>
+<p>Using the <code>ufs</code> package <span class="citation" data-cites="ufs">(<a href="references.html#ref-ufs" role="doc-biblioref">Peters and Gruijters 2023</a>)</span>, we can calculate Cramer’s <span class="math inline">\(V\)</span> and it’s 95% confidence interval using the Fisher’s Z method described above. For the example, we can example data from a 3$$3 contingency table.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example contingency table:</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#  40  14  12</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#  11  27   9</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   5  10  34</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ufs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'ufs'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:effectsize':
+
+    arr</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>contingency_table <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">40</span>, <span class="dv">11</span>,  <span class="dv">5</span>,</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                              <span class="dv">14</span>, <span class="dv">27</span>, <span class="dv">10</span>,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                              <span class="dv">12</span>,  <span class="dv">9</span>, <span class="dv">34</span>),<span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>V <span class="ot">&lt;-</span> <span class="fu">cramersV</span>(contingency_table)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>CI <span class="ot">&lt;-</span> <span class="fu">confIntV</span>(contingency_table)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># print pearson correlation and confidence intervals</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">V =</span> MOTE<span class="sc">::</span><span class="fu">apa</span>(V<span class="sc">$</span>output<span class="sc">$</span>cramersV), </span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>           <span class="at">Vlow =</span> MOTE<span class="sc">::</span><span class="fu">apa</span>(CI<span class="sc">$</span>output<span class="sc">$</span>confIntV.fisher[<span class="dv">1</span>]), </span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>           <span class="at">Vhigh =</span> MOTE<span class="sc">::</span><span class="fu">apa</span>(CI<span class="sc">$</span>output<span class="sc">$</span>confIntV.fisher[<span class="dv">2</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      V  Vlow Vhigh
+1 0.442 0.309 0.558</code></pre>
+</div>
+</div>
+<p>In our example we obtained a Cramer’s <span class="math inline">\(V\)</span> of <span class="math inline">\(V\)</span> = .44 [.31, .56].</p>
+</section>
+<section id="cohens-h" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="cohens-h"><span class="header-section-number">10.3</span> Cohen’s <span class="math inline">\(h\)</span></h2>
+<p>Cohen’s <span class="math inline">\(h\)</span> is a measure of distance between two proportions or probabilities. It is sometimes also referred to as the “difference between arcsines”. For a given proportion <span class="math inline">\(p\)</span>, its arcsine transformation is given by:</p>
+<p><span class="math display">\[
+\psi = 2\cdot \text{arcsin}(\sqrt{p}).
+\]</span></p>
+<p>Cohen’s <span class="math inline">\(h\)</span> is the difference between the arcsine transformations of two proportions:</p>
+<p><span class="math display">\[
+h = \psi_1 - \psi_2
+\]</span></p>
+<p>Cohen’s <span class="math inline">\(h\)</span> is commonly used for the power analysis of proportion tests. We can calculate the standard error in Cohen’s <span class="math inline">\(h\)</span> It is the required effect size measure in the program <em>G Power</em> <span class="citation" data-cites="faul2009">(<a href="references.html#ref-faul2009" role="doc-biblioref">Faul et al. 2009</a>)</span>.</p>
+<p><span class="math display">\[
+SE_h = \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}
+\]</span></p>
+<p>Since the sampling distribution of <span class="math inline">\(h\)</span> is symmetric, we can calculate the confidence intervals from the standard error,</p>
+<p><span class="math display">\[
+CI_h = h \pm1.96\times SE_h
+\]</span></p>
+<p>To calculate Cohen’s <span class="math inline">\(h\)</span>, we can use the <code>cohens_h</code> function in the <code>effectsize</code> package in R.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install package if not done so already</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages('effectsize')</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Example proportions: p1 = .45, p2 = .30</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(effectsize)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>contingency_table <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">40</span>, <span class="dv">11</span>,</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>                              <span class="dv">14</span>, <span class="dv">27</span>),<span class="at">ncol =</span> <span class="dv">2</span>)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="fu">cohens_h</span>(contingency_table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Cohen's h |       95% CI
+------------------------
+0.93      | [0.52, 1.34]</code></pre>
+</div>
+</div>
+<p>From the example, the R code outputted a Cohen’s <span class="math inline">\(h\)</span> value of <span class="math inline">\(h\)</span> = .93 [0.52, 1.34].</p>
+</section>
+<section id="cohens-omega-omega" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="cohens-omega-omega"><span class="header-section-number">10.4</span> Cohen’s omega (<span class="math inline">\(\omega\)</span>)</h2>
+<p>Although Cohen’s <span class="math inline">\(\omega\)</span> is useful for power analyses, it is not so useful as a stand-alone effect size. As <span class="citation" data-cites="cohen1988">Cohen (<a href="references.html#ref-cohen1988" role="doc-biblioref">1988</a>)</span> states (pp.&nbsp;221):</p>
+<blockquote class="blockquote">
+<p>As a measure of association, [Cohen’s <span class="math inline">\(\omega\)</span>] lacks familiarity and convenience</p>
+</blockquote>
+<p>Cohen’s <span class="math inline">\(\omega\)</span> has the exact same formula as the phi coefficient with the only difference being that the <span class="math inline">\(\chi^2\)</span> statistic comes from a contingency table of any size,</p>
+<p><span class="math display">\[
+\omega = \sqrt{\frac{\chi^2}{n}}
+\]</span></p>
+<p>And can also be calculated directly from Cramer’s <span class="math inline">\(V\)</span>,</p>
+<p><span class="math display">\[
+\omega = V \times \sqrt{k-1}
+\]</span></p>
+<p>Where <span class="math inline">\(k\)</span> is the number of categories in the variable with the least number of categories.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example contingency table</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>contingency_table <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">40</span>, <span class="dv">11</span>,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>                              <span class="dv">14</span>, <span class="dv">27</span>),<span class="at">ncol =</span> <span class="dv">2</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="fu">cohens_w</span>(contingency_table,</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Cohen's w |       95% CI
+------------------------
+0.45      | [0.24, 0.65]</code></pre>
+</div>
+</div>
+<p>From the example code, the <code>cohens_w</code> function returned Cohen’s <span class="math inline">\(\omega\)</span> value of <span class="math inline">\(\omega\)</span> = .45 [0.24, 0.65].</p>
+</section>
+<section id="ben-shachars-fei-פ" class="level2" data-number="10.5">
+<h2 data-number="10.5" class="anchored" data-anchor-id="ben-shachars-fei-פ"><span class="header-section-number">10.5</span> Ben-Shachar’s Fei (פ)</h2>
+<p><span class="citation" data-cites="benshachar2023">Ben-Shachar et al. (<a href="references.html#ref-benshachar2023" role="doc-biblioref">2023</a>)</span> introduced a new effect size for contingency tables that they label with the Hebrew letter, פ. Ben-Shachar’s פ is a correction to Cohen’s <span class="math inline">\(\omega\)</span> that adjusts for the expected value and consequently bounds the value between 0 and 1 (Cohen’s <span class="math inline">\(\omega\)</span> is only bounded between 0 and 1 when marginal distributions are uniform).</p>
+<p>Cohen’s <span class="math inline">\(\omega\)</span> has the exact same formula as the phi coefficient with the only difference being that the <span class="math inline">\(\chi^2\)</span> statistic comes from a contingency table of any size,</p>
+<p><span class="math display">\[
+\mathbf{פ }= \sqrt{\frac{\chi^2}{n \left(\frac{1}{\min\left(P_E\right)} -1\right)}}
+\]</span></p>
+<p>Where <span class="math inline">\(\min(P_E)\)</span> is the smallest expected probability in the contingency table. An expected probability for a given cell is the proportion of the total sample that would be expected to exist in that cell if the two variables were independent. The formula for Ben-Schacher’s פ can be also be expressed in terms of Cohen’s <span class="math inline">\(\omega\)</span>,</p>
+<p><span class="math display">\[
+\mathbf{פ }= \frac{\omega}{\sqrt{\left(\frac{1}{\max(P_E)} -1\right)}}
+\]</span></p>
+<p>In R, we can calculate Ben-Shacher’s פ using the <code>effectsize</code> package.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example:</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Observed counts: 20, 50, 100 (observed proportions: .12, .29, .59)</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Expected proportions: .5, .2, .3</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>observed_counts <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">20</span>,<span class="dv">50</span>,<span class="dv">100</span>)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>expected_probabilities <span class="ot">&lt;-</span> <span class="fu">c</span>(.<span class="dv">5</span>,.<span class="dv">2</span>,.<span class="dv">3</span>)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="fu">fei</span>(observed_counts,</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">p =</span> expected_probabilities,</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Fei  |       95% CI
+-------------------
+0.39 | [0.31, 0.47]
+
+- Adjusted for uniform expected probabilities.</code></pre>
+</div>
+</div>
+<p>From the example code, the <code>cohens_w</code> function returned Ben-Shacher’s פ value of .39 [0.31, 0.47].</p>
+</section>
+<section id="odds-ratio-or" class="level2" data-number="10.6">
+<h2 data-number="10.6" class="anchored" data-anchor-id="odds-ratio-or"><span class="header-section-number">10.6</span> Odds Ratio (<span class="math inline">\(OR\)</span>)</h2>
+<p>Odds ratio measures the effect size between two binary variables. It is commonly used in medical and behavioral intervention research, and notably, in meta-analysis.</p>
+<p>Let’s imagine a study conducted to investigate the association between smoking and the development of major depressive disorder (MDD). The study includes a sample of 251 individuals, categorizing them into two groups: 125 smokers and 126 non-smokers. The researchers are interested in understanding the odds of having major depressive disorder (MDD) among smokers compared to non-smokers. Say we find that 25 smokers were diagnosed with MDD while 100 were not, but in the non-smoker group, 12 individuals were diagnosed with MDD while 120 were not. The odds ratio would then be:</p>
+<p><span class="math display">\[
+OR = \frac{25/100}{12/120}= \frac{.25}{.10} = 2.50
+\]</span></p>
+<p>In general, we can can compute the odds-ratio from a contingency table between binary variables <span class="math inline">\(X\)</span> (i.e., the treatment) and <span class="math inline">\(Y\)</span> (i.e., the outcome; see <a href="#tbl-contingency-OR">Table&nbsp;<span>10.3</span></a>).</p>
+<div id="tbl-contingency-OR" class="anchored">
+<table class="table">
+<caption>Table&nbsp;10.3: Contingency table between two binary variables</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;"><span class="math inline">\(X=T\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(X=C\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(Y=0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(n_{T0}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(n_{C0}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(Y=1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(n_{T1}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(n_{C1}\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Ultimately, we want to compare the outcome between the treatment group (<span class="math inline">\(X=T\)</span>) and the control group (<span class="math inline">\(X=C\)</span>). Therefore we can compute the odds ratio as,</p>
+<p><span class="math display">\[
+OR = \frac{n_{T1}/n_{T0}}{n_{C1}/n_{C0}}
+\]</span></p>
+<p>The standard distribution of the odds-ratio is asymmetric. To calculate confidence intervals, we can first convert the odds ratio to a log odds ratio (<span class="math inline">\(LOR= \log(OR)\)</span>). Then we can calculate the standard error of the log odds ratio,</p>
+<p><span class="math display">\[
+SE_{LOR} = \sqrt{\frac{1}{n_{T0}} + \frac{1}{n_{T1}} + \frac{1}{n_{C0}} + \frac{1}{n_{C1}}}
+\]</span></p>
+<p>With the standard error of the log odds ratio we can then calculate the log odds ratio,</p>
+<p><span class="math display">\[
+LOR_{UP} = LOR - 1.96\times SE_{LOR}
+\]</span></p>
+<p>Then the final step we can convert these back to <span class="math inline">\(OR\)</span> confidence intervals by taking the exponential transformation of the upper and lower bounds: <span class="math inline">\(OR_{UP}=\exp(LOR_{UP})\)</span> and <span class="math inline">\(OR_{UP}=\exp(LOR_{UP})\)</span>.</p>
+<p>In R, we can use the <code>effectsize</code> package to calculate the odds ratio and it’s confidence interval:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example:</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Treatment Group: 10 diseased, 43 healthy</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Control Group:  24 diseased, 41 healthy</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>contingency_table <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">24</span>,</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>                              <span class="dv">43</span>, <span class="dv">41</span>),<span class="at">ncol =</span> <span class="dv">2</span>)</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="fu">oddsratio</span>(contingency_table,</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>          <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Odds ratio |       95% CI
+-------------------------
+0.40       | [0.17, 0.93]</code></pre>
+</div>
+</div>
+<p>The code output for this example shows an odds ratio of <span class="math inline">\(OR\)</span> = 0.40 [0.17, 0.93]</p>
+</section>
+<section id="risk-difference-rd" class="level2" data-number="10.7">
+<h2 data-number="10.7" class="anchored" data-anchor-id="risk-difference-rd"><span class="header-section-number">10.7</span> Risk Difference (<span class="math inline">\(RD\)</span>)</h2>
+<p>Risk difference can be used to interpret the difference between two proportions. If we use the contingency table from <a href="#tbl-contingency-OR">Table&nbsp;<span>10.3</span></a>, and calculate a risk difference between the treatment group and the control group. We can first calculate the proportion of cases where the outcome is <span class="math inline">\(Y=1\)</span> <em>within</em> the control group and the treatment group:</p>
+<p><span class="math display">\[
+p_C=\frac{n_{C1}}{n_{C0}+n_{C1}}
+\]</span></p>
+<p><span class="math display">\[
+p_T=\frac{n_{T1}}{n_{T0}+n_{T1}}
+\]</span></p>
+<p>Then using these proportions we can calculate the risk difference (<span class="math inline">\(RD\)</span>),</p>
+<p><span class="math display">\[
+RD = p_T - p_C.
+\]</span> The corresponding standard error is,</p>
+<p><span class="math display">\[
+SE_{RD} = \sqrt{\frac{p_C(1-p_C)}{n_C} + \frac{p_T(1-p_T)}{n_T} }
+\]</span></p>
+<p>Where <span class="math inline">\(n_C\)</span> and <span class="math inline">\(n_T\)</span> are the total sample sizes <em>within</em> the control and treatment group, respectively. The standard error can then be used to compute the 95% confidence intervals,</p>
+<p><span class="math display">\[
+CI_{RD} = RD \pm 1.96 \times SE_{RD}
+\]</span></p>
+<p>The risk difference formula is fairly simple, so we can compute it using base R.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: </span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Treatment group: proportion of cases = .5, sample size = 40</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Control group: proportion of cases = .3, sample size = 45</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>pT <span class="ot">&lt;-</span> .<span class="dv">50</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>pC <span class="ot">&lt;-</span> .<span class="dv">30</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>nT <span class="ot">&lt;-</span> <span class="dv">40</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>nC <span class="ot">&lt;-</span> <span class="dv">45</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>RD <span class="ot">&lt;-</span> pT <span class="sc">-</span> pC</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>SE <span class="ot">&lt;-</span> <span class="fu">sqrt</span>( pC<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>pC)<span class="sc">/</span>nC <span class="sc">+</span> pT<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>pT)<span class="sc">/</span>nT )</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="co"># compute 95% CIs</span></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>RDlow <span class="ot">&lt;-</span> RD <span class="sc">-</span> <span class="fl">1.96</span><span class="sc">*</span>SE</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>RDhigh <span class="ot">&lt;-</span> RD <span class="sc">+</span> <span class="fl">1.96</span><span class="sc">*</span>SE</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">RD =</span> MOTE<span class="sc">::</span><span class="fu">apa</span>(RD),</span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">RDlow =</span> MOTE<span class="sc">::</span><span class="fu">apa</span>(RDlow),</span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">RDhigh =</span> MOTE<span class="sc">::</span><span class="fu">apa</span>(RDhigh)</span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     RD  RDlow RDhigh
+1 0.200 -0.005  0.405</code></pre>
+</div>
+</div>
+</section>
+<section id="relative-risk-rr" class="level2" data-number="10.8">
+<h2 data-number="10.8" class="anchored" data-anchor-id="relative-risk-rr"><span class="header-section-number">10.8</span> Relative Risk (<span class="math inline">\(RR\)</span>)</h2>
+<p>The relative risk, often referred to as the “risk ratio,” calculates the ratio between the proportion of cases in the treatment group and the proportion of cases in the control group. It provides a straightforward interpretation: “individuals receiving the treatment have a <span class="math inline">\(RR\)</span> times higher odds of experiencing the outcome compared to controls.” To calculate relative riskm, first we need to calculate the proportion of outcome cases in the treatment and control group</p>
+<p><span class="math display">\[
+p_C=\frac{n_{C1}}{n_{C0}+n_{C1}}
+\]</span></p>
+<p><span class="math display">\[
+p_T=\frac{n_{T1}}{n_{T0}+n_{T1}}
+\]</span></p>
+<p>Then we can calculate the relative risk,</p>
+<p><span class="math display">\[
+RR=\frac{p_T}{p_C}
+\]</span></p>
+<p>The corresponding standard error can be computed as,</p>
+<p><span class="math display">\[
+SE_{RR} = \sqrt{\frac{p_T}{n_T} + \frac{p_C}{n_C}}
+\]</span></p>
+<p>The confidence intervals can be computed from the standard error,</p>
+<p><span class="math display">\[
+CI_{RR} = RR\pm 1.96\times SE_{RR}
+\]</span></p>
+<p>To compute relative risk, we can simply use the equations above in base R.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example:</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Treatment Group: 10 diseased, 43 healthy, 53 total</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Control Group:  24 diseased, 41 healthy, 65 total</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>pT <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">/</span>(<span class="dv">43</span><span class="sc">+</span><span class="dv">10</span>)</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>pC <span class="ot">&lt;-</span> <span class="dv">24</span><span class="sc">/</span>(<span class="dv">41</span><span class="sc">+</span><span class="dv">24</span>)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>nT <span class="ot">&lt;-</span> <span class="dv">53</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>nC <span class="ot">&lt;-</span> <span class="dv">65</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>RR <span class="ot">&lt;-</span> pT <span class="sc">/</span> pC</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>SE <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(pT<span class="sc">/</span>nT <span class="sc">+</span> pC<span class="sc">/</span>nC)</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>RRlow <span class="ot">&lt;-</span> RR <span class="sc">-</span> <span class="fl">1.96</span><span class="sc">*</span>SE</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>RRhigh <span class="ot">&lt;-</span> RR <span class="sc">+</span> <span class="fl">1.96</span><span class="sc">*</span>SE</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a><span class="co"># print pearson correlation and confidence intervals</span></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">RR =</span> MOTE<span class="sc">::</span><span class="fu">apa</span>(RR), </span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>           <span class="at">RRlow =</span> MOTE<span class="sc">::</span><span class="fu">apa</span>(RRlow), </span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>           <span class="at">RRhigh =</span> MOTE<span class="sc">::</span><span class="fu">apa</span>(RRhigh))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     RR RRlow RRhigh
+1 0.511 0.323  0.699</code></pre>
+</div>
+</div>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-benshachar2023" class="csl-entry" role="listitem">
+Ben-Shachar, Mattan S., Indrajeet Patil, Rémi Thériault, Brenton M. Wiernik, and Daniel Lüdecke. 2023. <span>“Phi, Fei, Fo, Fum: Effect Sizes for Categorical Data That Use the Chi-Squared Statistic.”</span> <em>Mathematics</em> 11 (9): 1982. <a href="https://doi.org/10.3390/math11091982">https://doi.org/10.3390/math11091982</a>.
+</div>
+<div id="ref-cohen1988" class="csl-entry" role="listitem">
+Cohen, Jacob. 1988. <em>Statistical Power Analysis for the Behavioral Sciences</em>. Academic Press.
+</div>
+<div id="ref-faul2009" class="csl-entry" role="listitem">
+Faul, Franz, Edgar Erdfelder, Axel Buchner, and Albert-Georg Lang. 2009. <span>“Statistical Power Analyses Using G*Power 3.1: Tests for Correlation and Regression Analyses.”</span> <em>Behavior Research Methods</em> 41 (4): 1149–60. <a href="https://doi.org/10.3758/BRM.41.4.1149">https://doi.org/10.3758/BRM.41.4.1149</a>.
+</div>
+<div id="ref-ufs" class="csl-entry" role="listitem">
+Peters, Gjalt-Jorn Ygram, and Stefan Gruijters. 2023. <em>Ufs: A Collection of Utilities</em>. <a href="https://ufs.opens.science">https://ufs.opens.science</a>.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Correlations.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Correlations</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Effect-Sizes-for-ANOVAs.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Effect Sizes for ANOVAs</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

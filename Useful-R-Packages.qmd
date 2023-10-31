@@ -1,0 +1,47 @@
+# Using R
+
+## Why Use R?
+We strongly recommend using open-source software such as R or Python for computing effect sizes and confidence intervals. In this guide, we focus on R, which has several advantages:
+
+- **Reproducibility**: R syntax can be shared to allow others to reproduce your analyses. This promotes transparency and reliability in research.
+
+- **Flexibility**: CRAN repositories contain thousands of user-contributed packages for specialized statistical techniques. This allows calculating a diverse range of effect size and CI metrics.
+
+- **Free and open source**: R is free to download and use. The open source nature means community-driven innovation and packages.
+
+- **Visualizations**: R makes it easy to create publication-quality graphics to visualize your results.
+
+- **Scripting**: Automating analyses through R scripts improves efficiency and consistency.
+
+- **Range of packages**: Packages like `effectsize`, `MBESS`, `metafor`, and more contain a variety of effect size and CI functions.
+
+Many (if not all) of these advantages are shared with Python and a number of other programming languages. While online calculators or GUI software can also allow calculating confidence intervals and effect sizes, open-source software such as R provide transparency, reproducibility, and access to a vast array of techniques. In the case of R, the learning curve is well worth it for doing robust, state-of-the-art effect size and confidence interval estimation.
+
+
+
+
+## Useful R Packages
+
+The following R packages are handy for effect size and CI calculations, conversions among different effect sizes, and conversion of test statistics to effect sizes. If you use one of the packages below, please make sure you cite them to give the authors their due credit! To obtain citations for packages, you can use the `citation()` function and input the name of the package as a string.
+
+-   `MOTE` [@MOTE]: This is a highly recommended package for calculating effect sizes, which is capable of handling a wide variety of effect sizes in the difference family (the d family) and variance-overlap family (r, eta, omega, epsilon). The functions also provide non-central confidence intervals for each effect size and output in APA style in LaTeX. `MOTE` has an online shiny application ([doomlab.shinyapps.io/mote/](https://doomlab.shinyapps.io/mote/)). The CRAN project can be found here: [cran.r-project.org/package=MOTE](https://cran.r-project.org/package=MOTE).
+
+-   `effectsize` [@effectsize]: This package is particularly useful in data analysis. A major advantage of this package is that it takes in many different model objects and directly outputs effect sizes and CIs. It also does some conversion. The CRAN project can be found here: [cran.r-project.org/package=effectsize](https://cran.r-project.org/package=effectsize).
+
+-   `MBESS` [@MBESS]: One of the most comprehensive and useful packages for effect size and confidence interval calculations. It provides functions that can calculate ESs and CIs from test statistics and the p-value. The CRAN project can be found here: [cran.r-project.org/package=MBESS](https://cran.r-project.org/package=MBESS).
+
+-   `metafor` [@metafor]: Probably the most comprehensive meta-analysis package currently available. Includes the function, `escalc()`, that calculates various types of effect sizes from test-statistics, summary statistics, and more. The CRAN project can be found here: [cran.r-project.org/package=metafor](https://cran.r-project.org/package=metafor).
+
+-   `psych` [@psych]: One of the most comprehensive and general packages for common statistical procedures in psychology research. It also includes some effect size and CI calculation functions (e.g., `cohen.d()`). The CRAN project can be found here: [cran.r-project.org/package=psych](https://cran.r-project.org/package=psych).
+
+-   `esc` [@esc]: This package can help convert among different effect sizes (pp. 4-12 in the reference manual). It's also helpful when only incomplete information (e.g., only descriptives, or only p-values) have been provided in the paper, and we want to calculate effect sizes from them. Another package that provides similar conversion functions is the `compute.es` package. The CRAN project can be found here: [cran.r-project.org/package=esc](https://cran.r-project.org/package=esc).
+
+-   `psychmeta` [@psychmeta]: This package is mainly used for psychometric meta-analyses. It has a function for converting different effect sizes/test statistics (convert_es, p. 38 in the reference manual), including $r$, $d$, $t$-statistic (and its p-value), $F$ (and its p-value in two-group one-way ANOVA), chi-squared (one degree of freedom), etc., to $r$, $d$ and the common language effect sizes (CLES, A, AUC). The CRAN project can be found here [cran.r-project.org/package=psychmeta](https://cran.r-project.org/package=psychmeta).
+
+-   `effsize` [@effsize]: This is a relatively lightweight package that handles d, g, Cliff delta, and Vargha-Delaney A). The CRAN project can be found here: [cran.r-project.org/package=effsize](https://cran.r-project.org/package=effsize).
+
+-   `MAd` [@MAd]: This package is a collection of functions for conducting a meta-analysis with mean differences data. It also provides conversion functions. The CRAN project can be found here: [cran.r-project.org/package=MAd](https://cran.r-project.org/package=MAd).
+
+-   `TOSTER` [@TOSTER; @caldwell]: This package is designed for equivalence testing. It contains many functions to test for differences in effect sizes along with other useful functions for effect size comparisons. The CRAN project can be found here: [cran.r-project.org/package=TOSTER](https://cran.r-project.org/package=TOSTER).
+
+-   `DeclareDesign` [@DeclareDesign]: This simulation framework can be used to assess whether procedures for calculating confidence intervals are valid and can be used for arbitrary designs. The `diagnose_design()` function calculates coverage for designs with estimation strategies that produce confidence intervals. The CRAN project can be found here: [cran.r-project.org/package=DeclareDesign](https://cran.r-project.org/package=DeclareDesign).

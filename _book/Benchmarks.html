@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.361">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="keywords" content="collaboration, confidence interval, effect size, open educational resource, open scholarship, open science">
+
+<title>Guide to Effect Sizes and Confidence Intervals - 2&nbsp; Benchmarks</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Reporting-Effect-Sizes.html" rel="next">
+<link href="./Defining-Effect-Sizes.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<meta name="twitter:title" content="Guide to Effect Sizes and Confidence Intervals">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://matthewbjane.quarto.pub/effect-size-and-confidence-intervals-guide/social-preview.png">
+<meta name="twitter:creator" content="@MatthewBJane">
+<meta name="twitter:image-height" content="1181">
+<meta name="twitter:image-width" content="2362">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar floating">
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Benchmarks.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Benchmarks</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="quarto-sidebar-header"><div class="sidebar-header-item">
+<p><img src="margin-header.png" class="img-fluid"></p>
+</div></div>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Table of Contents</a> 
+        <div class="sidebar-tools-main">
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Guide-to-Effect-Sizes-and-Confidence-Intervals.pdf">
+              <i class="bi bi-bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Guide-to-Effect-Sizes-and-Confidence-Intervals.docx">
+              <i class="bi bi-bi-file-word pe-1"></i>
+            Download Docx
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Defining-Effect-Sizes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Defining Effect Sizes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Benchmarks.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Benchmarks</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Reporting-Effect-Sizes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Reporting Effect Sizes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Interpreting-Confidence-Intervals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Interpreting Confidence Intervals</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Reporting-Confidence-Intervals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Reporting Confidence Intervals</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Useful-R-Packages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Using R</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Artifacts-and-Bias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Artifacts and Bias in Effect Sizes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text"><strong>Standardized Effect Sizes</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Standardized-Mean-Differences.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Standardized-Mean-Differences</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Correlations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Correlations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Categorical-Proportional-Data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Categorical/Proportional Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Effect-Sizes-for-ANOVAs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Effect Sizes for ANOVAs</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Differences-in-Variance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Differences in Variance</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Non-Parametric-Effect-Sizes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Non-Parametric Effect Sizes</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text"><strong>Converting Between Effect Sizes</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Converting-to-Cohens-d.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Converting to Cohen’s d</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Converting-to-Correlation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Converting to Correlations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Converting-to-Odds-Ratio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Converting to Odds Ratios</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text"><strong>Conclusion</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Conclusion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Benchmarks</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>What makes an effect size “large” or “small” is completely dependent on the context of the study in question. However, it can be useful to have some loose criterion in order to guide researchers in effectively communicating effect size estimates. Jacob Cohen <span class="citation" data-cites="cohen1988">(<a href="references.html#ref-cohen1988" role="doc-biblioref">1988</a>)</span>, the pioneer of estimation statistics, suggested many conventional benchmarks (i.e., how we refer to an effect size other than using a number) that we currently use. However, <span class="citation" data-cites="cohen1988">Cohen (<a href="references.html#ref-cohen1988" role="doc-biblioref">1988</a>)</span> noted that labels such as “small”, “medium”, and “large” are relative, and in referring to the size of an effect, the discipline, the context of research, as well as the research method and goals, should take precedence over benchmarks any time it’s possible. There are general differences in effect sizes across different disciplines, and within each discipline, effect sizes differ depending on study designs and research methods <span class="citation" data-cites="schäfer2019">(<a href="references.html#ref-schäfer2019" role="doc-biblioref">Schäfer and Schwarz 2019</a>)</span> and goals; as <span class="citation" data-cites="glass1981a">Glass, McGaw, and Smith (<a href="references.html#ref-glass1981a" role="doc-biblioref">1981</a>)</span> explains:</p>
+<blockquote class="blockquote">
+<p>Depending on what benefits can be achieved at what cost, an effect size of 2.0 might be “poor” and one of .1 might be “good.”</p>
+</blockquote>
+<p>Therefore, it is crucial to recognize that benchmarks are only general guidelines, and importantly, out of context. They also tend to attract controversy <span class="citation" data-cites="glass1981a kelley2012 harrell2020">(<a href="references.html#ref-glass1981a" role="doc-biblioref">Glass, McGaw, and Smith 1981</a>; <a href="references.html#ref-kelley2012" role="doc-biblioref">Kelley and Preacher 2012</a>; <a href="references.html#ref-harrell2020" role="doc-biblioref">Harrell 2020</a>)</span>. Note that empirical benchmarks have been suggested by researchers. For social psychology, these alternative benchmarks obtained through meta-analyzing the literature (for example, <a href="https://doi.org/10.1037/1089-2680.7.4.331">this</a> and <a href="https://doi.org/10.1016/j.paid.2016.06.069">this</a>; see <a href="https://twitter.com/cjsotomatic/status/1144701540839698432">this Twitter thread</a> for a summary) are typically smaller than what Cohen put forward. Please refer to the table below:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Effect Size</th>
+<th>Reference</th>
+<th style="text-align: center;">Small</th>
+<th style="text-align: center;">Medium</th>
+<th style="text-align: center;">Large</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>Mean Differences</em></td>
+<td></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td>Cohen’s <span class="math inline">\(d\)</span> or Hedges’ <span class="math inline">\(g\)</span></td>
+<td><span class="citation" data-cites="cohen1988">Cohen (<a href="references.html#ref-cohen1988" role="doc-biblioref">1988</a>)</span><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></td>
+<td style="text-align: center;">0.20</td>
+<td style="text-align: center;">0.50</td>
+<td style="text-align: center;">0.80</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td style="text-align: center;">0.18</td>
+<td style="text-align: center;">0.37</td>
+<td style="text-align: center;">0.60</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><span class="citation" data-cites="lovakov2021">Lovakov and Agadullina (<a href="references.html#ref-lovakov2021" role="doc-biblioref">2021</a>)</span><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></td>
+<td style="text-align: center;">0.15</td>
+<td style="text-align: center;">0.36</td>
+<td style="text-align: center;">0.65</td>
+</tr>
+<tr class="odd">
+<td><em>Correlational</em></td>
+<td></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td>Correlation Coefficient (<span class="math inline">\(r\)</span>)</td>
+<td><span class="citation" data-cites="cohen1988">Cohen (<a href="references.html#ref-cohen1988" role="doc-biblioref">1988</a>)</span></td>
+<td style="text-align: center;">.10</td>
+<td style="text-align: center;">.30</td>
+<td style="text-align: center;">.50</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><span class="citation" data-cites="richard2003">Richard, Bond Jr., and Stokes-Zoota (<a href="references.html#ref-richard2003" role="doc-biblioref">2003</a>)</span><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a><a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></td>
+<td style="text-align: center;">.10</td>
+<td style="text-align: center;">.20</td>
+<td style="text-align: center;">.30</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><span class="citation" data-cites="lovakov2021">Lovakov and Agadullina (<a href="references.html#ref-lovakov2021" role="doc-biblioref">2021</a>)</span></td>
+<td style="text-align: center;">.12</td>
+<td style="text-align: center;">.24</td>
+<td style="text-align: center;">.41</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><span class="citation" data-cites="paterson2016">Paterson et al. (<a href="references.html#ref-paterson2016" role="doc-biblioref">2016</a>)</span></td>
+<td style="text-align: center;">.12</td>
+<td style="text-align: center;">.20</td>
+<td style="text-align: center;">.31</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><span class="citation" data-cites="bosco2015">Bosco et al. (<a href="references.html#ref-bosco2015" role="doc-biblioref">2015</a>)</span></td>
+<td style="text-align: center;">.09</td>
+<td style="text-align: center;">.18</td>
+<td style="text-align: center;">.26</td>
+</tr>
+<tr class="odd">
+<td>Cohen’s <span class="math inline">\(f^2\)</span></td>
+<td></td>
+<td style="text-align: center;">.02</td>
+<td style="text-align: center;">.25</td>
+<td style="text-align: center;">.40</td>
+</tr>
+<tr class="even">
+<td>eta-squared (<span class="math inline">\(\eta^2\)</span>)</td>
+<td><span class="citation" data-cites="cohen1988">Cohen (<a href="references.html#ref-cohen1988" role="doc-biblioref">1988</a>)</span></td>
+<td style="text-align: center;">.01</td>
+<td style="text-align: center;">.06</td>
+<td style="text-align: center;">.14</td>
+</tr>
+<tr class="odd">
+<td>Cohen’s <span class="math inline">\(q\)</span></td>
+<td></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td>Cohen’s f</td>
+<td><span class="citation" data-cites="cohen1988">Cohen (<a href="references.html#ref-cohen1988" role="doc-biblioref">1988</a>)</span></td>
+<td style="text-align: center;">.10</td>
+<td style="text-align: center;">.25</td>
+<td style="text-align: center;">.40</td>
+</tr>
+<tr class="odd">
+<td><em>Categorical</em></td>
+<td></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td>Cohen’s omega</td>
+<td><span class="citation" data-cites="cohen1988">Cohen (<a href="references.html#ref-cohen1988" role="doc-biblioref">1988</a>)</span></td>
+<td style="text-align: center;">0.10</td>
+<td style="text-align: center;">0.30</td>
+<td style="text-align: center;">0.50</td>
+</tr>
+<tr class="odd">
+<td>Phi</td>
+<td><span class="citation" data-cites="cohen1988">Cohen (<a href="references.html#ref-cohen1988" role="doc-biblioref">1988</a>)</span></td>
+<td style="text-align: center;">.10</td>
+<td style="text-align: center;">.30</td>
+<td style="text-align: center;">.50</td>
+</tr>
+<tr class="even">
+<td>Cramer’s V</td>
+<td></td>
+<td style="text-align: center;"><a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td>Odds ratio</td>
+<td></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td>Relative risk</td>
+<td></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td>Risk difference</td>
+<td></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td>Cohen’s <span class="math inline">\(h\)</span></td>
+<td><span class="citation" data-cites="cohen1988">Cohen (<a href="references.html#ref-cohen1988" role="doc-biblioref">1988</a>)</span></td>
+<td style="text-align: center;">0.2</td>
+<td style="text-align: center;">0.5</td>
+<td style="text-align: center;">0.8</td>
+</tr>
+</tbody>
+</table>
+<p>It should be noted that small/medium/large effects do not necessarily mean that they have small/medium/large practical implications <span class="citation" data-cites="coe2012 pogrow2019">(for details see, <a href="references.html#ref-coe2012" role="doc-biblioref">Coe 2012</a>; <a href="references.html#ref-pogrow2019" role="doc-biblioref">Pogrow 2019</a>)</span>. These benchmarks are more relevant for guiding our expectations. Whether they have practical importance depends on contexts. To assess practical importance, it will always be desirable for standardized effect sizes to be translated to increase/decrease in raw units (or any meaningful units) or a Binomial Effect Size Display (roughly, differences in proportions such as success rate before and after intervention).</p>
+<p><strong>Please also note that only zero means no effect</strong>. An effect of the size .01 is an effect, but a very small <span class="citation" data-cites="sawilowsky2009">(<a href="references.html#ref-sawilowsky2009" role="doc-biblioref">Sawilowsky 2009</a>)</span>, and likely unimportant, one. It makes sense to say that “we failed to find evidence for rejecting the null hypothesis,” or “we found evidence for only a small/little/weak-to-no effect” or “we did not find a meaningful effect”. <strong>It does not make sense to say, “we found no effect.”</strong> Purely by the random nature of our universe, it is hard to imagine that we can obtain a sharp zero-effect result. This is also related to the crud factor, which refers to the idea that “everything correlates with everything else” <span class="citation" data-cites="orben2020 meehl1984">(<a href="references.html#ref-orben2020" role="doc-biblioref">Orben and Lakens 2020, 1</a>; <a href="references.html#ref-meehl1984" role="doc-biblioref">Meehl 1984</a>)</span>, but the practical implication of very weak/small correlations between some variables may be limited, and whether the effect is reliably detected depends on statistical power.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-bosco2015" class="csl-entry" role="listitem">
+Bosco, Frank A., Herman Aguinis, Kulraj Singh, James G. Field, and Charles A. Pierce. 2015. <span>“Correlational Effect Size Benchmarks.”</span> <em>Journal of Applied Psychology</em> 100 (2): 431–49. <a href="https://doi.org/10.1037/a0038047">https://doi.org/10.1037/a0038047</a>.
+</div>
+<div id="ref-coe2012" class="csl-entry" role="listitem">
+Coe, R. 2012. <span>“It’s the Effect Size, Stupid What Effect Size Is and Why It Is Important.”</span> In. <a href="https://www.semanticscholar.org/paper/It%27s-the-Effect-Size%2C-Stupid-What-effect-size-is-it-Coe/c5ac87df5d6e0e6b6de2f745284835c2a368b0f7">https://www.semanticscholar.org/paper/It%27s-the-Effect-Size%2C-Stupid-What-effect-size-is-it-Coe/c5ac87df5d6e0e6b6de2f745284835c2a368b0f7</a>.
+</div>
+<div id="ref-cohen1988" class="csl-entry" role="listitem">
+Cohen, Jacob. 1988. <em>Statistical Power Analysis for the Behavioral Sciences</em>. Academic Press.
+</div>
+<div id="ref-funder2019" class="csl-entry" role="listitem">
+Funder, David C., and Daniel J. Ozer. 2019. <span>“Evaluating Effect Size in Psychological Research: Sense and Nonsense.”</span> <em>Advances in Methods and Practices in Psychological Science</em> 2 (2): 156–68. <a href="https://doi.org/10.1177/2515245919847202">https://doi.org/10.1177/2515245919847202</a>.
+</div>
+<div id="ref-gignac2016" class="csl-entry" role="listitem">
+Gignac, Gilles E., and Eva T. Szodorai. 2016. <span>“Effect Size Guidelines for Individual Differences Researchers.”</span> <em>Personality and Individual Differences</em> 102 (November): 74–78. <a href="https://doi.org/10.1016/j.paid.2016.06.069">https://doi.org/10.1016/j.paid.2016.06.069</a>.
+</div>
+<div id="ref-glass1981a" class="csl-entry" role="listitem">
+Glass, Gene V., Barry McGaw, and Mary L. Smith. 1981. <span>“Meta-Analysis in Social Research.”</span> <em>(No Title)</em>. <a href="https://cir.nii.ac.jp/crid/1130000795088566912">https://cir.nii.ac.jp/crid/1130000795088566912</a>.
+</div>
+<div id="ref-harrell2020" class="csl-entry" role="listitem">
+Harrell, Frank. 2020. <span>“Author Checklist - Data Analysis.”</span> <a href="https://discourse.datamethods.org/t/author-checklist/3407">https://discourse.datamethods.org/t/author-checklist/3407</a>.
+</div>
+<div id="ref-kelley2012" class="csl-entry" role="listitem">
+Kelley, Ken, and Kristopher J. Preacher. 2012. <span>“On Effect Size.”</span> <em>Psychological Methods</em> 17 (2): 137–52. <a href="https://doi.org/10.1037/a0028086">https://doi.org/10.1037/a0028086</a>.
+</div>
+<div id="ref-lovakov2021" class="csl-entry" role="listitem">
+Lovakov, Andrey, and Elena R. Agadullina. 2021. <span>“Empirically Derived Guidelines for Effect Size Interpretation in Social Psychology.”</span> <em>European Journal of Social Psychology</em> 51 (3): 485–504. <a href="https://doi.org/10.1002/ejsp.2752">https://doi.org/10.1002/ejsp.2752</a>.
+</div>
+<div id="ref-meehl1984" class="csl-entry" role="listitem">
+Meehl, Paul E. 1984. <span>“Radical Behaviorism and Mental Events: Four Methodological Queries.”</span> <em>Behavioral and Brain Sciences</em> 7 (4): 563–64. <a href="https://doi.org/10.1017/S0140525X00027308">https://doi.org/10.1017/S0140525X00027308</a>.
+</div>
+<div id="ref-orben2020" class="csl-entry" role="listitem">
+Orben, Amy, and Daniël Lakens. 2020. <span>“Crud (Re)Defined.”</span> <em>Advances in Methods and Practices in Psychological Science</em> 3 (2): 238–47. <a href="https://doi.org/10.1177/2515245920917961">https://doi.org/10.1177/2515245920917961</a>.
+</div>
+<div id="ref-paterson2016" class="csl-entry" role="listitem">
+Paterson, Ted A., P. D. Harms, Piers Steel, and Marcus Credé. 2016. <span>“An Assessment of the Magnitude of Effect Sizes: Evidence From 30 Years of Meta-Analysis in Management.”</span> <em>Journal of Leadership &amp; Organizational Studies</em> 23 (1): 66–81. <a href="https://doi.org/10.1177/1548051815614321">https://doi.org/10.1177/1548051815614321</a>.
+</div>
+<div id="ref-pogrow2019" class="csl-entry" role="listitem">
+Pogrow, Stanley. 2019. <span>“How Effect Size (Practical Significance) Misleads Clinical Practice: The Case for Switching to Practical Benefit to Assess Applied Research Findings.”</span> <em>The American Statistician</em> 73 (sup1): 223–34. <a href="https://doi.org/10.1080/00031305.2018.1549101">https://doi.org/10.1080/00031305.2018.1549101</a>.
+</div>
+<div id="ref-richard2003" class="csl-entry" role="listitem">
+Richard, F. D., Charles F. Bond Jr., and Juli J. Stokes-Zoota. 2003. <span>“One Hundred Years of Social Psychology Quantitatively Described.”</span> <em>Review of General Psychology</em> 7 (4): 331–63. <a href="https://doi.org/10.1037/1089-2680.7.4.331">https://doi.org/10.1037/1089-2680.7.4.331</a>.
+</div>
+<div id="ref-sawilowsky2009" class="csl-entry" role="listitem">
+Sawilowsky, Shlomo. 2009. <span>“New Effect Size Rules of Thumb.”</span> <em>Journal of Modern Applied Statistical Methods</em> 8 (2). <a href="https://doi.org/10.22237/jmasm/1257035100">https://doi.org/10.22237/jmasm/1257035100</a>.
+</div>
+<div id="ref-schäfer2019" class="csl-entry" role="listitem">
+Schäfer, Thomas, and Marcus A. Schwarz. 2019. <span>“The Meaningfulness of Effect Sizes in Psychological Research: Differences Between Sub-Disciplines and the Impact of Potential Biases.”</span> <em>Frontiers in Psychology</em> 10. <a href="https://www.frontiersin.org/articles/10.3389/fpsyg.2019.00813">https://www.frontiersin.org/articles/10.3389/fpsyg.2019.00813</a>.
+</div>
+</div>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p><span class="citation" data-cites="sawilowsky2009">Sawilowsky (<a href="references.html#ref-sawilowsky2009" role="doc-biblioref">2009</a>)</span> expanded Cohen’s benchmarks to include very small effects (<span class="math inline">\(d\)</span> = 0.01), very large effects (<span class="math inline">\(d\)</span> = 1.20), and huge effects (<span class="math inline">\(d\)</span> = 2.0). It has to be noted that very large and huge effects are very rare in experimental social psychology.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>According to this recent meta-analysis on the effect sizes in social psychology studies, “It is recommended that correlation coefficients of .1, .25, and .40 and Hedges’ <span class="math inline">\(g\)</span> (or Cohen’s <span class="math inline">\(d\)</span>) of 0.15, 0.40, and 0.70 should be interpreted as small, medium, and large effects for studies in social psychology.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Note, for paired samples, this does not refer to the probability of an increase/decrease in paired samples but rather the probability of a randomly sampled value of X. This is also referred to as the “relative” effect in the literature. Therefore, the results will differ from the concordance probability provided below.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>These benchmarks are also recommended by <span class="citation" data-cites="gignac2016">Gignac and Szodorai (<a href="references.html#ref-gignac2016" role="doc-biblioref">2016</a>)</span>. <span class="citation" data-cites="funder2019">Funder and Ozer (<a href="references.html#ref-funder2019" role="doc-biblioref">2019</a>)</span> expanded them to also include very small effects (<span class="math inline">\(r\)</span> = .05) and very large effects (<span class="math inline">\(r\)</span> = .40 or greater). According to them, […] an effect-size <span class="math inline">\(r\)</span> of .05 indicates an effect that is very small for the explanation of single events but potentially consequential in the not-very-long run, an effect-size r of .10 indicates an effect that is still small at the level of single events but potentially more ultimately consequential, an effect-size <span class="math inline">\(r\)</span> of .20 indicates a medium effect that is of some explanatory and practical use even in the short run and therefore even more important, and an effect-size <span class="math inline">\(r\)</span> of .30 indicates a large effect that is potentially powerful in both the short and the long run. A very large effect size (r = .40 or greater) in the context of psychological research is likely to be a gross overestimate that will rarely be found in a large sample or in a replication.” But see <a href="https://twitter.com/aaronjfisher/status/1168252264600883200?s=20">here</a> for controversies with this paper.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>The benchmarks for Cramer’s V are dependent on the size of the contingency table on which the effect is calculated. According to Cohen, use benchmarks for phi coefficient divided by the square root of the smaller dimension minus 1. For example, a medium effect for a Cramer’s V from a 4 by 3 table would be .3 / sqrt(3 - 1) = .21.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Defining-Effect-Sizes.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Defining Effect Sizes</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Reporting-Effect-Sizes.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Reporting Effect Sizes</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

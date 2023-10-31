@@ -1,0 +1,11 @@
+# Artifacts and Bias in Effect Sizes
+
+Effect size estimates such as correlation coefficients and Cohen's $d$ values can be severely biased due to various statistical artifacts such as measurement error and selection effects (e.g., range restriction). Methods have been developed to correct for the bias in effect sizes and thus these corrections are called "artifact corrections". Artifact correction formulas can be complex and therefore readers are referred to other resources listed below:
+
+-   @MatthewBJane2023 : An open-access textbook that contains equations and R code for various types of artifact corrections.
+
+-   @hunter1990 : Classic textbook on the topic of artifact corrections. Hunter and Schmidt pioneered the methodology for artifact correction style meta-analyses.
+
+-   @wiernik2020 : A paper that serves as a condensed version of Hunter and Schmidt's book. It contains most of the equations necessary to correct effect sizes.
+
+-   @psychmeta : An R package for conducting artifact correction meta-analyses. Contains all the functions one would need to correct effect sizes for artifacts in R.

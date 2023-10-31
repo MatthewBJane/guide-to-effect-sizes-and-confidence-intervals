@@ -1,0 +1,47 @@
+
+# Benchmarks
+
+What makes an effect size "large" or "small" is completely dependent on the context of the study in question. However, it can be useful to have some loose criterion in order to guide researchers in effectively communicating effect size estimates. Jacob Cohen [-@cohen1988], the pioneer of estimation statistics, suggested many conventional benchmarks (i.e., how we refer to an effect size other than using a number) that we currently use. However, @cohen1988 noted that labels such as "small", "medium", and "large" are relative, and in referring to the size of an effect, the discipline, the context of research, as well as the research method and goals, should take precedence over benchmarks any time it's possible. There are general differences in effect sizes across different disciplines, and within each discipline, effect sizes differ depending on study designs and research methods [@schäfer2019] and goals; as @glass1981a explains:
+
+> Depending on what benefits can be achieved at what cost, an effect size of 2.0 might be "poor" and one of .1 might be "good."
+
+Therefore, it is crucial to recognize that benchmarks are only general guidelines, and importantly, out of context. They also tend to attract controversy [@glass1981a; @kelley2012; @harrell2020]. Note that empirical benchmarks have been suggested by researchers. For social psychology, these alternative benchmarks obtained through meta-analyzing the literature (for example, [this](https://doi.org/10.1037/1089-2680.7.4.331) and [this](https://doi.org/10.1016/j.paid.2016.06.069); see [this Twitter thread](https://twitter.com/cjsotomatic/status/1144701540839698432) for a summary) are typically smaller than what Cohen put forward. Please refer to the table below:
+
+| Effect Size                   | Reference            | Small | Medium | Large |
+|-------------------------------|----------------------|:-----:|:------:|:-----:|
+| *Mean Differences*            |                      |       |        |       |
+| Cohen's $d$ or Hedges' $g$    | @cohen1988[^2]       | 0.20  |  0.50  | 0.80  |
+|                               |                      | 0.18  |  0.37  | 0.60  |
+|                               | @lovakov2021[^3]     | 0.15  |  0.36  | 0.65  |
+| *Correlational*               |                      |       |        |       |
+| Correlation Coefficient ($r$) | @cohen1988           |  .10  |  .30   |  .50  |
+|                               | @richard2003[^4][^5] |  .10  |  .20   |  .30  |
+|                               | @lovakov2021         |  .12  |  .24   |  .41  |
+|                               | @paterson2016        |  .12  |  .20   |  .31  |
+|                               | @bosco2015           |  .09  |  .18   |  .26  |
+| Cohen's $f^2$                 |                      |  .02  |  .25   |  .40  |
+| eta-squared ($\eta^2$)        | @cohen1988           |  .01  |  .06   |  .14  |
+| Cohen's $q$                   |                      |       |        |       |
+| Cohen's f                     | @cohen1988           |  .10  |  .25   |  .40  |
+| *Categorical*                 |                      |       |        |       |
+| Cohen's omega                 | @cohen1988           | 0.10  |  0.30  | 0.50  |
+| Phi                           | @cohen1988           |  .10  |  .30   |  .50  |
+| Cramer's V                    |                      | [^6]  |        |       |
+| Odds ratio                    |                      |       |        |       |
+| Relative risk                 |                      |       |        |       |
+| Risk difference               |                      |       |        |       |
+| Cohen's $h$                   | @cohen1988           |  0.2  |  0.5   |  0.8  |
+
+[^2]: @sawilowsky2009 expanded Cohen's benchmarks to include very small effects ($d$ = 0.01), very large effects ($d$ = 1.20), and huge effects ($d$ = 2.0). It has to be noted that very large and huge effects are very rare in experimental social psychology.
+
+[^3]: According to this recent meta-analysis on the effect sizes in social psychology studies, "It is recommended that correlation coefficients of .1, .25, and .40 and Hedges' $g$ (or Cohen's $d$) of 0.15, 0.40, and 0.70 should be interpreted as small, medium, and large effects for studies in social psychology.
+
+[^4]: Note, for paired samples, this does not refer to the probability of an increase/decrease in paired samples but rather the probability of a randomly sampled value of X. This is also referred to as the "relative" effect in the literature. Therefore, the results will differ from the concordance probability provided below.
+
+[^5]: These benchmarks are also recommended by @gignac2016. @funder2019 expanded them to also include very small effects ($r$ = .05) and very large effects ($r$ = .40 or greater). According to them, \[...\] an effect-size $r$ of .05 indicates an effect that is very small for the explanation of single events but potentially consequential in the not-very-long run, an effect-size r of .10 indicates an effect that is still small at the level of single events but potentially more ultimately consequential, an effect-size $r$ of .20 indicates a medium effect that is of some explanatory and practical use even in the short run and therefore even more important, and an effect-size $r$ of .30 indicates a large effect that is potentially powerful in both the short and the long run. A very large effect size (r = .40 or greater) in the context of psychological research is likely to be a gross overestimate that will rarely be found in a large sample or in a replication." But see [here](https://twitter.com/aaronjfisher/status/1168252264600883200?s=20) for controversies with this paper.
+
+[^6]: The benchmarks for Cramer's V are dependent on the size of the contingency table on which the effect is calculated. According to Cohen, use benchmarks for phi coefficient divided by the square root of the smaller dimension minus 1. For example, a medium effect for a Cramer's V from a 4 by 3 table would be .3 / sqrt(3 - 1) = .21.
+
+It should be noted that small/medium/large effects do not necessarily mean that they have small/medium/large practical implications [for details see, @coe2012; @pogrow2019]. These benchmarks are more relevant for guiding our expectations. Whether they have practical importance depends on contexts. To assess practical importance, it will always be desirable for standardized effect sizes to be translated to increase/decrease in raw units (or any meaningful units) or a Binomial Effect Size Display (roughly, differences in proportions such as success rate before and after intervention).
+
+**Please also note that only zero means no effect**. An effect of the size .01 is an effect, but a very small [@sawilowsky2009], and likely unimportant, one. It makes sense to say that "we failed to find evidence for rejecting the null hypothesis," or "we found evidence for only a small/little/weak-to-no effect" or "we did not find a meaningful effect". **It does not make sense to say, "we found no effect."** Purely by the random nature of our universe, it is hard to imagine that we can obtain a sharp zero-effect result. This is also related to the crud factor, which refers to the idea that "everything correlates with everything else" [@orben2020, pp. 1; @meehl1984], but the practical implication of very weak/small correlations between some variables may be limited, and whether the effect is reliably detected depends on statistical power.

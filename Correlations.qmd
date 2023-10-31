@@ -1,0 +1,213 @@
+
+# Correlation between Two Continuous Variables
+
+To quantify the relationship between two continuous variables, the most common method is to use a Pearson correlation coefficient (denoted with the letter $r$). The pearson correlation takes the covariance between a continuous independent ($X$) and dependent ($Y$) variable and standardizes it by the standard deviations of $X$ and $Y$,
+
+$$
+r = \frac{\text{Cov}(X,Y)}{S_{X} S_{Y}}.
+$$
+
+We can visualize what a correlation between two variables looks like with scatter plots. @fig-cor-example shows scatter plots with differing levels of correlation.
+
+```{r, echo =FALSE, message=FALSE,warning=FALSE, fig.height=5}
+#| label: fig-cor-example
+#| fig-cap: Simulated data from a bivariate normal distribution displaying 6 different correlations, r = 0, .20, .40, .60, .80, and 1.00.
+
+
+
+library(ggplot2)
+library(MASS)
+library(ggdist)
+library(patchwork)
+n = 1000
+
+r = .0
+data1<- mvrnorm(n = n,
+               mu = c(0,0),
+               Sigma = data.frame(x = c(1,r),
+                                  y = c(r,1)),
+               empirical=TRUE)
+
+
+h1 <- ggplot(data=NULL,aes(x=data1[,1],y=data1[,2])) +
+  geom_point(color = 'skyblue4',alpha=.7,size=.6) +
+  theme_ggdist() +
+  theme(aspect.ratio = 1,
+        axis.text = element_text(size=13),
+        axis.title = element_text(size=14),
+        title = element_text(size=14)) +
+  ggtitle("r = 0") +
+  theme(axis.title.y = element_text(angle=360,vjust = .5)) +
+  ylab('Y') +
+  xlab('X')+
+  scale_x_continuous(breaks=c(-2,0,2),limits = c(-3.5,3.5))+ 
+  scale_y_continuous(breaks=c(-2,0,2),limits = c(-3.5,3.5))
+  
+  r = .20
+  
+  data2<- mvrnorm(n = n,
+               mu = c(0,0),
+               Sigma = data.frame(x = c(1,r),
+                                  y = c(r,1)),
+               empirical=TRUE)
+
+
+h2 <- ggplot(data=NULL,aes(x=data2[,1],y=data2[,2])) +
+  geom_point(color = 'skyblue4',alpha=.7,size=.6) +
+  theme_ggdist() +
+  theme(aspect.ratio = 1,
+        axis.text = element_text(size=13),
+        axis.title = element_text(size=14),
+        title = element_text(size=14)) +
+  ggtitle("r = .20") +
+  ylab('') +
+  xlab('')+
+  scale_x_continuous(breaks=c(-2,0,2),limits = c(-3.5,3.5))+ 
+  scale_y_continuous(breaks=c(-2,0,2),limits = c(-3.5,3.5))
+  
+  r = .4
+  data3<- mvrnorm(n = n,
+               mu = c(0,0),
+               Sigma = data.frame(x = c(1,r),
+                                  y = c(r,1)),
+               empirical=TRUE)
+
+
+h3 <- ggplot(data=NULL,aes(x=data3[,1],y=data3[,2])) +
+  geom_point(color = 'skyblue4',alpha=.7,size=.6) +
+  theme_ggdist() +
+  theme(aspect.ratio = 1,
+        axis.text = element_text(size=13),
+        axis.title = element_text(size=14),
+        title = element_text(size=14)) +
+  ggtitle("r = .40") +
+  ylab('') +
+  xlab('') +
+  scale_x_continuous(breaks=c(-2,0,2),limits = c(-3.5,3.5))+ 
+  scale_y_continuous(breaks=c(-2,0,2),limits = c(-3.5,3.5))
+  
+
+
+r = .6
+  data4<- mvrnorm(n = n,
+               mu = c(0,0),
+               Sigma = data.frame(x = c(1,r),
+                                  y = c(r,1)),
+               empirical=TRUE)
+
+
+h4 <- ggplot(data=NULL,aes(x=data4[,1],y=data4[,2])) +
+  geom_point(color = 'skyblue4',alpha=.7,size=.6) +
+  theme_ggdist() +
+  theme(aspect.ratio = 1,
+        axis.text = element_text(size=13),
+        axis.title = element_text(size=14),
+        title = element_text(size=14)) +
+  ggtitle("r = .60") +
+  theme(axis.title.y = element_text(angle=360,vjust = .5)) +
+  ylab('') +
+  xlab('')+
+  scale_x_continuous(breaks=c(-2,0,2),limits = c(-3.5,3.5))+ 
+  scale_y_continuous(breaks=c(-2,0,2),limits = c(-3.5,3.5))
+
+
+
+r = .8
+  data5<- mvrnorm(n = n,
+               mu = c(0,0),
+               Sigma = data.frame(x = c(1,r),
+                                  y = c(r,1)),
+               empirical=TRUE)
+
+
+h5 <- ggplot(data=NULL,aes(x=data5[,1],y=data5[,2])) +
+  geom_point(color = 'skyblue4',alpha=.7,size=.6) +
+  theme_ggdist() +
+  theme(aspect.ratio = 1,
+        axis.text = element_text(size=13),
+        axis.title = element_text(size=14),
+        title = element_text(size=14)) +
+  ggtitle("r = .80") +
+  theme(axis.title.y = element_text(angle=360,vjust = .5)) +
+  ylab('') +
+  xlab('')+
+  scale_x_continuous(breaks=c(-2,0,2),limits = c(-3.5,3.5))+ 
+  scale_y_continuous(breaks=c(-2,0,2),limits = c(-3.5,3.5))
+
+
+
+r = 1
+  data6<- mvrnorm(n = n,
+               mu = c(0,0),
+               Sigma = data.frame(x = c(1,r),
+                                  y = c(r,1)),
+               empirical=TRUE)
+
+
+h6 <- ggplot(data=NULL,aes(x=data6[,1],y=data6[,2])) +
+  geom_point(color = 'skyblue4',alpha=.7,size=.6) +
+  theme_ggdist() +
+  theme(aspect.ratio = 1,
+        axis.text = element_text(size=13),
+        axis.title = element_text(size=14),
+        title = element_text(size=14)) +
+  ggtitle("r = 1.00") +
+  theme(axis.title.y = element_text(angle=360,vjust = .5)) +
+  ylab('') +
+  xlab('')+
+  scale_x_continuous(breaks=c(-2,0,2),limits = c(-3.5,3.5))+ 
+  scale_y_continuous(breaks=c(-2,0,2),limits = c(-3.5,3.5))
+
+
+  (h1 + h2 + h3) / (h4 + h5 + h6)
+```
+
+The standard error of the Pearson correlation coefficient is,
+
+$$
+SE_r = \frac{1-r^2}{\sqrt{n-1}}
+$$
+
+Unlike Cohen's $d$ and other effect size measures, The correlation coefficient is bounded by -1 and positive 1, with positive 1 being a perfectly positive correlation, -1 being a perfectly negative correlation, and zero indicating no correlation between the two variables. The bounding has the consequence of making the confidence interval asymmetric around $r$ (e.g., if the correlation is positive, the lower bound is farther away from $r$ than the upper bound is). It is important to note that with a correlation of zero, the confidence interval is symmetric and approximately normal. Instead, to obtain the confidence intervals of $r$, we first need to apply a Fisher's Z transformation. A Fisher's Z transformation is a hyperbolic arctangent transformation of a Pearson correlation coefficient and can be computed as,
+
+$$
+Z_r = \text{arctanh}(r)
+$$
+
+The Fisher Z transformation ensures $Z_r$ has a symmetric and approximately normal sampling distribution. This then allows us to calculate the confidence interval from the standard error of $Z_r$ ($SE_{Z_r} = \frac{1}{\sqrt{n-3}}$). We can also back-transform the confidence into a Pearson correlation scale,
+
+$$
+CI_{r} = \text{tanh}(Z_r \pm 1.96\times SE_{Z_r})
+$$
+
+We can then back-transform the upper bound and lower bound into the upper and lower bound of $r$ by taking the hyperbolic tangent (the inverse of the arctangent).
+
+In R, the full process of obtaining confidence intervals can be done quite easily. Note if you have raw data for $X$ and $Y$, then you can compute the correlation with base R, `cor(X,Y)`.
+
+```{r, echo = TRUE}
+# example: r = .50, n = 50
+r <- .50
+n <- 50
+
+# compute Zr
+Zr <- atanh(r)
+
+# calculate standard error of Zr
+SE_Zr <- 1/sqrt(n-3)
+
+# compute confidence interval of Zr
+Zlow <- Zr - 1.96 * SE_Zr
+Zhigh <- Zr + 1.96 * SE_Zr
+
+# backtransform CI of Z to CI of Pearson correlation
+rlow <- tanh(Zlow) 
+rhigh <- tanh(Zhigh)
+
+# print pearson correlation and confidence intervals
+data.frame(r = MOTE::apa(r), 
+           rlow = MOTE::apa(rlow), 
+           rhigh = MOTE::apa(rhigh))
+
+```
+
+The output shows that the correlation and its confidence intervals are $r$ = 0.50, 95% CI \[0.26, 0.68\].

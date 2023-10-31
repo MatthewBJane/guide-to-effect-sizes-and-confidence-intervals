@@ -1,0 +1,66 @@
+
+# Converting to Pearson Correlation
+
+## From $t$-statistic
+
+From a $t$ statistic calculated from a correlational test, we can calculate the correlation coefficient using the following formula:
+
+$$
+r = \sqrt{\frac{t^2}{t^2 + n-2}}
+$$
+
+Using the `t_to_r` function in the `effectsize` package we can convert $t$ to $r$.
+
+```{r,echo=TRUE}
+# Example:
+# t = 4.14, n = 50
+
+library(effectsize)
+
+t <- 4.14
+n <- 50
+
+t_to_r(t = t, df = n-2)
+```
+
+## From Cohen's $d$
+
+From a between groups Cohen's $d$ value ($d_p$), we can calculate the correlation coefficient from the following formula:
+
+$$
+r = \frac{d_p}{\sqrt{d_p^2+\frac{n_1+n_2-2}{n_1} + \frac{n_1+n_2-2}{n_2}}}
+$$
+
+Using the `d_to_r` function in the `effectsize` package we can convert $d_p$ to $r$.
+
+```{r,echo=TRUE}
+# Example:
+# d = 0.60, n1 = 50, n2 = 70
+
+d <- 0.60
+n1 <- 50
+n2 <- 70
+
+d_to_r(d = d, n1 = n1, n2 = n2)
+```
+
+## From Odds-Ratio
+
+The correlation coefficient from an odds ratio can be calculated with the following formula:
+
+$$
+r = \frac{\log(OR)\times\sqrt{3}}{\pi\sqrt{\frac{3\log(OR)^2}{\pi^2}+\frac{n_1+n_2-2}{n_1} + \frac{n_1+n_2-2}{n_2}}}
+$$
+
+Using the `oddsratio_to_r` function in the `effectsize` package we can convert $OR$ to $r$.
+
+```{r,echo=TRUE}
+# Example:
+# OR = 2.21, n1 = 50, n2 = 70
+
+OR <- 2.21
+n1 <- 50
+n2 <- 70
+
+oddsratio_to_r(OR=OR, n1 = n1, n2 = n2)
+```

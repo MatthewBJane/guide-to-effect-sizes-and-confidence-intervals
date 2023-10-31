@@ -1,0 +1,53 @@
+
+# Converting to Odds Ratio
+
+## From Cohen's $d$
+
+We can calculate an odds-ratio from a between groups cohen's $d$ ($d_p$):
+
+$$
+OR = \exp\left(\frac{d_p \pi}{\sqrt{3}}\right)
+$$
+
+Where $\exp(\cdot)$ is an exponential transformation (this inverses the logarithm). Using the `d_to_oddsratio` function in the `effectsize` package we can convert $d$ to $OR$.
+
+```{r,echo=TRUE}
+# Example:
+# d = 0.60, n1 = 50, n2 = 70
+
+library(effectsize)
+
+d <- 0.60
+n1 <- 50
+n2 <- 70
+
+d_to_oddsratio(d = d, n1 = n1, n2 = n2)
+```
+
+## From a Pearson Correlation
+
+We can calculate an odds ratio from a Pearson correlation using the following formula:
+
+$$
+OR = \exp\left(\frac{r\pi \sqrt{\frac{n_1+n_2-2}{n_1} + \frac{n_1+n_2-2}{n_2}}}{\sqrt{3(1-r^2)}}\right)
+$$
+
+When sample sizes are equal, this equation can be simplified to be approximately,
+
+$$
+OR = \exp\left(\frac{r\pi \sqrt{4}}{\sqrt{3(1-r^2)}}\right)
+$$
+
+Using the `r_to_oddsratio` function in the `effectsize` package we can convert $d$ to $OR$.
+
+```{r,echo=TRUE}
+# Example:
+# r = .50, n1 = 50, n2 = 70
+
+r <- .40
+n1 <- 50
+n2 <- 70
+
+r_to_oddsratio(r = r, n1 = n1, n2 = n2)
+```
+

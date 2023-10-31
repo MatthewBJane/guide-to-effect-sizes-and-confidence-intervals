@@ -1,0 +1,312 @@
+# Non-Parametric Tests
+
+Sometimes the assumptions of parametric models (e.g., normality of model residuals) are suspect. This is often the case in psychology when using ordinal scales. In these cases a "non-parametric" approach may be helpful. A statistical test being non-parametric means that the parameters (i.e., mean and variance for "normal" Gaussian model) are not estimated; despite popular belief the data themselves are *never* non-parametric. Additionally, these tests are *not* tests of the median [@divine2018wilcoxon]. Rather one can consider than as rank based or proportional odds tests. If the scores you are analyzing are not metric (i.e., ordinal) due to the use of a Likert-Scale and you still use parametric tests such as t-tests, you run the risk of a high false-positive probability (e.g., @liddell2018).
+
+If the scores you are analyzing are not metric (i.e., ordinal) due to the use of a Likert scale and you still use parametric tests such as t-tests, you run the risk of a high false-positive probability (e.g., Liddel & Kruschke, 2018). Note that in German, scale anchors have been developed that are very similar to Likert scale but can be interpreted as metric (e.g., Rohrmann, 1978).
+
+We will briefly discuss here two groups of tests that can be applied to the independent and paired samples then present 3 effect sizes that can accompany these tests as well as their calculations and examples in R.
+
+## Wilcoxon-Mann-Whitney tests
+
+A non-parametric alternative to the t-test is the Wilcoxon-Mann-Whitney (WMW) group of tests. When comparing two independent samples this is called a Wilcoxon rank-sum test, but sometimes referred to as a Mann-Whitney U Test. When using it on paired samples, or one sample, it is a signed rank test. These are generally referred to as tests of "symmetry" [@divine2018wilcoxon].
+
+
+```{r,echo=TRUE, warning=FALSE}
+# Paired samples ---- 
+
+data(sleep)
+
+# wilcoxon test
+wilcox.test(extra ~ group,
+            data = sleep,
+            paired = TRUE)
+
+
+# Two Sample ------
+# data import from likert
+data(mass, package = "likert")
+df_mass = mass |>
+  as.data.frame() |>
+  janitor::clean_names() 
+
+# function needs input as a numeric
+# ordered factors can be converted to ranks
+# Again, the warning can be ignored
+wilcox.test(rank(math_relates_to_my_life) ~ gender,
+            data = df_mass)
+```
+
+## Brunner-Munzel Tests
+
+Brunner-Munzel's tests can be used instead of the WMW tests. The primary reason is the interpretation of the test [@munzel2002; @brunner2000; @neubert2007]. Recently, @karch2021psychologists argued that the Mann-Whitney test is not a decent test of equality of medians, distributions or stochastic equality. The Brunner-Munzel test, on the other hand, provides a sensible approach to test for stochastic equality.
+
+The Brunner-Munzel tests measure a rank based "relative effect" or "stochastic superiority probability". The test statistic ($\hat p$) is essentially the probability of a value in one condition being greater than other while splitting the ties[^8]. However, Brunner-Munzel tests can not be applied to the single group or one-sample designs.
+
+[^8]: Note, for paired samples, this does not refer to the probability of an increase/decrease in paired sample but rather the probability that a randomly sampled value of X will be greater/less than Y. This is also referred to as the "relative" effect in the literature. Therefore, the results will differ from the concordance probability.
+
+$$
+\hat{p} = P(X<Y)+ \frac{1}{2} \cdot P(X=Y)
+$$
+
+These tests are relatively new so there are very few packages offer Brunner-Munzel. Moreover, @karch2021psychologists argues that the stochastic superiority effect size ($\hat{p}$) offers a nuanced way to interpret group differences by visualizing observations as competitors in a contest. Propounded by scholars like @cliff1993dominance and @divine2018wilcoxon, it views each observation from one group in a duel with every observation from another. If an observation from the first group surpasses its counterpart, it "wins," and the group garners a point; tied observations yield half a point to each group. This concept can be further elucidated through a bubble plot, where placement above, below, or on the diagonal indicates the dominance of one group's observation over the other. Other interpretations, like transforming p to the Wilcoxon-Mann-Whitney (WMW) odds or Cliff's δ offer deeper insights. There are implementations of the Brunner-Munzel test in a few packages in R (i.e. `lawstat`, `rankFD`, and `brunnermunzel`). @karch2021psychologists recommends the `brunnermunzel.permutation.test` function from the `brunnermunzel` package. The `TOSTER` R package can also provide coverage [@TOSTER; @caldwell].
+
+
+```{r,echo=TRUE, warning=FALSE}
+# Install package for data cleaning
+# install.packages('janitor')
+library(janitor)
+
+# Paired samples
+library(TOSTER)
+data(sleep)
+
+# When sample sizes are small
+# a permutation version should be used.
+# When this is done a seed should be set.
+set.seed(2124)
+brunner_munzel(extra ~ group,
+               data = sleep,
+               paired = TRUE,
+               perm = TRUE)
+
+
+# Two Sample
+# data import from likert
+data(mass, package = "likert")
+df_mass = mass |>
+  as.data.frame() |>
+  clean_names() 
+
+# function needs input as a numeric
+# ordered factors can be converted to ranks
+# Again, the warning can be ignored
+set.seed(24111)
+TOSTER::brunner_munzel(
+  rank(math_relates_to_my_life) ~ gender,
+  data = df_mass,
+  paired = FALSE,
+  perm = TRUE
+)
+```
+
+## Rank-Based Effect Sizes
+
+Since the mean and standard deviation are not estimated for a WMW or Brunner-Munzel test, it would be inappropriate to present a standardized mean difference (e.g., Cohen's d) to accompany these tests. Instead, a rank based effect size (i.e., based on the ranks of the observed values) can be reported to accompany the non-parametric statistical tests.
+
+### Rank-Biserial Correlation
+
+The rank-biserial correlation ($r_{rb}$) is considered a measure of dominance. The correlation represents the difference between the proportion of favorable and unfavorable pairs or signed ranks. Larger values indicate that more of X is larger than more of Y, with a value of (−1) indicates that all observations in the second, $Y$, group are larger than the first, $X$, group, and a value of (+1) indicates that all observations in the first group are larger than the second.
+
+#### Paired Samples Calculation {.unnumbered}
+
+1.  Calculate difference scores between pairs:
+
+$$
+D = X_2 - X_1
+$$
+
+2.  Calculate the positive and negative rank sums:
+
+$$
+\text{When } D_i>0,\;\;  R_{\oplus} = \sum_{i=1} -1\cdot \text{sign}(D_i) \cdot \text{rank}(|D_i|)
+$$
+
+$$
+\text{When } D_i<0,\;\;  R_{\ominus} = \sum_{i=1} -1\cdot \text{sign}(D_i) \cdot \text{rank}(|D_i|)
+$$
+
+3.  We can set a constant, $H$, to be -1 when the rank positive rank sum is greater than or equal to the negative rank sum ($R_{\oplus} \ge R_{\ominus}$) or we can set $H$ to 1 when the rank positive rank sum is less than the negative rank sum ($R_{\oplus} < R_{\ominus}$).
+
+$$
+H = \begin{cases} -1 &  R_{\oplus} \ge  R_{\ominus} \\ 1 & R_{\oplus} < R_{\ominus} \end{cases}
+$$
+
+4.  Calculate rank-biserial correlation:
+
+$$
+r_{rb} = 4H\times \left| \frac{\min( R_{\oplus}, R_{\ominus}) - .5\times ( R_{\oplus} +  R_{\ominus})}{n(n + 1)} \right|
+$$
+
+5.  For paired samples, or one sample, the standard error is calculated as the following:
+
+$$
+SE_{r_{rb}} = \sqrt{ \frac {(2 \cdot nd^3 + 3 \cdot nd^2 + nd) / 6} {(nd^2 + nd) / 2} }
+$$ 6. The confidence intervals can then be calculated by Z-transforming the correlation.
+
+$$
+Z_{rb} = \text{arctanh}(r_{rb})
+$$
+
+7.  Calculate the standard error of the Z-transformed correlation
+
+$$
+SE_{Z_{rb}} = \frac{SE_{r_{rb}}}{1-r_{rb}^2}
+$$
+
+8.  Then the confidence interval can be calculated and then back-transformed.
+
+$$
+CI_{rb} = \text{tanh}(Z_{rb}  \pm  1.96 \cdot SE_{Z_{rb}})
+$$
+
+#### Two Sample Calculation {.unnumbered}
+
+1.  Calculate the ranks for each observation across all observations of in group 1 and 2
+
+$$
+R = \text{rank}(X)
+$$
+
+2.  Calculate the rank sums from each group
+
+$$
+U_1 = \left(\sum_{i=1}^{n_1} R_{1i}\right) - n_1 \cdot \frac{n_1 + 1}{2}
+$$
+
+$$
+U_2 = \left(\sum_{i=1}^{n_2} R_{2i}\right) - n_2 \cdot \frac{n_2 + 1}{2}
+$$
+
+3.  Calculate rank biserial correlation
+
+$$
+r_{rb} = \frac{U_1}{n_1 n_2} - \frac{U_2}{n_1 n_2}
+$$
+
+4.  For independent samples, the standard error is calculated as the following:
+
+$$
+SE_{rb} = \sqrt{\frac {n_1 + n_2 + 1} { 3  n_1  n_2}}
+$$
+
+5.  The confidence intervals can then be calculated by transforming the estimate.
+
+$$
+Z_{rb} = \text{arctanh}(r_{rb})
+$$
+
+6.  Calculate the standard error of the Z-transformed correlation
+
+$$
+SE_{Z_{rb}} = \frac{SE_{r_{rb}}}{1-r_{rb}^2}
+$$
+
+7.  Then the confidence interval can be calculated and then back-transformed.
+
+$$
+CI_{rb} = \text{tanh}(Z_{rb}  \pm  1.96 \cdot SE_{Z_{rb}})
+$$
+
+#### Calculation in R {.unnumbered}
+
+In R, we can use `ses_calc` in the `TOSTER` package can be utilized to calculate $r_{rb}$.
+
+```{r,echo=TRUE, warning=FALSE}
+# Paired samples
+
+data(sleep)
+library(TOSTER)
+
+# When sample sizes are small
+# a permutation version should be used.
+# When this is done a seed should be set.
+set.seed(2124)
+ses_calc(extra ~ group,
+         data = sleep,
+         paired = TRUE)
+
+
+# Two Sample
+# data import from likert
+data(mass, package = "likert")
+df_mass = mass |>
+  as.data.frame() |>
+  clean_names() 
+
+# function needs input as a numeric
+# ordered factors can be converted to ranks
+# Again, the warning can be ignored
+set.seed(24111)
+ses_calc(
+  rank(math_relates_to_my_life) ~ gender,
+  data = df_mass,
+  paired = FALSE
+)
+```
+
+### Concordance Probability
+
+In the two sample case, concordance probability is the probability that a randomly chosen subject from one group has a response that is larger than that of a randomly chosen subject from the other group. In the two sample case, this is roughly equivalent to the statistic of the Brunner-Munzel test. In the paired sample case, it is the probability that a randomly chosen difference score ($D$) will have a positive (+) sign plus 0.5 times the probability of a tie (no/zero difference). The concordance probability can go by many names. It is also referred to as the c-index, the non-parametric probability of superiority, or the non-parametric common language effect size (CLES).
+
+#### Calculation {.unnumbered}
+
+The calculation of concordance can be derived from the rank-biserial correlation. The concordance probability ($p_c$) can be converted from the correlation.
+
+$$
+p_c = \frac{r_{rb} + 1 }{2} 
+$$
+
+#### Calculation in R {.unnumbered}
+
+```{r,echo=TRUE}
+# Paired samples
+
+data(sleep)
+
+ses_calc(extra ~ group,
+         data = sleep,
+         paired = TRUE,
+         ses = "c")
+
+# Two Sample
+# data import from likert
+data(mass, package = "likert")
+df_mass = mass |>
+  as.data.frame() |>
+  janitor::clean_names()
+
+ses_calc(rank(math_relates_to_my_life) ~ gender,
+         data = df_mass,
+         ses = "c")
+```
+
+### Wilcoxon-Mann-Whitney Odds
+
+The Wilcoxon-Mann-Whitney odds [@o2006exploiting], also known as the "Generalized Odds Ratio"[@agresti1980generalized], essentially transforms the concordance probability into an odds ratio.
+
+#### Calculation {.unnumbered}
+
+The odds can be converted from the concordance by taking the logit of the concordance. This will provide the log odds. The exponential value of the log-odds will provide the odds on a more interpretable scale.
+
+$$
+O_{WMW} = \exp \left[\text{logit}(p_c)\right]
+$$
+
+$$
+\log(O_{WMW}) = \text{logit}(p_c)
+$$
+
+#### Calculation in R {.unnumbered}
+
+```{r,echo=TRUE}
+# Paired samples ----
+
+data(sleep)
+
+TOSTER::ses_calc(extra ~ group,
+                       data = sleep,
+                       paired = TRUE,
+                 ses = "odds")
+
+# Two Sample ------
+# data import from likert
+data(mass, package = "likert")
+df_mass = mass |>
+  as.data.frame() |>
+  janitor::clean_names()
+
+TOSTER::ses_calc(  rank(math_relates_to_my_life) ~ gender,
+  data = df_mass,
+                 ses = "odds")
+
+```

@@ -1,0 +1,92 @@
+
+# Converting to Cohen's $d$
+
+## From Independent Samples $t$-statistic
+
+To calculate a between subject standardized mean difference ($d_p$, i.e., pooled standard deviation standardizer), we can use the sample size in each group ($n_1$ and $n_2$) as well as the $t$-statistic from an independent sample t-test and plug it into the following formula:
+
+$$
+d_{p} = t\sqrt{\frac{1}{n_1}+\frac{1}{n_2} }
+$$
+
+Using the `t_to_d` function in the `effectsize` package we can convert $t$ to $d_p$.
+
+```{r,echo=TRUE}
+# Example:
+# unpaired t-statistic = 3.25
+# n1 = 50, n2 = 40
+
+library(effectsize)
+
+t <- 3.25
+n1 <- 50
+n2 <- 40
+
+t_to_d(t, df_error = n1+n2-2, paired = FALSE)
+```
+
+## From Paired Sample $t$-statistic
+
+To calculate a within-subject standardized mean difference ($d_z$, i.e., difference score standardizer), we can use the sample size in each group ($n_1$ and $n_2$) as well as the $t$-statistic from an paired sample t-test and plug it into the following formula:
+
+$$
+d_{z} = \frac{t}{\sqrt{n}}
+$$
+
+Using the `t_to_d` function in the `effectsize` package we can convert $t$ to $d_z$.
+
+```{r,echo=TRUE}
+# Example:
+# paired t-statistic = 3.25
+# n = 50
+
+t <- 3.25
+n <- 50
+
+t_to_d(t, df_error = n-1, paired = TRUE)
+```
+
+## From Pearson Correlation
+
+If a Pearson correlation is calculated between a continuous score and a dichotomous score, this is considered a point-biserial correlation. The point-biserial correlation can be converted into a $d_p$ value using the following formula:
+
+$$
+d_p = \frac{r}{\sqrt{1-r^2}} \sqrt{\frac{n_1+n_2-2}{n_1} + \frac{n_1+n_2-2}{n_2}}
+$$ Or if sample sizes within each group are unknown (or equal), the equatio simplifies to be approximately,
+
+$$
+d_p \approx \frac{r\sqrt{4}}{\sqrt{1-r^2}} 
+$$
+
+Using the `r_to_d` function in the `effectsize` package we can convert $r$ to $d_p$.
+
+```{r,echo=TRUE}
+# Example:
+# r = 3.25
+# n1 = 50, n2 = 40
+
+r <- .50
+n1 <- 50
+n2 <- 40
+
+r_to_d(r = r, n1 = n1, n2 = n2)
+```
+
+## From Odds-Ratio
+
+An odds-ratio from a contingency table can also be converted to a $d_p$. Note that this formula is an approximation:
+
+$$
+d_{p} = \frac{\log(OR)\sqrt{3}}{\pi}
+$$
+
+Using the `oddsratio_to_d` function in the `effectsize` package we can convert $OR$ to $d_p$.
+
+```{r,echo=TRUE}
+# Example:
+# OR = 1.62
+
+OR <- 1.46
+
+oddsratio_to_d(OR = OR)
+```

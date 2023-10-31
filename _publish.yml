@@ -1,0 +1,4 @@
+- source: project
+  quarto-pub:
+    - id: ac794da6-5a8c-440f-9046-89e0b1d0a7b3
+      url: 'https://matthewbjane.quarto.pub/effect-size-and-confidence-intervals-guide'

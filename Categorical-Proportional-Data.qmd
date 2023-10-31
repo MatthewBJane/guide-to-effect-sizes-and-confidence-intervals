@@ -1,0 +1,386 @@
+
+# Effect Sizes for Categorical Variables
+
+For dichotomous relationships that involve proportions, there are many variations of effect sizes that one can use. Commonly used effect size measures for statistical procedures on categorical data include: phi coefficient ($\phi$), Cramer's $V$, Cohen's $h$, Cohen's $\omega$, odds ratio ($OR$), risk difference ($RD$), and relative risk ($RR$).
+
+## Phi Coefficient ($\phi$)
+
+Phi coefficient ($\phi$) is a measure of association between two binary variables (therefore, it ONLY applies to 2 by 2 contingency tables, i.e., each variable has only two levels). It is a special case of the Pearson correlation coefficient and an $r$ for two binary variables is equal to phi. Note that unlike $r$ that ranges from -1 to 1, phi ranges from 0 to 1. Also, the sign of $r$ indicates the direction of association, whereas to get the direction of an association given a 2 by 2 contingency table, we need to look at the table itself; phi only provides a measure of strength. The 2 by 2 contingency table is illustrated by @tbl-contingency.
+
+|       |  $X=0$   |  $X=1$   |
+|:-----:|:--------:|:--------:|
+| $Y=0$ | $n_{00}$ | $n_{10}$ |
+| $Y=1$ | $n_{01}$ | $n_{11}$ |
+
+: Contingency table between two binary variables {#tbl-contingency}
+
+The sample sizes within each cell provide us with the necessary information to estimate the relationship between the two variables. A large phi coefficient would be expected to have relatively large sample sizes in the diagonal cells ($n_{00}$ and $n_{11}$) and relatively low sample sizes in the off-diagonal cells ($n_{01}$ and $n_{10}$). To calculate phi, it can be calculated from the cells of the contingency table directly,
+
+$$
+\phi = \frac{n_{11}n_{00} -n_{10}n_{01}}{\sqrt{(n_{00} + n_{01})(n_{10} + n_{11})(n_{00} + n_{10})(n_{01} + n_{11})}}
+$$
+
+or more conveniently, from the $\chi^2$-statistic,
+
+$$
+\phi = \sqrt{\frac{\chi^2}{n}}
+$$
+
+Where $n$ is the total sample size (i.e., the sum of all the cells). Using the `psych` package in R, we can calculate the the phi coefficient using the `phi` function directly from the contingency table
+
+```{r, echo = TRUE}
+# Example contingency table:
+#  40  17
+#  11  45
+
+library(effectsize)
+
+contingency_table <- matrix(c(40, 11,
+                              17, 45),ncol = 2)
+
+phi_coefficient <- phi(contingency_table, alternative = "two.sided")
+
+phi_coefficient
+```
+
+In our example we obtained a phi coefficient of $\phi$ = .50 [0.31, 0.69].
+
+## Cramer's $V$
+
+Cramer's V, sometimes also referred to as Cramer's phi ($\phi$), is a generalized effect size measure of the association between two nominal variables. It applies to contingency tables of any size ($2\times 2$, $3\times 3$, $3\times 4$, $5\times 3$, etc.). Cramer's $V$ on a $2\times 2$ contingency table is equivalent to the phi coefficient. For an illustration of a higher order contingency table, @tbl-contingency-2 represents a $3\times 4$ contingency table of two variables.
+
+|       |  $X=0$   |  $X=1$   |  $X=2$   |  $X=3$   |
+|-------|:--------:|:--------:|:--------:|:--------:|
+| $Y=0$ | $n_{00}$ | $n_{10}$ | $n_{21}$ | $n_{31}$ |
+| $Y=1$ | $n_{01}$ | $n_{11}$ | $n_{21}$ | $n_{31}$ |
+| $Y=2$ | $n_{02}$ | $n_{12}$ | $n_{22}$ | $n_{32}$ |
+
+: Contingency table between two categorical variables {#tbl-contingency-2}
+
+Similarly to the phi coefficient, the value of Cramer's $V$ ranges from 0 to 1 and can interpreted in a similar way to a phi coefficient. Again we can use the $\chi^2$ statistic to compute the value, however, since there can be more than 2 levels to each variable, we also need to take into account the number of levels, $k$, of the variable with the least number of levels (e.g., a $3 \times 4$ contingency table, $k$ would be equal to 3),
+
+$$
+V = \sqrt{\frac{\chi^2}{n(k-1)}}
+$$
+
+The standard error of a Cramer's $V$ is similar to that of a Pearson correlation and a $\phi$ coefficient.
+
+$$
+SE_V = \sqrt{\frac{1-V^2}{n-2}}
+$$
+
+Where $n$ is the total sample size (i.e., the sum of all cells). Like the pearson correlation, we can not calculate the confidence interval directly from the standard error, instead, we must convert $V$ to a Fisher's Z statistic, $Z_V = \text{arctanh}(V)$. We can then calculate the 95% confidence interval for $V$ by back-transforming the confidence interval for $Z_V$:
+
+$$
+SE_{Z_V} = \frac{1}{\sqrt{n-3}}
+$$ 
+
+$$
+CI_{V} = \tanh(Z_V \pm 1.96\times SE_{Z_V})
+$$
+
+Using the `ufs` package [@ufs], we can calculate Cramer's $V$ and it's 95% confidence interval using the Fisher's Z method described above. For the example, we can example data from a 3\$\times\$3 contingency table.
+
+```{r, echo = TRUE}
+# Example contingency table:
+#  40  14  12
+#  11  27   9
+#   5  10  34
+
+library(ufs)
+
+contingency_table <- matrix(c(40, 11,  5,
+                              14, 27, 10,
+                              12,  9, 34),ncol = 3)
+
+
+V <- cramersV(contingency_table)
+CI <- confIntV(contingency_table)
+
+# print pearson correlation and confidence intervals
+data.frame(V = MOTE::apa(V$output$cramersV), 
+           Vlow = MOTE::apa(CI$output$confIntV.fisher[1]), 
+           Vhigh = MOTE::apa(CI$output$confIntV.fisher[2]))
+
+```
+
+In our example we obtained a Cramer's $V$ of $V$ = .44 \[.31, .56\].
+
+## Cohen's $h$
+
+Cohen's $h$ is a measure of distance between two proportions or probabilities. It is sometimes also referred to as the "difference between arcsines". For a given proportion $p$, its arcsine transformation is given by:
+
+$$
+\psi = 2\cdot \text{arcsin}(\sqrt{p}).
+$$
+
+Cohen's $h$ is the difference between the arcsine transformations of two proportions:
+
+$$
+h = \psi_1 - \psi_2
+$$
+
+Cohen's $h$ is commonly used for the power analysis of proportion tests. We can calculate the standard error in Cohen's $h$ It is the required effect size measure in the program *G Power* [@faul2009].
+
+$$
+SE_h = \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}
+$$
+
+Since the sampling distribution of $h$ is symmetric, we can calculate the confidence intervals from the standard error,
+
+$$
+CI_h = h \pm1.96\times SE_h
+$$
+
+To calculate Cohen's $h$, we can use the `cohens_h` function in the `effectsize` package in R.
+
+```{r, echo = TRUE}
+# install package if not done so already
+# install.packages('effectsize')
+# Example proportions: p1 = .45, p2 = .30
+
+library(effectsize)
+
+contingency_table <- matrix(c(40, 11,
+                              14, 27),ncol = 2)
+
+cohens_h(contingency_table)
+
+```
+
+From the example, the R code outputted a Cohen's $h$ value of $h$ = .93 [0.52, 1.34].
+
+## Cohen's omega ($\omega$)
+
+Although Cohen's $\omega$ is useful for power analyses, it is not so useful as a stand-alone effect size. As @cohen1988 states (pp. 221):
+
+> As a measure of association, \[Cohen's $\omega$\] lacks familiarity and convenience
+
+Cohen's $\omega$ has the exact same formula as the phi coefficient with the only difference being that the $\chi^2$ statistic comes from a contingency table of any size,
+
+$$
+\omega = \sqrt{\frac{\chi^2}{n}}
+$$
+
+And can also be calculated directly from Cramer's $V$,
+
+$$
+\omega = V \times \sqrt{k-1}
+$$
+
+Where $k$ is the number of categories in the variable with the least number of categories.
+
+```{r, echo =TRUE}
+# Example contingency table
+
+
+contingency_table <- matrix(c(40, 11,
+                              14, 27),ncol = 2)
+
+cohens_w(contingency_table,
+         alternative = "two.sided")
+```
+
+From the example code, the `cohens_w` function returned Cohen's $\omega$ value of $\omega$ = .45 [0.24, 0.65].
+
+## Ben-Shachar's Fei (פ)
+
+@benshachar2023 introduced a new effect size for contingency tables that they label with the Hebrew letter, פ. Ben-Shachar's פ is a correction to Cohen's $\omega$ that adjusts for the expected value and consequently bounds the value between 0 and 1 (Cohen's $\omega$ is only bounded between 0 and 1 when marginal distributions are uniform).
+
+Cohen's $\omega$ has the exact same formula as the phi coefficient with the only difference being that the $\chi^2$ statistic comes from a contingency table of any size,
+
+$$
+\mathbf{פ }= \sqrt{\frac{\chi^2}{n \left(\frac{1}{\min\left(P_E\right)} -1\right)}}
+$$
+
+Where $\min(P_E)$ is the smallest expected probability in the contingency table. An expected probability for a given cell is the proportion of the total sample that would be expected to exist in that cell if the two variables were independent. The formula for Ben-Schacher's פ can be also be expressed in terms of Cohen's $\omega$,
+
+$$
+\mathbf{פ }= \frac{\omega}{\sqrt{\left(\frac{1}{\max(P_E)} -1\right)}}
+$$
+
+In R, we can calculate Ben-Shacher's פ using the `effectsize` package.
+
+```{r, echo =TRUE}
+# Example:
+# Observed counts: 20, 50, 100 (observed proportions: .12, .29, .59)
+# Expected proportions: .5, .2, .3
+
+observed_counts <- c(20,50,100)
+expected_probabilities <- c(.5,.2,.3)
+
+
+fei(observed_counts,
+    p = expected_probabilities,
+    alternative = "two.sided")
+```
+
+From the example code, the `cohens_w` function returned Ben-Shacher's פ value of .39 \[0.31, 0.47\].
+
+## Odds Ratio ($OR$)
+
+Odds ratio measures the effect size between two binary variables. It is commonly used in medical and behavioral intervention research, and notably, in meta-analysis.
+
+Let's imagine a study conducted to investigate the association between smoking and the development of major depressive disorder (MDD). The study includes a sample of 251 individuals, categorizing them into two groups: 125 smokers and 126 non-smokers. The researchers are interested in understanding the odds of having major depressive disorder (MDD) among smokers compared to non-smokers. Say we find that 25 smokers were diagnosed with MDD while 100 were not, but in the non-smoker group, 12 individuals were diagnosed with MDD while 120 were not. The odds ratio would then be:
+
+$$
+OR = \frac{25/100}{12/120}= \frac{.25}{.10} = 2.50
+$$
+
+In general, we can can compute the odds-ratio from a contingency table between binary variables $X$ (i.e., the treatment) and $Y$ (i.e., the outcome; see @tbl-contingency-OR).
+
+|       |  $X=T$   |  $X=C$   |
+|:-----:|:--------:|:--------:|
+| $Y=0$ | $n_{T0}$ | $n_{C0}$ |
+| $Y=1$ | $n_{T1}$ | $n_{C1}$ |
+
+: Contingency table between two binary variables {#tbl-contingency-OR}
+
+Ultimately, we want to compare the outcome between the treatment group ($X=T$) and the control group ($X=C$). Therefore we can compute the odds ratio as,
+
+$$
+OR = \frac{n_{T1}/n_{T0}}{n_{C1}/n_{C0}}
+$$
+
+The standard distribution of the odds-ratio is asymmetric. To calculate confidence intervals, we can first convert the odds ratio to a log odds ratio ($LOR= \log(OR)$). Then we can calculate the standard error of the log odds ratio,
+
+$$
+SE_{LOR} = \sqrt{\frac{1}{n_{T0}} + \frac{1}{n_{T1}} + \frac{1}{n_{C0}} + \frac{1}{n_{C1}}}
+$$
+
+With the standard error of the log odds ratio we can then calculate the log odds ratio,
+
+$$
+LOR_{UP} = LOR - 1.96\times SE_{LOR}
+$$
+
+Then the final step we can convert these back to $OR$ confidence intervals by taking the exponential transformation of the upper and lower bounds: $OR_{UP}=\exp(LOR_{UP})$ and $OR_{UP}=\exp(LOR_{UP})$.
+
+In R, we can use the `effectsize` package to calculate the odds ratio and it's confidence interval:
+
+```{R, echo=TRUE}
+# Example:
+# Treatment Group: 10 diseased, 43 healthy
+# Control Group:  24 diseased, 41 healthy
+
+
+contingency_table <- matrix(c(10, 24,
+                              43, 41),ncol = 2)
+
+oddsratio(contingency_table,
+          alternative = "two.sided")
+```
+
+The code output for this example shows an odds ratio of $OR$ = 0.40 \[0.17, 0.93\]
+
+## Risk Difference ($RD$)
+
+Risk difference can be used to interpret the difference between two proportions. If we use the contingency table from @tbl-contingency-OR, and calculate a risk difference between the treatment group and the control group. We can first calculate the proportion of cases where the outcome is $Y=1$ *within* the control group and the treatment group:
+
+$$
+p_C=\frac{n_{C1}}{n_{C0}+n_{C1}}
+$$
+
+$$
+p_T=\frac{n_{T1}}{n_{T0}+n_{T1}}
+$$
+
+Then using these proportions we can calculate the risk difference ($RD$),
+
+$$
+RD = p_T - p_C.
+$$ The corresponding standard error is,
+
+$$
+SE_{RD} = \sqrt{\frac{p_C(1-p_C)}{n_C} + \frac{p_T(1-p_T)}{n_T} }
+$$
+
+Where $n_C$ and $n_T$ are the total sample sizes *within* the control and treatment group, respectively. The standard error can then be used to compute the 95% confidence intervals,
+
+$$
+CI_{RD} = RD \pm 1.96 \times SE_{RD}
+$$
+
+The risk difference formula is fairly simple, so we can compute it using base R.
+
+```{r, echo=TRUE}
+# Example: 
+# Treatment group: proportion of cases = .5, sample size = 40
+# Control group: proportion of cases = .3, sample size = 45
+
+pT <- .50
+pC <- .30
+nT <- 40
+nC <- 45
+
+RD <- pT - pC
+
+SE <- sqrt( pC*(1-pC)/nC + pT*(1-pT)/nT )
+
+# compute 95% CIs
+RDlow <- RD - 1.96*SE
+RDhigh <- RD + 1.96*SE
+
+data.frame(
+  RD = MOTE::apa(RD),
+  RDlow = MOTE::apa(RDlow),
+  RDhigh = MOTE::apa(RDhigh)
+  )
+
+```
+
+## Relative Risk ($RR$)
+
+The relative risk, often referred to as the "risk ratio," calculates the ratio between the proportion of cases in the treatment group and the proportion of cases in the control group. It provides a straightforward interpretation: "individuals receiving the treatment have a $RR$ times higher odds of experiencing the outcome compared to controls." To calculate relative riskm, first we need to calculate the proportion of outcome cases in the treatment and control group
+
+$$
+p_C=\frac{n_{C1}}{n_{C0}+n_{C1}}
+$$
+
+$$
+p_T=\frac{n_{T1}}{n_{T0}+n_{T1}}
+$$
+
+Then we can calculate the relative risk,
+
+$$
+RR=\frac{p_T}{p_C}
+$$
+
+The corresponding standard error can be computed as,
+
+$$
+SE_{RR} = \sqrt{\frac{p_T}{n_T} + \frac{p_C}{n_C}}
+$$
+
+The confidence intervals can be computed from the standard error,
+
+$$
+CI_{RR} = RR\pm 1.96\times SE_{RR}
+$$
+
+To compute relative risk, we can simply use the equations above in base R.
+
+```{r, echo=TRUE}
+# Example:
+# Treatment Group: 10 diseased, 43 healthy, 53 total
+# Control Group:  24 diseased, 41 healthy, 65 total
+
+pT <- 10/(43+10)
+pC <- 24/(41+24)
+nT <- 53
+nC <- 65
+
+RR <- pT / pC
+
+SE <- sqrt(pT/nT + pC/nC)
+
+RRlow <- RR - 1.96*SE
+RRhigh <- RR + 1.96*SE
+
+# print pearson correlation and confidence intervals
+data.frame(RR = MOTE::apa(RR), 
+           RRlow = MOTE::apa(RRlow), 
+           RRhigh = MOTE::apa(RRhigh))
+
+```

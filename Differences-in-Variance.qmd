@@ -1,0 +1,61 @@
+
+# Differences in Variance
+
+Occasionally researchers would like to compare the variance between two conditions or groups rather than the mean.
+
+## Variance Ratio ($VR$)
+
+The variance ratio can be calculated by taking the variance within one group and dividing it by the variance in another group,
+
+$$
+VR=\frac{S^2_1}{S_2^2}
+$$
+A $VR$ of 1 would indicate no difference between the variances, a $VR$ of >1 would indicate larger variance in group 1, and $VR$ of <1 would indicate larger variance in group 2. To obtain confidence intervals of a variance ratio, we need to first take the log-transform of the variance ratio and calculate the standard error of the log-variance ratio (LVR),
+
+$$
+LVR = \log(VR)
+$$
+
+$$
+SE_{LVR} = \sqrt{\frac{1}{2(n_1-1)} + \frac{1}{2(n_2-1)}}
+$$
+
+The 95% confidence intervals for the variance ratio can then be calculated by back-transforming the CI of the log-variance ratio,
+
+$$
+CI_{VR} = \exp(LVR \pm 1.96\times SE_{LVR})
+$$
+In R, we can simply use base R to calculate the $VR$ and it's confidence intervals
+
+```{r, echo=TRUE}
+# Example:
+# Group 1: standard deviation = 4.5, sample size = 50
+# Group 2: standard deviation = 3.5, sample size = 50
+
+SD1 <- 4.5
+SD2 <- 3.5
+n1 <- n2 <- 50
+
+VR <- SD1^2 / SD2^2
+
+# calculate confidence interval
+LVR <- log(VR)
+SE_LVR <- sqrt(1/(2*(n1-1)) + 1/(2*(n2-1)))
+
+VRlow <- exp(LVR - SE_LVR)
+VRhigh <- exp(LVR + SE_LVR)
+
+# print the VR value and confidence intervals
+data.frame(VR = MOTE::apa(VR), 
+           VRlow = MOTE::apa(VRlow), 
+           VRhigh = MOTE::apa(VRhigh))
+
+```
+
+
+From the example, we obtain a variance ratio of $VR$ = 1.65 [1.43, 1.91].
+
+
+
+
+
