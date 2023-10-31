@@ -4,6 +4,7 @@ project:
 book:
   title: "Guide to Effect Sizes and Confidence Intervals"
   downloads: [pdf, docx]
+  repo-url: https://github.com/MatthewBJane/guide-to-effect-sizes-and-confidence-intervals
   cover-image: cover-image.png
   twitter-card:
     image: social-preview.png
