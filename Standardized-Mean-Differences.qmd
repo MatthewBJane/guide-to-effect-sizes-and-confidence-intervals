@@ -1,5 +1,4 @@
-
-# Standardized Effect Sizes for Mean Differences
+# Mean Differences
 
 T-tests are the most commonly used statistical tests for examining differences between group means, or examining a group mean against a constant. Calculating effect sizes for t-tests is fairly straightforward. Nonetheless, there are cases where crucial figures for the calculation are missing (which happens quite often in older articles), and therefore we document methods that make use of partial information (e.g., only the M and the SD, or only the t-statistic and df) for the calculation. There are multiple types of effect sizes used to calculate standardized mean differences (i.e., Cohen's $d$), yet researchers very often do not identify which type of $d$ value they are reporting [see @lakens2013]. Here we document the equations and code necessary for calculating each type of $d$ value compiled across multiple sources [@becker1988; @cohen1988; @lakens2013; @caldwell; @glass1981a]. A $d$ value calculated from a sample will also contain sampling error, therefore we will also show the equations to calculate the standard error. The standard allows us to then calculate the confidence interval. For each formulation in the sections below, the confidence interval will be able to be calculated in the same way, that is,
 
@@ -7,19 +6,51 @@ $$
 CI_d = d \pm 1.96\times SE
 $$
 
-Lastly, we will supply example R code so you can apply to your own data.
+Lastly, we will supply example R code so you can apply to your own data. 
 
-## Single Group Designs
+#### **Here is a table for every effect size discussed in this chapter:** {.unnumbered}
 
-For a single group design, we have one group and we want to compare the mean of that group to some constant, $C$ (i.e., a target value). The standardized mean difference for a single group can be calculated by,
+
+
+| Type                | Description | Section|
+|:------|:---------|:----:|
+| **Single Group Design**   |     | @sec-single-group|
+| $d_s$ - Single Group | Standardized mean difference for comparing a single group to some constant  | @sec-single-group|
+|   **Two Independent Groups Design**    |     | @sec-two-ind-group |
+|  $d_p$ - Pooled Standard Deviation   |  Uses the average within-group standard deviation to standardize the mean difference. Can be calculated directly from a independent sample t-test. Assumes homogeneity of variance between groups.   | @sec-two-ind-group-pooled |
+|  $d_\Delta$ - Control Group Standard Deviation   |  Uses the standard deviation of the control group to standardize the mean difference (often referred to as Glass's Delta). Does not assume homogeneity of variance between treatment/intervention and control group.  | @sec-two-ind-group-glass |
+| **Repeated Measures (Paired Groups) Design** |     | @sec-repeated-measures |
+|  $d_z$ - Difference score standard deviation    |   Uses the standard deviation of difference scores (also known as change scores) to standardize the within person mean difference (i.e., pre/post change).  |  @sec-repeated-measures-dz |
+| $d_{rm}$ - Repeated measures | Uses the within-person standard deviation that utilizes a correction to $d_z$ to reduce the impact of the pre/post correlation on the effect size. Assumes homogeneity of variance between conditions.   | @sec-repeated-measures-drm  |
+|  $d_{av}$ - Average variance   |   Uses the pooled variance between conditions (pre/post test). Does not use the correlation between conditions. Assumes homogeneity of variance between conditions. | @sec-repeated-measures-dav |
+|  $d_{b}$ - Becker's *d*    |  Uses the pre-test standard deviation to standardize the pre/post mean difference. Does not assume homogeneity of variance between pre-test and post-test. | @sec-becker |
+| **Pre-Post-Control Design** |     | @sec-ppc |
+| $d_{PPC1}$ - Separate pre-test standard deviations |  Defined as the difference between the Becker's *d* between the treatment and control group. Particularly, standardizing the mean pre/post change by the pre-test of the respective group.  | @sec-ppc1|
+| $d_{PPC2}$ - Pooled pre-test standard deviation  | Standardizes the difference in mean changes between treatment and control group. Assumes homogeneity of variance between the pre-test of the control and treatment condition.   | @sec-ppc2|
+| $d_{PPC3}$ - Pooled pre-test and post-test standard deviation | Pools the standard deviation between pre-test and post-test in treatment and control condition. Assumes homogeneity of variance between pre/post-test scores *and* treatment and control conditions. Confidence intervals are not easy to compute. | @sec-ppc3|
+| **Mean Ratios** |     | @sec-rr |
+| $lnRR_\text{ind}$ - Response ratio between independent groups | The ratio between the means between two groups. Does not use the standard deviation in the effect size formula.  | @sec-rrind |
+| $lnRR_\text{dep}$ - Response ratio between dependent groups |  The ratio between the means between two groups. Does not use the standard deviation in the effect size formula.    | @sec-rrdep |
+
+
+## Reporting a t-test with effect size and CI
+
+Whatever effect size and CI you choose to report, you can report it alongside the t-test statistics (i.e., t-value and the p value). For example,
+
+> The treatment group had a significantly higher mean than the control group (*t* = 2.76, *p* = .009, *n* = 35, *d* = 0.47 \[0.11, 0.81\]).
+
+## Single Group Designs {#sec-single-group}
+
+For a single group design, we have one group and we want to compare the mean of that group to some constant, $C$ (i.e., a target value). The standardized mean difference for a single group can be calculated by [equation 2.3.3, @cohen1988],
 
 $$
 d_s = \frac{M-C}{S_1}
 $$
-A positive $d_s$ value would indicate that the mean of group 1 is larger than the target value, $C$. This formulation assumes that the sample is drawn from a normal distribution. The standardizer (i.e., the denominator) is the sample standard deviation. The corresponding standard error for $d_s$ is,
+
+A positive $d_s$ value would indicate that the mean of group 1 is larger than the target value, $C$. This formulation assumes that the sample is drawn from a normal distribution. The standardizer (i.e., the denominator) is the sample standard deviation. The corresponding standard error for $d_s$ is [see documentation for @caldwell],
 
 $$
-SE_{d_s} = \sqrt{\frac{1}{n}+\frac{d_1^2}{2n}}.
+SE_{d_s} = \sqrt{\frac{1}{n}+\frac{d_s^2}{2n}}.
 $$
 
 In R, we can use the `d.single.t` function from the `MOTE` package to calculate the single group standardized mean difference.
@@ -51,26 +82,26 @@ data.frame(d = apa(stats$d),
 
 As you can see, the output shows that the effect size is $d_s$ = 0.68, 95% CI \[0.46, 0.90\]. Note the `apa` function in `MOTE` takes a value and returns an APA formatted effect size value (i.e., leading zero and three decimal places).
 
-## Two Groups Design
+## Two Independent Groups Design {#sec-two-ind-group}
 
-### Standardize by Pooled Standard Deviation ($d_p$)
+### Standardize by Pooled Standard Deviation ($d_p$) {#sec-two-ind-group-pooled}
 
-For a two group design (i.e., between-groups design), we want to compare the means of two groups (group 1 and group 2). The standardized mean difference between two groups can be calculated by,
+For a two group design (i.e., between-groups design), we want to compare the means of two groups (group 1 and group 2). The standardized mean difference between two groups can be calculated by [equation 5.1, @glass1981a],
 
 $$
 d_p = \frac{M_1-M_2}{S_p}.
 $$
 
-A positive $d_p$ value would indicate that the mean of group 1 is larger than the mean of group 2. Dividing the mean difference by the pooled standard deviation, $S_p$, is the classic formulation of Cohen's $d$. The pooled standard deviation, $S_p$, can be calculated as the square root of the average variance (weighted by the degrees of freedom, $df=n-1$) of group 1 and group 2:
+A positive $d_p$ value would indicate that the mean of group 1 is larger than the mean of group 2. Dividing the mean difference by the pooled standard deviation, $S_p$, is the classic formulation of Cohen's $d$. The pooled standard deviation, $S_p$, can be calculated as the square root of the average variance (weighted by the degrees of freedom, $df=n-1$) of group 1 and group 2 [pp. 108, @glass1981a]:
 
 $$
 S_p = \sqrt{\frac{(n_1-1)S_1^2 + (n_2-1)S_2^2}{n_1+n_2-2}}
 $$
 
-Note that the term *variance* refers to the square of the standard deviation ($S^2$). Cohen's $d_p$ has is related to the t-statistic from an independent samples t-test. In fact, we can calculate the $d_p$ value from the $t$-statistic with the following formula:
+Note that the term *variance* refers to the square of the standard deviation ($S^2$). Cohen's $d_p$ has is related to the t-statistic from an independent samples t-test. In fact, we can calculate the $d_p$ value from the $t$-statistic with the following formula [equation 5.3, @glass1981a]:
 
 $$
-d = t\sqrt{\frac{2(n_1+n_2)}{n_1 n_2(n_1+n_2-2)}}.
+d = t\sqrt{\frac{1}{n_1} + \frac{1}{n_2}}.
 $$
 
 The corresponding standard error of $d_p$ is,
@@ -108,7 +139,7 @@ data.frame(d = apa(stats$d),
 
 The output shows that the effect size is $d_p$ = 0.43, 95% CI \[0.14, 0.71\].
 
-### Standardize by Control Group Standard Deviation ($d_{\Delta}$)
+### Standardize by Control Group Standard Deviation ($d_{\Delta}$) {#sec-two-ind-group-glass}
 
 When two groups differ substantially in their standard deviations, we can instead standardize by the control group standard deviation ($S_C$), such that,
 
@@ -150,13 +181,13 @@ data.frame(d = apa(stats$d),
 
 ```
 
-## Repeated Measures Designs
+## Repeated Measures Designs {#sec-repeated-measures}
 
 In a repeated-measures design, the same subjects (or items, etc.) are measured on two or more separate occasions, or in multiple conditions within a single session, and we want to know the mean difference between those occasions or conditions [@baayen2008mixed; @barr2013random]. An example of this would be in a pre/post comparison where subjects are tested before and after undergoing some treatment (see @fig-repeatedmeasures for a visualization). A standardized mean difference in a repeated-measures design can take on a few different forms that we define below.
 
-```{r,message=FALSE,echo=FALSE,warning=FALSE,fig.height=4}
+```{r,message=FALSE,echo=FALSE,warning=FALSE,fig.height=4,dpi=300}
 #| id: fig-repeatedmeasures
-#| fig-cap: Figure displaying simulated data of a repeated measures design, the x-axis shows the condition (e.g., pre-test and post-test) and y-axis is the scores. Lines connect the change within subject from one condition to the next. 
+#| fig-cap: Figure displaying simulated data of a repeated measures design, the x-axis shows the condition (e.g., pre-test and post-test) and y-axis is the scores. Lines indicate within person pre/post change.
 
 library(ggplot2)
 library(ggdist)
@@ -194,15 +225,15 @@ ggplot(data=df,aes(x=Condition,y=X,group=ID)) +
 
 ```
 
-### Difference Score $d$ ($d_z$)
+### Difference Score $d$ ($d_z$) {#sec-repeated-measures-dz}
 
-Instead of comparing the means of two sets of scores, a within subject design allows us to subtract the scores obtained in condition 1 from the scores in condition 2. These difference scores ($X_{\text{diff}}=X_2-X_1$) can be used similarly to the single group design (if the target value was zero, i.e., $C=0$) such that,
+Instead of comparing the means of two sets of scores, a within subject design allows us to subtract the scores obtained in condition 1 from the scores in condition 2. These difference scores ($X_{\text{diff}}=X_2-X_1$) can be used similarly to the single group design (if the target value was zero, i.e., $C=0$) such that [equation 2.3.5, @cohen1988],
 
 $$
 d_z = \frac{M_{\text{diff}}}{S_{\text{diff}}}
 $$
 
-Where the difference between this formulation and the single group design is the nature of the scores (difference scores rather than raw scores). The convenient thing about $d_z$ is that it has a straight-forward relationship with the $t$-statistic, $d_z=\frac{t}{\sqrt{n}}$. This makes it very useful for power analyses. If the standard deviation of difference scores are not accessible, then it can be calculated using the standard deviation of condition 1 ($S_1$), the standard deviation of condition 2 ($S_2$), and the correlation between conditions ($r$):
+Where the difference between this formulation and the single group design is the nature of the scores (difference scores rather than raw scores). The convenient thing about $d_z$ is that it has a straight-forward relationship with the $t$-statistic, $d_z=\frac{t}{\sqrt{n}}$. This makes it very useful for power analyses. If the standard deviation of difference scores are not accessible, then it can be calculated using the standard deviation of condition 1 ($S_1$), the standard deviation of condition 2 ($S_2$), and the correlation between conditions ($r$) [equation 2.3.6, @cohen1988]:
 
 $$
 S_{\text{diff}}=\sqrt{S^2_1 + S^2_2 - 2 r S_1 S_2}
@@ -241,9 +272,9 @@ data.frame(d = apa(stats$d),
 
 The output shows that the effect size is $d_z$ = 1.09, 95% CI \[0.84, 1.34\].
 
-### Repeated Measures $d$ ($d_{rm}$)
+### Repeated Measures $d$ ($d_{rm}$) {#sec-repeated-measures-drm}
 
-For a within-group design, we want to compare the means of scores obtained from condition 1 and condition 2. The repeated measures standardized mean difference between the two conditions can be calculated by,
+For a within-group design, we want to compare the means of scores obtained from condition 1 and condition 2. The repeated measures standardized mean difference between the two conditions can be calculated by [equation 9, @lakens2013],
 
 $$
 d_{rm} = \frac{M_2-M_1}{S_w}.
@@ -252,16 +283,16 @@ $$
 A positive $d_{rm}$ value would indicate that the mean of condition 2 is larger than the mean of condition 1. The standardizer here is the within-subject standard deviation, $S_w$. The within-subject standard deviation can be defined as,
 
 $$
-S_{\text{diff}}=\sqrt{\frac{S^2_1 + S^2_2 - 2 r S_1 S_2}{2(1-r)}}.
+S_{w}=\sqrt{\frac{S^2_1 + S^2_2 - 2 r S_1 S_2}{2(1-r)}}.
 $$
 
-We can also express $S_w$ in terms of $S_{\text{diff}}$,
+We can also express $S_w$ in terms of the standard deviation of difference scores ($S_{\text{diff}}$),
 
 $$
 S_w = \frac{S_{\text{diff}}}{ \sqrt{2(1-r)} }.
 $$
 
-Furthermore, we can even express $d_{rm}$ in terms of $d_z$,
+Furthermore, we can even express $d_{rm}$ in terms of the difference score standardized mean difference ($d_z$),
 
 $$
 d_{rm} = d_z \times \sqrt{2(1-r)}.
@@ -303,18 +334,18 @@ data.frame(d = apa(stats$d),
 
 The output shows that the effect size is $d_{rm}$ = 0.42, 95% CI \[0.21, 0.63\].
 
-### Average Variance $d$ ($d_{av}$)
+### Average Variance $d$ ($d_{av}$) {#sec-repeated-measures-dav}
 
-The problem with $d_{z}$ and $d_{rm}$, is that they require the correlation between conditions. In practice, correlations between conditions are frequently not reported. An alternative estimator of Cohen's $d$ in repeated measures design is to simply use the classic variation of cohen's $d$ (i.e., pooled standard deviation). In a repeated measures design, the sample size does not change between conditions. Therefore weighting the variance of condition 1 and condition 2 by their respective degrees of freedom (i.e., $df=n-1$) is an unnecessary step. Instead, we can standardize by the square root of the average the variances of condition 1 and 2:
+The problem with $d_{z}$ and $d_{rm}$, is that they require the correlation between conditions. In practice, correlations between conditions are frequently not reported. An alternative estimator of Cohen's $d$ in repeated measures design is to simply use the classic variation of cohen's $d$ (i.e., pooled standard deviation). In a repeated measures design, the sample size does not change between conditions. Therefore weighting the variance of condition 1 and condition 2 by their respective degrees of freedom (i.e., $df=n-1$) is an unnecessary step. Instead, we can standardize by the square root of the average the variances of condition 1 and 2 [see equation 5, @algina2003]:
 
 $$
 d_{av} = \frac{M_2 - M_1}{\sqrt{\frac{S_1^2 + S_2^2}{2}}}
 $$
 
-This formulation is convenient especially when the correlation is not present, however without the correlation it fails to take into account the consistency of change between conditions. The standard error of the $d_{av}$ can be expressed as,
+This formulation is convenient especially when the correlation is not present, however without the correlation it fails to take into account the consistency of change between conditions. The standard error of the $d_{av}$ can be expressed as [equation 9, @algina2003],
 
 $$
-SE_{d_{av}}= \sqrt{\frac{2}{n} + \frac{d^2_{av}}{4n}}
+SE_{d_{av}}= \sqrt{\frac{2(S^2_1 + S^2_2 - 2rS_1S_2)}{n(S_1^2+S^2)}}
 $$
 
 In R, we can use the `d.ind.t.rm` function from the `MOTE` package to calculate the repeated measures standardized mean difference ($d_{rm}$).
@@ -345,7 +376,7 @@ data.frame(d = apa(stats$d),
 
 The output shows that the effect size is $d_{av}$ = 0.43, 95% CI \[0.22, 0.64\].
 
-### Becker's $d$ ($d_b$)
+### Becker's $d$ ($d_b$) {#sec-becker}
 
 An even simpler variant of repeated measures $d$ value comes from @becker1988. Becker's $d$ standardizes simply by the pre-test standard deviation when the comparison is a pre/post design,
 
@@ -353,11 +384,13 @@ $$
 d_b = \frac{M_{\text{post}}-M_{\text{pre}}}{S_{\text{pre}}}.
 $$
 
-The convenient interpretation of "change in baseline standard deviations" can be quite useful. We can also obtain the standard error with,
+The convenient interpretation of "change in baseline standard deviations" can be quite useful. We can also obtain the standard error with [equation 13, @becker1988],
 
 $$
 SE_{d_b} = \sqrt{\frac{2(1-r)}{n}+\frac{d_b^2}{2n}}
-$$ Notice that even though the formula for calculating $d_b$ did not include the correlation coefficient, the standard error does.
+$$
+
+Notice that even though the formula for calculating $d_b$ did not include the correlation coefficient, the standard error does.
 
 In base R, we can calculate Becker's formulation of standardized mean difference using the equations above.
 
@@ -382,10 +415,6 @@ a <- 0.05
 d <- (Mpost - Mpre) / Spre
 
 SE <- sqrt( 2*(1-r)/n + d^2/(2*n) )
-
-stats <- data.frame(d = d,
-                    dlow = d - 1.96*SE,
-                    dhigh = d + 1.96*SE)
 
 # print just the d value and confidence intervals
 data.frame(d = apa(d), 
@@ -413,9 +442,9 @@ The output shows that the effect size is $d_{rm}$ = 0.46, 95% CI \[0.23, 0.69\].
 
 We notice that the correlation greatly influences $d_z$ more than any other estimator. The $d_{rm}$ value has very little change, whereas $d_{av}$ and $d_{b}$ do not take into account the correlation at all.
 
-```{r,message=FALSE,echo=FALSE,warning=FALSE,fig.height=4}
+```{r,message=FALSE,echo=FALSE,warning=FALSE,fig.height=4,dpi=300}
 #| label: fig-correlation-comp
-#| fig-cap: Figure displaying simulated data of a repeated measures design, the x-axis shows the condition (e.g., pre-test and post-test) and y-axis is the scores. Lines connect the change within subject from one condition to the next. 
+#| fig-cap: Figure displaying simulated data of a repeated measures design, the x-axis shows the condition (e.g., pre-test and post-test) and y-axis is the scores. Left panel shows a high pre/post correlation ($r$ = .95) and right panel shows a low correlation condition ($r$ = .05). Lines indicate within person pre/post change.
 
 library(patchwork)
 library(ggdist)
@@ -492,6 +521,311 @@ h1 + h2
 
 ```
 
+## Pretest-Posttest-Control Group Designs {#sec-ppc}
+
+In many areas of research both between and within group factors are incorporated. For example, in research involving the examination of the effects of an intervention often a sample is randomised into two seperate groups (intervention and control) and then they are measured on the outcome of interest both before (pretest) and after (posttest) the intervention/control period. In these types of 2x2 (group x time) study designs it is usually the difference between the standardised mean change for the intervention/treatment ($T$) and control ($C$) groups that is of interest. For a visualization of a pretest-posttest-control group design see @fig-ppc.
+
+@morris2008 details three effect sizes for this pretest-posttest-control (PPC).
+
+```{r,echo=FALSE, dpi = 300, fig.height=4}
+#| id: fig-ppc
+#| fig-cap: Illustration of a pre-post control design. Left panel shows the pre-post difference in the control group and right panel shows the pre-post difference in the intervention/treatment group. Lines indicate within person pre/post change.
+
+
+library(patchwork)
+library(ggdist)
+library(MASS)
+library(latex2exp)
+set.seed(34)
+r = .80
+n = 50
+data<- mvrnorm(n = n,
+               mu = c(21.4,24.4),
+               Sigma = data.frame(x = c(22.53^2,r*22.53*19.59),
+                                  y = c(r*22.53*19.59,19.59^2)),
+               empirical=TRUE)
+
+df <- data.frame(X = c(data[,1],data[,2]),
+                 ID = c(1:n,1:n),
+                 Condition = c(rep(1,n),rep(2,n)))
+
+h1 <- ggplot(data=df,aes(x=Condition,y=X,group=ID)) +
+  geom_jitter(color='red',width=.015,height=0,alpha=.8,size=2) +
+  geom_line(color='red',alpha=.3) +
+  theme_ggdist() +
+  theme(aspect.ratio = 1,
+        axis.text = element_text(size=13),
+        axis.title = element_text(size=14),
+        title = element_text(size=14)) +
+  stat_slab(data=df[df$Condition==1,],aes(group=Condition,x=Condition-.15,y=X), 
+            position = position_dodge(),scale=.5,alpha=.3,side='left',fill='red') +
+  stat_slab(data=df[df$Condition==2,],aes(group=Condition,x=Condition+.15,y=X), 
+            position = position_dodge(),scale=.5,alpha=.3,side='right',fill='red') +
+  stat_pointinterval(data=df[df$Condition==1,],aes(group=Condition,x=Condition-.15,y=X),color = 'red') +
+  stat_pointinterval(data=df[df$Condition==2,],aes(group=Condition,x=Condition+.15,y=X),color = 'red') +
+  ggtitle("Control Group") +
+  ylab('Score') +
+  xlab('') +
+  scale_x_continuous(breaks=c(1,2),labels = c('Pre','Post')) + 
+  scale_y_continuous(breaks=c(-25,0,25,50,75),limits =  c(-35,90))
+
+
+data<- mvrnorm(n = n,
+               mu = c(20.4,33.4),
+               Sigma = data.frame(x = c(22.53^2,r*22.53*19.59),
+                                  y = c(r*22.53*19.59,19.59^2)),
+               empirical=TRUE)
+
+df <- data.frame(X = c(data[,1],data[,2]),
+                 ID = c(1:n,1:n),
+                 Condition = c(rep(1,n),rep(2,n)))
+
+h2 <- ggplot(data=df,aes(x=Condition,y=X,group=ID)) +
+  geom_jitter(color='blue',width=.015,height=0,alpha=.8,size=2) +
+  geom_line(color='blue',alpha=.3) +
+  theme_ggdist() +
+  theme(aspect.ratio = 1,
+        axis.text = element_text(size=13),
+        axis.title = element_text(size=14),
+        title = element_text(size=14)) +
+  stat_slab(data=df[df$Condition==1,],aes(group=Condition,x=Condition-.15,y=X), 
+            position = position_dodge(),scale=.5,alpha=.3,side='left',fill='blue') +
+  stat_slab(data=df[df$Condition==2,],aes(group=Condition,x=Condition+.15,y=X), 
+            position = position_dodge(),scale=.5,alpha=.3,side='right',fill='blue') +
+  stat_pointinterval(data=df[df$Condition==1,],aes(group=Condition,x=Condition-.15,y=X),color = 'blue') +
+  stat_pointinterval(data=df[df$Condition==2,],aes(group=Condition,x=Condition+.15,y=X),color = 'blue') +
+  ggtitle("Intervention Group") +
+  ylab('Score') +
+  xlab('') +
+  scale_x_continuous(breaks=c(1,2),labels = c('Pre','Post')) + 
+  scale_y_continuous(breaks=c(-25,0,25,50,75),limits = c(-35,90))
+
+
+h1 + h2
+```
+
+### PPC1 - separate pre-test standard deviations {#sec-ppc1}
+
+The separate pre-test (i.e., baseline) standard deviations are used to standardize the pre/post mean difference in the intervention group and the control group respectively [see equation 4, @morris2008],
+
+$$
+d_T = \frac{M_{T,\text{post}} - M_{T,\text{pre}}}{S_{T,\text{pre}}}
+$$
+
+$$
+d_C = \frac{M_{C,\text{post}} - M_{C,\text{pre}}}{S_{C,\text{pre}}}
+$$
+
+Note that these effect sizes are identical to the Becker's $d$ formulation of the SMD (see @sec-becker). Therefore the pretest-posttest-control group effect size is simply the difference between the intervention and control pre/post SMD [equation 15, @becker1988],
+
+$$
+d_{PPC1} = d_T - d_C
+$$
+
+The asymptotic standard error of $d_{PPC2}$ was first derived by @becker1988 and can be expressed as the square root of the sum of the sampling variances [equation 16, @becker1988]
+
+$$
+SE_{d_{PPC1}} = \sqrt{\left[\frac{2(1-r_T)}{n_T} + \frac{d_T}{2n_T}\right] + \left[\frac{2(1-r_C)}{n_C} + \frac{d_C}{2n_C}\right]}
+$$
+
+We can calculate $d_{PPC1}$ and it's confidence intervals using base R:
+
+```{r,echo=TRUE}
+# Example:
+
+# Control Group (N = 90)
+## Pre-test Mean = 20, SD = 6
+## Post-test Mean = 25, SD = 7
+## Pre/post correlation = .50
+M_Cpre <- 20
+M_Cpost <- 25
+SD_Cpre <- 6
+SD_Cpost <- 7
+rC <- .50
+nC <- 90
+
+# Intervention Group (N = 90)
+## Pre-test Mean = 20, SD = 5
+## Post-test Mean = 27, SD = 8
+## Pre/post correlation = .50
+M_Tpre <- 20
+M_Tpost <- 27
+SD_Tpre <- 5
+SD_Tpost <- 8
+rT <- .50
+nT <- 90
+
+# calculate the observed standardized mean difference
+dT <- (M_Tpost- M_Tpre) / SD_Tpre
+dC <- (M_Cpost - M_Cpre) / SD_Cpre
+dPPC1 <- dT - dC
+
+# calculate the standard error
+SE <- sqrt( 2*(1-rT)/nT + dPPC1^2/(2*nT) + 2*(1-rC)/nC + dPPC1^2/(2*nC) )
+
+# print the d value and confidence intervals
+data.frame(d = MOTE::apa(dPPC1),
+           dlow = MOTE::apa(dPPC1 - 1.96*SE),
+           dhigh = MOTE::apa(dPPC1 + 1.96*SE))
+
+```
+
+The output shows a pre-post intervention effect of $d_{PPC1}$ = 0.57 \[0.25, 0.88\].
+
+### PPC2 - pooled pre-test standard deviations {#sec-ppc2}
+
+The pooled pre-test (i.e., baseline) standard deviations can be used to standardized the difference in pre/post change between intervention and control groups such that [equation 8, @morris2008],
+
+$$
+d_{PPC2} = \frac{(M_{T,\text{post}} - M_{T,\text{pre}}) - (M_{C,\text{post}} - M_{C,\text{pre}})}{S_{p,\text{pre}}}
+$$
+
+where
+
+$$
+S_{p,\text{pre}} = \sqrt{\frac{(n_T-1)S^2_{T,\text{pre}} + (n_C - 1)S^2_{C,\text{post}}}{n_T + n_C - 2}}.
+$$
+
+The distribution of $d_{PPC2}$ was described by @morris2008 and can be expressed as [adapted from equation 16, @morris2008],
+
+$$
+\small{SE_{d_{PPC2}} = \sqrt{2\left(1-\frac{n_T r_T + n_C r_C}{n_T + n_C}\right)\left(\frac{n_T + n_C}{n_T n_C}\right)\left[1 + \frac{d^2_{PPC2}}{2\left(1-\frac{n_T r_T + n_C r_C}{n_T + n_C}\right)\left(\frac{n_T + n_C}{n_T n_C}\right)}\right] - d^2_{PPC2}}}
+$$
+
+Note the original equation shown in the paper by @morris2008 uses the population pre/post correlation $\rho$, however in the equation above we replace $\rho$ with the sample size weighted average of the Pearson correlation computed in the treatment group and the control group (i.e., $\rho \approx \frac{n_T r_T + n_C r_C}{n_T + n_C}$).
+
+We can use base R to obtain $d_{PPC2}$ and confidence intervals:
+
+```{r,echo=TRUE}
+# Example:
+
+# Control Group (N = 90)
+## Pre-test Mean = 20, SD = 6
+## Post-test Mean = 25, SD = 7
+## Pre/post correlation = .50
+M_Cpre <- 20
+M_Cpost <- 25
+SD_Cpre <- 6
+SD_Cpost <- 7
+rC <- .50
+nC <- 90
+
+# Intervention Group (N = 90)
+## Pre-test Mean = 20, SD = 5
+## Post-test Mean = 27, SD = 8
+## Pre/post correlation = .50
+M_Tpre <- 20
+M_Tpost <- 27
+SD_Tpre <- 5
+SD_Tpost <- 8
+rT <- .50
+nT <- 90
+
+# calculate the observed standardized mean difference
+dPPC2 <- ((M_Tpost- M_Tpre) - (M_Cpost - M_Cpre)) / sqrt( ( (nT - 1)*(SD_Tpre^2) + (nC - 1)*(SD_Cpre^2) ) / (nT + nC - 2) )
+
+# calculate the standard error
+SE <-  sqrt(2*(1-( (nT*rT+nC*rC)/(nT + nC))) * ((nT+nC)/(nT*nC)) * (1 + (dPPC2^2 / (2*(1 - ((nT*rT+nC*rC)/(nT+nC))) * ((nT+nC)/(nT*nC)))))) - dPPC2
+
+# print the d value and confidence intervals
+data.frame(d = MOTE::apa(dPPC2),
+           dlow = MOTE::apa(dPPC2 - 1.96*SE),
+           dhigh = MOTE::apa(dPPC2 + 1.96*SE))
+
+```
+
+The output shows a pre-post intervention effect of $d_{PPC2}$ = 0.36 \[0.30, 0.42\].
+
+### PPC3 - pooled pre- and post-test {#sec-ppc3}
+
+The two previous effect sizes only use the pretest standard deviation. But if we are happy to assume that pretest and posttest variances are homogenous[^standardized-mean-differences-1] the pooled pre-test and post-test standard deviations can be used to standardized the difference in pre/post change between intervention and control groups such that [equation 8, @morris2008],
+
+[^standardized-mean-differences-1]: Note, this may not be the case especially where there is a mean-variance relationship and one (usually the intervention) group has a higher posttest mean score.
+
+$$
+d_{PPC3} = \frac{(M_{T,\text{post}} - M_{T,\text{pre}}) - (M_{C,\text{post}} - M_{C,\text{pre}})}{S_{p,\text{pre-post}}},
+$$
+
+where,
+
+$$
+S_{p,\text{pre-post}} = \sqrt{\frac{(n_T-1)\left(S^2_{T,\text{pre}} + S^2_{T,\text{post}}\right) + (n_C - 1)\left(S^2_{C,\text{pre}} + S^2_{C,\text{post}}\right)}{n_T + n_C - 2}}.
+$$
+
+The standard error for $d_{PPC2}$ is currently unknown. An option to estimate this standard error is to use a non-parametric or parametric bootstrap by repeatedly sampling the raw data, or if the raw data is not available resample simulated data. We can do this in base R by simulating pre/post data using the `mvrnorm()` function from the `MASS` package [@MASS]:
+
+```{r,echo=TRUE}
+# Install the package below if not done so already
+# install.packages(MASS)
+
+# Example:
+
+# Control Group (N = 90)
+## Pre-test Mean = 20, SD = 6
+## Post-test Mean = 25, SD = 7
+## Pre/post correlation = .50
+M_Cpre <- 20
+M_Cpost <- 25
+SD_Cpre <- 6
+SD_Cpost <- 7
+rC <- .50
+nC <- 90
+
+# Intervention Group (N = 90)
+## Pre-test Mean = 20, SD = 5
+## Post-test Mean = 27, SD = 8
+## Pre/post correlation = .50
+M_Tpre <- 20
+M_Tpost <- 27
+SD_Tpre <- 5
+SD_Tpost <- 8
+rT <- .50
+nT <- 90
+
+# simulate data
+set.seed(1) # set seed for reproducibility
+boot_dPPC3 <- c()
+for(i in 1:1000){
+  # simulate control group pre-post data
+  data_C <- MASS::mvrnorm(n = nC,
+                          # input observed means
+                          mu = c(M_Cpre,M_Cpost),
+                          # input observed covariance matrix
+                          Sigma = data.frame(pre = c(SD_Cpre^2, rC*SD_Cpre*SD_Cpost), 
+                                             post = c(rC*SD_Cpre*SD_Cpost,SD_Cpost^2)))
+  # simulate intervention group pre-post data
+  data_T <- MASS::mvrnorm(n = nT,
+                          # input observed means
+                          mu = c(M_Tpre,M_Tpost),
+                          # input observed covariance matrix
+                          Sigma = data.frame(pre = c(SD_Tpre^2, rT*SD_Tpre*SD_Tpost), 
+                                             post = c(rT*SD_Tpre*SD_Tpost,SD_Tpost^2)))
+  
+  # calculate the mean difference in pre/post change (the numerator)
+  MeanDiff <- (mean(data_T[,2]) - mean(data_T[,1])) - (mean(data_C[,2]) - mean(data_C[,1]))
+  
+  # calculate the pooled pre-post standard deviation (the denominator)
+  S_Pprepost <-  sqrt( ( (nT - 1)*(sd(data_T[,1])^2+sd(data_T[,2])^2) + (nC - 1)*(sd(data_C[,1])^2+sd(data_C[,2])^2) ) / (nT + nC - 2) )
+  
+  # calculate the standardized mean difference for each bootstrap iteration
+  boot_dPPC3[i] <- MeanDiff / S_Pprepost
+}
+
+# calculate bootstrapped standard error
+SE <- sd(boot_dPPC3)
+
+# calculate the observed standardized mean difference
+dPPC3 <- ((M_Tpost- M_Tpre) - (M_Cpost - M_Cpre)) / sqrt( ( (nT - 1)*(SD_Tpre^2+SD_Tpost^2) + (nC - 1)*(SD_Cpre^2+SD_Cpost^2) ) / (nT + nC - 2) )
+
+#print the d value and confidence intervals
+data.frame(d = MOTE::apa(dPPC3),
+           dlow = MOTE::apa(dPPC3 - 1.96*SE),
+           dhigh = MOTE::apa(dPPC3 + 1.96*SE))
+
+```
+
+The output shows a pre-post intervention effect of $d_{PPC3}$ = 0.21 \[0.002, 0.43\].
+
 ## Small Sample Bias in $d$ values
 
 All the estimators of $d$ listed above are biased estimates of the population $d$ value, specifically they all over-estimate the population value in small sample sizes. To adjust for this bias, we can apply a correction factor based on the degrees of freedom. The degrees of freedom will largely depend on the estimator used. The degrees of freedom for each estimator is listed below:
@@ -500,6 +834,9 @@ All the estimators of $d$ listed above are biased estimates of the population $d
 -   Between Groups - Pooled Standard Deviation ($d_p$): $df = n_1+n_2-2$
 -   Between Groups - Control Group Standard Deviation ($d_\Delta$): $df = n_C-1$
 -   Repeated Measures - all types ($d_z$, $d_{rm}$, $d_{av}$, $d_{b}$): $df = n-1$
+-   Pretest-Posttest-Control Separate Standard Deviation ($d_{PPC1}$): $df=n_C−1$
+-   Pretest-Posttest-Control Pooled Pretest Standard Deviation ($d_{PPC2}$): $df=n_T+n_C−2$
+-   Pretest-Posttest-Control Pooled Pretest and Posttest Standard Deviation ($d_{PPC3}$): $df=2(n_T+n_C−2)$
 
 With the appropriate degrees of freedom, we can use the following correction factor, $CF$, to obtain an unbiased estimate of the population standardized mean difference:
 
@@ -542,7 +879,6 @@ $$
 CI_{d*} = d^* \pm 1.96\times SE_{d^*}
 $$
 
-
 ```{r,echo=TRUE}
 # Example:
 # Cohen's d = .50, SE = .10
@@ -564,3 +900,151 @@ data.frame(d = apa(d),
 
 The output shows that the corrected effect size is $d^*$ = 0.50, 95% CI \[0.30, 0.68\].
 
+## Ratios of Means {#sec-rr}
+
+Another common approach, particularly within the fields of ecology and evolution, is to take the natural logarithm of the ratio between two means; the so-called Response Ratio ($lnRR$). This is sometimes more favorable as, due to its construction using the standard deviation in some form as a denominator, the various versions of standardized mean differences are impacted by the estimate of this parameter for which studies are often less powered compared to mean magnitudes [@yang2022]. For the $lnRR$ however the standard deviation only impacts its variance estimation and not the point estimate. A limitation of the lnRR however is that it is limited to data that are observed on a ratio scale (i.e., have an absolute zero and instances of it are related ordinally and additively meaning both means will be positive).
+
+Although strictly speaking the $lnRR$ is not a difference in means in an additive sense as the above standardized mean difference effect sizes are, it can in one sense be considered to reflect the difference in means on the multiplicative scale. In fact, after calculation it is often transformed to reflect the percentage difference or change between means: $100\times \exp(lnRR)-1$. However, this can introduce transformation induced bias because a non-linear transformation of a mean value is not generally equal to the mean of the transformed value. In the context of meta-analysis combining $lnRR$ estimated across studies a correct factor can be applied: $100\times \exp(lnRR+0.5 S^2_\text{total})-1$, where $S^2_\text{total}$ is the variance of all $lnRR$ values.
+
+Similarly to the various standardized mean differences, there are varied calculations for the lnRR dependent upon the study design being used [see @senior2020].
+
+### lnRR for Independent Groups ($lnRR_\text{ind}$) {#sec-rrind}
+
+The lnRR can be calculated when groups are independent as follows, 
+
+$$
+lnRR_\text{ind}=\ln\left(\frac{M_T}{M_C}\right)+CF
+$$
+
+Where $M_T$ and $M_C$ are the means for the treatment and control group respectively and $CF$ is the small sample correction factor calculated as,
+
+$$
+CF = \frac{S^2_T}{2n_TM_T^2} - \frac{S^2_C}{2n_CM_C^2}
+$$
+
+The standard error can be calculated as,
+
+$$
+SE_{lnRR_\text{ind}} = \sqrt{ \frac{S^2_T}{n_T M_T^2} + \frac{S^2_C}{n_C M_C^2} +\frac{S^4_T}{2n^2_T M_T^4} + \frac{S^4_C}{2n^2_C M_C^4}}
+$$
+
+Using R we can easily calculate this effect size using the `escalc()` function in the `metafor` package [@metafor]:
+
+```{r,message=FALSE}
+# lnRR for two independent groups
+# given means and SDs
+
+# For example:
+# Group 1 Mean = 30.4, Standard deviation = 22.53, Sample size = 96
+# Group 2 Mean = 21.4, Standard deviation = 19.59, Sample size = 96
+
+library(metafor)
+
+
+# prepare the data
+M1 <- 30.4
+M2 <- 21.4
+SD1 <- 22.53
+SD2 <- 19.59
+N1 = 96
+N2 = 96
+
+# calculate lnRRind and standard error
+lnRRind <- escalc(measure = "ROM", 
+               m1i = M1,
+               m2i = M2,
+               sd1i = SD1,
+               sd2i = SD2,
+               n1i = N1,
+               n2i = N2)
+
+lnRRind$SE <- sqrt(lnRRind$vi)
+
+# calculate confidence interval
+lnRRind$CIlow <- lnRRind$yi - 1.96*lnRRind$SE
+lnRRind$CIhigh <-  lnRRind$yi + 1.96*lnRRind$SE
+
+# print the VR value and confidence intervals
+data.frame(lnRRind = MOTE::apa(lnRRind$yi),
+           lnRRind_low = MOTE::apa(lnRRind$CIlow),
+           lnRRind_high = MOTE::apa(lnRRind$CIhigh))
+
+```
+
+The example shwos a natural log response ratio of $lnRR_\text{ind}$ = 0.35 \[0.12, 0.59\].
+
+
+### lnRR for dependent groups ($lnRR_\text{dep}$) {#sec-rrdep}
+
+The lnRR can be calculated when groups are dependent (i.e., same subjects in both conditions), for example a pre-post comparison, as follows,
+
+$$
+lnRR_\text{dep} = \ln\left(\frac{M_2}{M_1}\right) + CF
+$$
+
+Where $CF$ is the small sample correct factor calculated as,
+
+$$
+CF = \frac{S^2_2}{2nM^2_2} - \frac{S^2_1}{2nM^2_1}
+$$
+
+The standard error can then be calculated as,
+
+$$
+\small{SE_{lnRR_\text{dep}} = \sqrt{ \frac{S^2_1}{n M_1^2} + \frac{S^2_2}{n M_2^2} + \frac{S^4_1}{2n^2M^4_1} +  \frac{S^4_2}{2n^2M^4_2} + \frac{2rS_1 S_2}{n M_1 M_2} + \frac{r^2S^2_1 S^2_2 (M_1^4 + M_2^4)}{2n^2 M_1^4 M_2^4}}}
+$$
+
+Using R we can easily calculate this effect size using the `escalc()` function from the `metafor` package as follows:
+
+```{r,message=FALSE}
+# lnRR for two dependent groups
+# given means and SDs
+
+
+# For example:
+# Mean 1 = 30.4, Standard deviation 1 = 22.53
+# Mean 2 = 21.4, Standard deviation 2 = 19.59
+# Sample size = 96
+# Correlation = 0.4
+
+library(metafor)
+
+
+# prepare the data
+M1 <- 30.4
+M2 <- 21.4
+SD1 <- 22.53
+SD2 <- 19.59
+N = 96
+R = 0.4
+
+
+# calculate lnRR and standard error
+lnRRdep <- escalc(measure = "ROMC", 
+               m1i = M1,
+               m2i = M2,
+               sd1i = SD1,
+               sd2i = SD2,
+               ni = N,
+               ri = R)
+
+# obtain standard error from sqrt of sampling variance
+lnRRdep$SE <- sqrt(lnRRdep$vi)
+
+
+# calculate confidence interval
+lnRRdep$CIlow <- lnRRdep$yi - 1.96*lnRRdep$SE
+lnRRdep$CIhigh <-  lnRRdep$yi + 1.96*lnRRdep$SE
+
+
+
+
+# print the VR value and confidence intervals
+data.frame(lnRRdep = MOTE::apa(lnRRdep$yi),
+           lnRRdep_low = MOTE::apa(lnRRdep$CIlow),
+           lnRRdep_high = MOTE::apa(lnRRdep$CIhigh))
+
+
+```
+
+The example shwos a natural log response ratio of $lnRR_\text{dep}$ = 0.35 \[0.17, 0.54\].

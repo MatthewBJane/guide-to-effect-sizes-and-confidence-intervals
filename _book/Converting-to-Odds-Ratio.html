@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.361">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="keywords" content="collaboration, confidence interval, effect size, open educational resource, open scholarship, open science">
 
-<title>Guide to Effect Sizes and Confidence Intervals - 16&nbsp; Converting to Odds Ratio</title>
+<title>Guide to Effect Sizes and Confidence Intervals - 17&nbsp; Converting to Odds Ratio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -96,6 +96,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -104,8 +105,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://matthewbjane.quarto.pub/effect-size-and-confidence-intervals-guide/social-preview.png">
 <meta name="twitter:creator" content="@MatthewBJane">
-<meta name="twitter:image-height" content="1181">
-<meta name="twitter:image-width" content="2362">
+<meta name="twitter:image-height" content="1417">
+<meta name="twitter:image-width" content="2835">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -119,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Converting-to-Cohens-d.html"><strong>Converting Between Effect Sizes</strong></a></li><li class="breadcrumb-item"><a href="./Converting-to-Odds-Ratio.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Converting to Odds Ratios</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Converting-to-Cohens-d.html"><strong>Converting Between Effect Sizes</strong></a></li><li class="breadcrumb-item"><a href="./Converting-to-Odds-Ratio.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Converting to Odds Ratios</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -138,7 +139,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Table of Contents</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/MatthewBJane/guide-to-effect-sizes-and-confidence-intervals" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/MatthewBJane/guide-to-effect-sizes-and-confidence-intervals" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
@@ -226,7 +227,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Standardized-Mean-Differences.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Standardized-Mean-Differences</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Mean Differences</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -244,7 +245,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Effect-Sizes-for-ANOVAs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Effect Sizes for ANOVAs</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">ANOVAs</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -257,6 +258,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="./Non-Parametric-Effect-Sizes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Non-Parametric Effect Sizes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Regression</span></span></a>
   </div>
 </li>
       </ul>
@@ -273,19 +280,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Converting-to-Cohens-d.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Converting to Cohen’s d</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Converting to Cohen’s d</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Converting-to-Correlation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Converting to Correlations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Converting to Correlations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Converting-to-Odds-Ratio.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Converting to Odds Ratios</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Converting to Odds Ratios</span></span></a>
   </div>
 </li>
       </ul>
@@ -302,7 +309,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Conclusion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -323,8 +330,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#from-cohens-d" id="toc-from-cohens-d" class="nav-link active" data-scroll-target="#from-cohens-d"><span class="header-section-number">16.1</span> From Cohen’s <span class="math inline">\(d\)</span></a></li>
-  <li><a href="#from-a-pearson-correlation" id="toc-from-a-pearson-correlation" class="nav-link" data-scroll-target="#from-a-pearson-correlation"><span class="header-section-number">16.2</span> From a Pearson Correlation</a></li>
+  <li><a href="#from-cohens-d" id="toc-from-cohens-d" class="nav-link active" data-scroll-target="#from-cohens-d"><span class="header-section-number">17.1</span> From Cohen’s <span class="math inline">\(d\)</span></a></li>
+  <li><a href="#from-a-pearson-correlation" id="toc-from-a-pearson-correlation" class="nav-link" data-scroll-target="#from-a-pearson-correlation"><span class="header-section-number">17.2</span> From a Pearson Correlation</a></li>
   </ul>
 </nav>
     </div>
@@ -333,7 +340,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Converting to Odds Ratio</span></h1>
+<h1 class="title"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Converting to Odds Ratio</span></h1>
 </div>
 
 
@@ -348,8 +355,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="from-cohens-d" class="level2" data-number="16.1">
-<h2 data-number="16.1" class="anchored" data-anchor-id="from-cohens-d"><span class="header-section-number">16.1</span> From Cohen’s <span class="math inline">\(d\)</span></h2>
+<section id="from-cohens-d" class="level2" data-number="17.1">
+<h2 data-number="17.1" class="anchored" data-anchor-id="from-cohens-d"><span class="header-section-number">17.1</span> From Cohen’s <span class="math inline">\(d\)</span></h2>
 <p>We can calculate an odds-ratio from a between groups cohen’s <span class="math inline">\(d\)</span> (<span class="math inline">\(d_p\)</span>):</p>
 <p><span class="math display">\[
 OR = \exp\left(\frac{d_p \pi}{\sqrt{3}}\right)
@@ -371,8 +378,8 @@ OR = \exp\left(\frac{d_p \pi}{\sqrt{3}}\right)
 </div>
 </div>
 </section>
-<section id="from-a-pearson-correlation" class="level2" data-number="16.2">
-<h2 data-number="16.2" class="anchored" data-anchor-id="from-a-pearson-correlation"><span class="header-section-number">16.2</span> From a Pearson Correlation</h2>
+<section id="from-a-pearson-correlation" class="level2" data-number="17.2">
+<h2 data-number="17.2" class="anchored" data-anchor-id="from-a-pearson-correlation"><span class="header-section-number">17.2</span> From a Pearson Correlation</h2>
 <p>We can calculate an odds ratio from a Pearson correlation using the following formula:</p>
 <p><span class="math display">\[
 OR = \exp\left(\frac{r\pi \sqrt{\frac{n_1+n_2-2}{n_1} + \frac{n_1+n_2-2}{n_2}}}{\sqrt{3(1-r^2)}}\right)
@@ -636,12 +643,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./Converting-to-Correlation.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Converting to Correlations</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Converting to Correlations</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./Conclusion.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Conclusion</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Conclusion</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

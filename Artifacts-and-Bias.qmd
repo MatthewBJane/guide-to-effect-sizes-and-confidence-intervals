@@ -1,11 +1,48 @@
 # Artifacts and Bias in Effect Sizes
 
+## Resources
+
 Effect size estimates such as correlation coefficients and Cohen's $d$ values can be severely biased due to various statistical artifacts such as measurement error and selection effects (e.g., range restriction). Methods have been developed to correct for the bias in effect sizes and thus these corrections are called "artifact corrections". Artifact correction formulas can be complex and therefore readers are referred to other resources listed below:
 
--   @MatthewBJane2023 : An open-access textbook that contains equations and R code for various types of artifact corrections.
+-   @MatthewBJane2023 : An open-access textbook that contains equations and R code for various types of artifact corrections. Not yet released.
 
 -   @hunter1990 : Classic textbook on the topic of artifact corrections. Hunter and Schmidt pioneered the methodology for artifact correction style meta-analyses.
 
 -   @wiernik2020 : A paper that serves as a condensed version of Hunter and Schmidt's book. It contains most of the equations necessary to correct effect sizes.
 
 -   @psychmeta : An R package for conducting artifact correction meta-analyses. Contains all the functions one would need to correct effect sizes for artifacts in R.
+
+## Correcting for Measurement Error
+
+If we have reliability estimates of the variables of interest, we can correct a Pearson correlation or a standardized mean difference (Cohen's $d$) for measurement error. Non-differential measurement error attenuates Pearson correlations and Cohen's $d$ therefore we can apply correction factors to adjust for this bias. For a pearson correlation, we can use the correction for attenuation first developed by @spearman1904,
+
+$$
+r_c  = \frac{r_\text{obs}}{\sqrt{r_{xx'}r_{yy'}}}
+$$ {#eq-corr-r}
+where $r_c$ is the corrected correlation, $r_\text{obs}$ is the observed correlation, $r_{xx'}$ is the reliability of $x$, and $r_{yy'}$ is the reliability of $y$. reliability coefficients can be estimated a number of different ways however the two of the most common estimators is Cronbach Alpha and Test-retest reliability. Alpha measures the internal consistency of a set of sub-component measurements (e.g., question responses on a questionnaire) while test-retest reliability measures the stability over time.
+
+A Cohen's $d$ can be corrected similarly to a correlation coefficient, however since it only has one continuous variable we can just correct for reliability in the continuous variable
+
+$$
+d_c  = \frac{d_\text{obs}}{\sqrt{r_{yy'}}}
+$$
+However in the case of a Cohen's d, it is important that $r_{yy'}$ is the pooled within-group reliability (calculate pooled reliability the same way you calculate the pooled standard deviation for denominator of Cohen's $d$). If all you have is the total sample reliability (more commonly reported) you can follow this three step process [@wiernik2020], 
+
+1. Convert the d value to a point-biserial correlation (see section on conversions)
+2. Correct the point-biserial correlation using @eq-corr-r (setting $r_{xx'}=1$)
+3. Convert it back to a Cohen's $d$
+
+Note that confidence intervals for $r_c$ and $d_c$ must also be corrected. For example, a pearson correlation would need to be corrected such that,
+$$
+CI_{r_c} = \left[\frac{r_\text{lower-bound}}{\sqrt{r_{xx'}r_{yy'}}},\frac{r_\text{upper-bound}}{\sqrt{r_{xx'}r_{yy'}}}\right]
+$$
+
+## Correcting for Range Restriction
+
+
+Range restriction corrections can be quite complex depending on the selection process. The process for correcting Pearson correlations and Cohen's $d$ for range restriction is laid out in table 3 of @wiernik2020.
+
+
+
+
+

@@ -2,18 +2,20 @@
 
 Confidence intervals must be calculated and reported for every effect size that you obtained and mentioned in your manuscript. If you are doing a replication and your target article/study did not report CIs for its effect sizes, you should calculate CIs and report them.
 
-Normally, we calculate 95% confidence intervals (i.e., 95% of such intervals are expected to contain the true parameter value if we conduct an infinite number of identical studies). Nonetheless, for some effect sizes (e.g., eta-squared, partial eta-squared, R-squared), we calculate 90% confidence intervals. This is because $\eta^2$ is squared and always positive, and F-tests are one-sided. Reporting 95% CI for eta squared may result in situations in which the CI includes zero but the p-value falls below .05, whereas reporting 90% CI prevents such a problem. For further information regarding this issue, read Daniel Lakens blog on confidence intervals and @steiger2004.
+Normally, we calculate 95% confidence intervals (i.e., 95% of such intervals are expected to contain the true parameter value if we conduct an infinite number of identical studies).
+
+::: callout-note
+## Alpha level
+
+The confidence interval depends on the alpha level, that is, the proportion of CIs upon repeated sampling that will not contain the true parameter. If the true effect is zero (or null), the the alpha level represents the false positive rate (i.e., the rate of observing a significant effect when there is none). The 95% CI is based on an alpha level of .05, however researchers can choose any value (between 0 and 1), as long as it is properly justified [@lakens2022].
+:::
+
+Nonetheless, for some effect sizes (e.g., eta-squared, partial eta-squared, R-squared), we calculate 90% confidence intervals. This is because $\eta^2$ is squared and always positive, and F-tests are one-sided. Reporting 95% CI for eta squared may result in situations in which the CI includes zero but the p-value falls below .05, whereas reporting 90% CI prevents such a problem. For further information regarding this issue, read Daniel Lakens blog on confidence intervals and @steiger2004.
 
 Confidence intervals should be reported immediately after an effect size, e.g., Cohen's d = 0.40, 95% CI \[0.20, 0.60\]. After the first time reporting them in a manuscript, every subsequent CI can be simply denoted by brackets without the "95% CI" preceding it.
 
 Unless you are measuring something that is meaningful in real life (e.g., income, years of experience, amount that a person is willing to donate), please make sure that the CI you calculated is a CI of the effect size, not of other statistics, such as the test statistics or mean difference in raw units.
 
-If you see one of the following:
+If you see that the effect size estimate is not included within your CI, you likely have an issue, check carefully. For means and for difference in means, the estimate should be precisely the midpoint of your CI; for other statistics (e.g., correlation, proportion, frequency, standard deviation), one arm might be longer than the other so the estimate may not be the midpoint. 
 
-1.  Your effect size estimate does not fall in your confidence interval: you certainly have an issue. This can occur for example, if the width of the CI can be smaller than the tolerance of the optimizer, resulting in CIs of width 0.
-
-2.  One of your CI bound is "infinite"
-
-3.  Your effect size estimate is not included within your CI (for comparison between two groups): You have an issue, check carefully. For means and for difference in means, the estimate should be precisely the midpoint of your CI; for other statistics (e.g., correlation, proportion, frequency, standard deviation), one arm might be longer than the other so the estimate may not be the midpoint.
-
-For further reading related to the calculaton and reporting of effect sizes and confidence intervals, see @steiger2004 and @lakens2014.
+For further reading related to the calculation and reporting of effect sizes and confidence intervals, see @steiger2004 and @lakens2014.

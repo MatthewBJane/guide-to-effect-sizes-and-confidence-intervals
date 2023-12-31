@@ -37,6 +37,21 @@ book:
     affiliations:
       - name: Chinese University of Hong Kong
         department: Department of Psychology
+  - name: Mattan S. Ben-Shachar
+    orcid: 0000-0002-4287-4801
+    affiliations:
+      - name: Independent Researcher
+  - name: Aaron R. Caldwell
+    orcid: 0000-0002-4541-6283
+    affiliations:
+      - name: University of Arkansas for Medical Sciences
+        department: Fay W. Boozman College of Public Health
+  - name: Denis Cousineau
+    email: denis.cousineau@uottawa.ca
+    orcid: 0000-0001-5908-0402
+    affiliations:
+      - id: id7
+        name: Université d’Ottawa
   - name: Daniel J. Dunleavy
     email: djd09e@my.fsu.edu
     orcid: 0000-0002-3597-7714
@@ -44,29 +59,12 @@ book:
       - id: id4
         name: Florida State
         department: College of Social Work
-  - name: Lukas Röseler
-    email: roeseler.lukas@gmail.com
-    orcid: 0000-0002-6446-1901
-    affiliations:
-      - id: id5
-        name: University of Bamberg
   - name: Mahmoud Elsherif
     email: mahmoud.medhat.elsherif@gmail.com
     orcid: 0000-0002-0540-3998
     affiliations:
       - id: id6
         name: University of Birmingham
-  - name: Denis Cousineau
-    email: denis.cousineau@uottawa.ca
-    orcid: 0000-0001-5908-0402
-    affiliations:
-      - id: id7
-        name: Université d’Ottawa
-  - name: Aaron R. Caldwell
-    orcid: 0000-0002-4541-6283
-    affiliations:
-      - name: University of Arkansas for Medical Sciences
-        department: Fay W. Boozman College of Public Health
   - name: Blair T. Johnson
     email: blair.t.johnson@uconn.edu
     affiliations:
@@ -77,6 +75,22 @@ book:
     affiliations:
       - name: University of Auckland
         department: Centre for Brain Research
+  - name: Paul Riesthuis
+    orcid: 0000-0001-6520-2453
+    affiliations:
+      - name: KU Leuven & Maastricht University
+        department: Centre for Brain Research
+  - name: Lukas Röseler
+    email: roeseler.lukas@gmail.com
+    orcid: 0000-0002-6446-1901
+    affiliations:
+      - id: id5
+        name: University of Bamberg
+  - name: James Steele
+    orcid: 0000-0002-8003-0757
+    affiliations:
+      - name: Solent University
+        department: School of Sport, Health and Social Sciences
   - name: Felipe F. Vieira
     orcid: 0009-0006-0949-6569
     affiliations:
@@ -114,18 +128,20 @@ book:
       href: Artifacts-and-Bias.qmd
     - part: "**Standardized Effect Sizes**"
       chapters:
-        - text: "Standardized-Mean-Differences"
+        - text: "Mean Differences"
           href: Standardized-Mean-Differences.qmd
         - text: "Correlations"
           href: Correlations.qmd
         - text: "Categorical/Proportional Data"
           href: Categorical-Proportional-Data.qmd
-        - text: "Effect Sizes for ANOVAs"
+        - text: "ANOVAs"
           href: Effect-Sizes-for-ANOVAs.qmd
-        - text: "Differences in Variance"
+        - text: "Variability Differences"
           href: Differences-in-Variance.qmd
         - text: "Non-Parametric Effect Sizes"
           href: Non-Parametric-Effect-Sizes.qmd
+        - text: "Regression"
+          href: Regression.qmd
     - part: "**Converting Between Effect Sizes**"
       chapters:
         - text: "Converting to Cohen's d"
@@ -140,7 +156,10 @@ book:
         href: Conclusion.qmd
       - text: "References"
         href: references.qmd
-    
+
+comments:
+  hypothesis: true
+
 keywords: [collaboration, confidence interval, effect size, open educational resource, open scholarship, open science]
 
 bibliography: references.bib

@@ -1,4 +1,3 @@
-
 # Effect Sizes for Categorical Variables
 
 For dichotomous relationships that involve proportions, there are many variations of effect sizes that one can use. Commonly used effect size measures for statistical procedures on categorical data include: phi coefficient ($\phi$), Cramer's $V$, Cohen's $h$, Cohen's $\omega$, odds ratio ($OR$), risk difference ($RD$), and relative risk ($RR$).
@@ -14,13 +13,13 @@ Phi coefficient ($\phi$) is a measure of association between two binary variable
 
 : Contingency table between two binary variables {#tbl-contingency}
 
-The sample sizes within each cell provide us with the necessary information to estimate the relationship between the two variables. A large phi coefficient would be expected to have relatively large sample sizes in the diagonal cells ($n_{00}$ and $n_{11}$) and relatively low sample sizes in the off-diagonal cells ($n_{01}$ and $n_{10}$). To calculate phi, it can be calculated from the cells of the contingency table directly,
+The sample sizes within each cell provide us with the necessary information to estimate the relationship between the two variables. A large phi coefficient would be expected to have relatively large sample sizes in the diagonal cells ($n_{00}$ and $n_{11}$) and relatively low sample sizes in the off-diagonal cells ($n_{01}$ and $n_{10}$). To calculate phi, it can be calculated from the cells of the contingency table directly [adapted from equation 1, @guilford1965],
 
 $$
 \phi = \frac{n_{11}n_{00} -n_{10}n_{01}}{\sqrt{(n_{00} + n_{01})(n_{10} + n_{11})(n_{00} + n_{10})(n_{01} + n_{11})}}
 $$
 
-or more conveniently, from the $\chi^2$-statistic,
+or more conveniently, from the $\chi^2$-statistic [equation 7.2.5, @cohen1988],
 
 $$
 \phi = \sqrt{\frac{\chi^2}{n}}
@@ -43,7 +42,7 @@ phi_coefficient <- phi(contingency_table, alternative = "two.sided")
 phi_coefficient
 ```
 
-In our example we obtained a phi coefficient of $\phi$ = .50 [0.31, 0.69].
+In our example we obtained a phi coefficient of $\phi$ = .50 \[0.31, 0.69\].
 
 ## Cramer's $V$
 
@@ -57,7 +56,7 @@ Cramer's V, sometimes also referred to as Cramer's phi ($\phi$), is a generalize
 
 : Contingency table between two categorical variables {#tbl-contingency-2}
 
-Similarly to the phi coefficient, the value of Cramer's $V$ ranges from 0 to 1 and can interpreted in a similar way to a phi coefficient. Again we can use the $\chi^2$ statistic to compute the value, however, since there can be more than 2 levels to each variable, we also need to take into account the number of levels, $k$, of the variable with the least number of levels (e.g., a $3 \times 4$ contingency table, $k$ would be equal to 3),
+Similarly to the phi coefficient, the value of Cramer's $V$ ranges from 0 to 1 and can interpreted in a similar way to a phi coefficient. Again we can use the $\chi^2$ statistic to compute the value, however, since there can be more than 2 levels to each variable, we also need to take into account the number of levels, $k$, of the variable with the least number of levels (e.g., a $3 \times 4$ contingency table, $k$ would be equal to 3). Cramer's $V$ is defined as [equation 7.2.6, @cohen1988],
 
 $$
 V = \sqrt{\frac{\chi^2}{n(k-1)}}
@@ -66,22 +65,22 @@ $$
 The standard error of a Cramer's $V$ is similar to that of a Pearson correlation and a $\phi$ coefficient.
 
 $$
-SE_V = \sqrt{\frac{1-V^2}{n-2}}
+SE_V = \sqrt{\frac{\left(1-V^2\right)^2}{n-1}}
 $$
 
 Where $n$ is the total sample size (i.e., the sum of all cells). Like the pearson correlation, we can not calculate the confidence interval directly from the standard error, instead, we must convert $V$ to a Fisher's Z statistic, $Z_V = \text{arctanh}(V)$. We can then calculate the 95% confidence interval for $V$ by back-transforming the confidence interval for $Z_V$:
 
 $$
 SE_{Z_V} = \frac{1}{\sqrt{n-3}}
-$$ 
+$$
 
 $$
 CI_{V} = \tanh(Z_V \pm 1.96\times SE_{Z_V})
 $$
 
-Using the `ufs` package [@ufs], we can calculate Cramer's $V$ and it's 95% confidence interval using the Fisher's Z method described above. For the example, we can example data from a 3\$\times\$3 contingency table.
+Using the `ufs` package [@ufs], we can calculate Cramer's $V$ and it's 95% confidence interval using the Fisher's Z method described above. For the example, we can example data from a 3 $\times$ 3 contingency table.
 
-```{r, echo = TRUE}
+```{r, echo = TRUE,message=FALSE}
 # Example contingency table:
 #  40  14  12
 #  11  27   9
@@ -108,13 +107,13 @@ In our example we obtained a Cramer's $V$ of $V$ = .44 \[.31, .56\].
 
 ## Cohen's $h$
 
-Cohen's $h$ is a measure of distance between two proportions or probabilities. It is sometimes also referred to as the "difference between arcsines". For a given proportion $p$, its arcsine transformation is given by:
+Cohen's $h$ is a measure of distance between two proportions or probabilities. It is sometimes also referred to as the "difference between arcsines". For a given proportion $p$, its arcsine transformation is given by [equation 6.2.1, @cohen1988]:
 
 $$
 \psi = 2\cdot \text{arcsin}(\sqrt{p}).
 $$
 
-Cohen's $h$ is the difference between the arcsine transformations of two proportions:
+Cohen's $h$ is the difference between the arcsine transformations of two proportions [equation 6.2.2, @cohen1988]:
 
 $$
 h = \psi_1 - \psi_2
@@ -148,58 +147,57 @@ cohens_h(contingency_table)
 
 ```
 
-From the example, the R code outputted a Cohen's $h$ value of $h$ = .93 [0.52, 1.34].
+From the example, the R code outputted a Cohen's $h$ value of $h$ = .93 \[0.52, 1.34\].
 
-## Cohen's omega ($\omega$)
+## Cohen's $w$
 
-Although Cohen's $\omega$ is useful for power analyses, it is not so useful as a stand-alone effect size. As @cohen1988 states (pp. 221):
+Cohen's $w$ is a measurem of association analogous to the phi coefficient but on tables that are larger than 2x2. Although Cohen's $w$ is useful for power analyses, it is not so useful as a stand-alone effect size. As @cohen1988 states (pp. 221):
 
-> As a measure of association, \[Cohen's $\omega$\] lacks familiarity and convenience
+> As a measure of association, \[Cohen's $w$\] lacks familiarity and convenience
 
-Cohen's $\omega$ has the exact same formula as the phi coefficient with the only difference being that the $\chi^2$ statistic comes from a contingency table of any size,
-
-$$
-\omega = \sqrt{\frac{\chi^2}{n}}
-$$
-
-And can also be calculated directly from Cramer's $V$,
+Cohen's $w$ has the exact same formula as the phi coefficient with the only difference being that the $\chi^2$ statistic comes from a contingency table of any size [equation 7.2.5, @cohen1988],
 
 $$
-\omega = V \times \sqrt{k-1}
+w = \sqrt{\frac{\chi^2}{n}}
 $$
 
-Where $k$ is the number of categories in the variable with the least number of categories.
+And can also be calculated directly from Cramer's $V$ [equation 7.2.7, @cohen1988],
+
+$$
+w = V \times \sqrt{k-1}
+$$
+
+Where $k$ is the number of categories in the variable with the least number of categories. We can use the `cohens_w()` function in the `effectsize` package [@effectsize].
 
 ```{r, echo =TRUE}
 # Example contingency table
+# 40 14
+# 11 27
 
-
-contingency_table <- matrix(c(40, 11,
+contingency_table <- matrix(c(40, 11, 
                               14, 27),ncol = 2)
 
 cohens_w(contingency_table,
          alternative = "two.sided")
 ```
 
-From the example code, the `cohens_w` function returned Cohen's $\omega$ value of $\omega$ = .45 [0.24, 0.65].
+From the example code, the `cohens_w` function returned Cohen's $w$ value of $w$ = .45 \[0.24, 0.65\].
 
 ## Ben-Shachar's Fei (פ)
 
-@benshachar2023 introduced a new effect size for contingency tables that they label with the Hebrew letter, פ. Ben-Shachar's פ is a correction to Cohen's $\omega$ that adjusts for the expected value and consequently bounds the value between 0 and 1 (Cohen's $\omega$ is only bounded between 0 and 1 when marginal distributions are uniform).
-
-Cohen's $\omega$ has the exact same formula as the phi coefficient with the only difference being that the $\chi^2$ statistic comes from a contingency table of any size,
+@benshachar2023 introduced a new effect size for one-dimensional tables of counts/proportions that they label with the Hebrew letter, פ. Ben-Shachar's פ is a correction to Cohen's $w$ that adjusts for the expected value and consequently bounds the value between 0 and 1. The equation for פ is defined as,
 
 $$
 \mathbf{פ }= \sqrt{\frac{\chi^2}{n \left(\frac{1}{\min\left(P_E\right)} -1\right)}}
 $$
 
-Where $\min(P_E)$ is the smallest expected probability in the contingency table. An expected probability for a given cell is the proportion of the total sample that would be expected to exist in that cell if the two variables were independent. The formula for Ben-Schacher's פ can be also be expressed in terms of Cohen's $\omega$,
+Where $\min(P_E)$ is the smallest expected probability. The formula for Ben-Schachar's פ can be also be expressed in terms of Cohen's $\omega$,
 
 $$
 \mathbf{פ }= \frac{\omega}{\sqrt{\left(\frac{1}{\max(P_E)} -1\right)}}
 $$
 
-In R, we can calculate Ben-Shacher's פ using the `effectsize` package.
+In R, we can calculate Ben-Shachar's פ using the `fei()` function in the `effectsize` package [@effectsize].
 
 ```{r, echo =TRUE}
 # Example:
@@ -215,7 +213,7 @@ fei(observed_counts,
     alternative = "two.sided")
 ```
 
-From the example code, the `cohens_w` function returned Ben-Shacher's פ value of .39 \[0.31, 0.47\].
+From the example code, the `fei` function returned Ben-Shachar's פ value of .39 \[0.31, 0.47\].
 
 ## Odds Ratio ($OR$)
 
@@ -248,13 +246,11 @@ $$
 SE_{LOR} = \sqrt{\frac{1}{n_{T0}} + \frac{1}{n_{T1}} + \frac{1}{n_{C0}} + \frac{1}{n_{C1}}}
 $$
 
-With the standard error of the log odds ratio we can then calculate the log odds ratio,
+With the standard error of the log odds ratio we can then calculate the confidence interval of the odds ratio by back-transforming using the exponential function,
 
 $$
-LOR_{UP} = LOR - 1.96\times SE_{LOR}
+CI_{OR} = \exp(LOR \pm 1.96\times SE_{LOR})
 $$
-
-Then the final step we can convert these back to $OR$ confidence intervals by taking the exponential transformation of the upper and lower bounds: $OR_{UP}=\exp(LOR_{UP})$ and $OR_{UP}=\exp(LOR_{UP})$.
 
 In R, we can use the `effectsize` package to calculate the odds ratio and it's confidence interval:
 
@@ -289,7 +285,9 @@ Then using these proportions we can calculate the risk difference ($RD$),
 
 $$
 RD = p_T - p_C.
-$$ The corresponding standard error is,
+$$
+
+The corresponding standard error is,
 
 $$
 SE_{RD} = \sqrt{\frac{p_C(1-p_C)}{n_C} + \frac{p_T(1-p_T)}{n_T} }

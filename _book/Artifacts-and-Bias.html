@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.361">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -81,6 +81,7 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -89,8 +90,8 @@ div.csl-indent {
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://matthewbjane.quarto.pub/effect-size-and-confidence-intervals-guide/social-preview.png">
 <meta name="twitter:creator" content="@MatthewBJane">
-<meta name="twitter:image-height" content="1181">
-<meta name="twitter:image-width" content="2362">
+<meta name="twitter:image-height" content="1417">
+<meta name="twitter:image-width" content="2835">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -123,7 +124,7 @@ div.csl-indent {
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Table of Contents</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/MatthewBJane/guide-to-effect-sizes-and-confidence-intervals" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/MatthewBJane/guide-to-effect-sizes-and-confidence-intervals" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
@@ -211,7 +212,7 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Standardized-Mean-Differences.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Standardized-Mean-Differences</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Mean Differences</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -229,7 +230,7 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Effect-Sizes-for-ANOVAs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Effect Sizes for ANOVAs</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">ANOVAs</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -242,6 +243,12 @@ div.csl-indent {
   <div class="sidebar-item-container"> 
   <a href="./Non-Parametric-Effect-Sizes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Non-Parametric Effect Sizes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Regression</span></span></a>
   </div>
 </li>
       </ul>
@@ -258,19 +265,19 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Converting-to-Cohens-d.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Converting to Cohen’s d</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Converting to Cohen’s d</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Converting-to-Correlation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Converting to Correlations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Converting to Correlations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Converting-to-Odds-Ratio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Converting to Odds Ratios</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Converting to Odds Ratios</span></span></a>
   </div>
 </li>
       </ul>
@@ -287,7 +294,7 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Conclusion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -304,7 +311,15 @@ div.csl-indent {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#resources" id="toc-resources" class="nav-link active" data-scroll-target="#resources"><span class="header-section-number">7.1</span> Resources</a></li>
+  <li><a href="#correcting-for-measurement-error" id="toc-correcting-for-measurement-error" class="nav-link" data-scroll-target="#correcting-for-measurement-error"><span class="header-section-number">7.2</span> Correcting for Measurement Error</a></li>
+  <li><a href="#correcting-for-range-restriction" id="toc-correcting-for-range-restriction" class="nav-link" data-scroll-target="#correcting-for-range-restriction"><span class="header-section-number">7.3</span> Correcting for Range Restriction</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -326,13 +341,38 @@ div.csl-indent {
 
 </header>
 
+<section id="resources" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="resources"><span class="header-section-number">7.1</span> Resources</h2>
 <p>Effect size estimates such as correlation coefficients and Cohen’s <span class="math inline">\(d\)</span> values can be severely biased due to various statistical artifacts such as measurement error and selection effects (e.g., range restriction). Methods have been developed to correct for the bias in effect sizes and thus these corrections are called “artifact corrections”. Artifact correction formulas can be complex and therefore readers are referred to other resources listed below:</p>
 <ul>
-<li><p><span class="citation" data-cites="MatthewBJane2023">Jané (<a href="references.html#ref-MatthewBJane2023" role="doc-biblioref">2023</a>)</span> : An open-access textbook that contains equations and R code for various types of artifact corrections.</p></li>
+<li><p><span class="citation" data-cites="MatthewBJane2023">Jané (<a href="references.html#ref-MatthewBJane2023" role="doc-biblioref">2023</a>)</span> : An open-access textbook that contains equations and R code for various types of artifact corrections. Not yet released.</p></li>
 <li><p><span class="citation" data-cites="hunter1990">Hunter and Schmidt (<a href="references.html#ref-hunter1990" role="doc-biblioref">1990</a>)</span> : Classic textbook on the topic of artifact corrections. Hunter and Schmidt pioneered the methodology for artifact correction style meta-analyses.</p></li>
 <li><p><span class="citation" data-cites="wiernik2020">Wiernik and Dahlke (<a href="references.html#ref-wiernik2020" role="doc-biblioref">2020</a>)</span> : A paper that serves as a condensed version of Hunter and Schmidt’s book. It contains most of the equations necessary to correct effect sizes.</p></li>
 <li><p><span class="citation" data-cites="psychmeta">Dahlke and Wiernik (<a href="references.html#ref-psychmeta" role="doc-biblioref">2019</a>)</span> : An R package for conducting artifact correction meta-analyses. Contains all the functions one would need to correct effect sizes for artifacts in R.</p></li>
 </ul>
+</section>
+<section id="correcting-for-measurement-error" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="correcting-for-measurement-error"><span class="header-section-number">7.2</span> Correcting for Measurement Error</h2>
+<p>If we have reliability estimates of the variables of interest, we can correct a Pearson correlation or a standardized mean difference (Cohen’s <span class="math inline">\(d\)</span>) for measurement error. Non-differential measurement error attenuates Pearson correlations and Cohen’s <span class="math inline">\(d\)</span> therefore we can apply correction factors to adjust for this bias. For a pearson correlation, we can use the correction for attenuation first developed by <span class="citation" data-cites="spearman1904">Spearman (<a href="references.html#ref-spearman1904" role="doc-biblioref">1904</a>)</span>,</p>
+<p><span id="eq-corr-r"><span class="math display">\[
+r_c  = \frac{r_\text{obs}}{\sqrt{r_{xx'}r_{yy'}}}
+\tag{7.1}\]</span></span> where <span class="math inline">\(r_c\)</span> is the corrected correlation, <span class="math inline">\(r_\text{obs}\)</span> is the observed correlation, <span class="math inline">\(r_{xx'}\)</span> is the reliability of <span class="math inline">\(x\)</span>, and <span class="math inline">\(r_{yy'}\)</span> is the reliability of <span class="math inline">\(y\)</span>. reliability coefficients can be estimated a number of different ways however the two of the most common estimators is Cronbach Alpha and Test-retest reliability. Alpha measures the internal consistency of a set of sub-component measurements (e.g., question responses on a questionnaire) while test-retest reliability measures the stability over time.</p>
+<p>A Cohen’s <span class="math inline">\(d\)</span> can be corrected similarly to a correlation coefficient, however since it only has one continuous variable we can just correct for reliability in the continuous variable</p>
+<p><span class="math display">\[
+d_c  = \frac{d_\text{obs}}{\sqrt{r_{yy'}}}
+\]</span> However in the case of a Cohen’s d, it is important that <span class="math inline">\(r_{yy'}\)</span> is the pooled within-group reliability (calculate pooled reliability the same way you calculate the pooled standard deviation for denominator of Cohen’s <span class="math inline">\(d\)</span>). If all you have is the total sample reliability (more commonly reported) you can follow this three step process <span class="citation" data-cites="wiernik2020">(<a href="references.html#ref-wiernik2020" role="doc-biblioref">Wiernik and Dahlke 2020</a>)</span>,</p>
+<ol type="1">
+<li>Convert the d value to a point-biserial correlation (see section on conversions)</li>
+<li>Correct the point-biserial correlation using <a href="#eq-corr-r">Equation&nbsp;<span>7.1</span></a> (setting <span class="math inline">\(r_{xx'}=1\)</span>)</li>
+<li>Convert it back to a Cohen’s <span class="math inline">\(d\)</span></li>
+</ol>
+<p>Note that confidence intervals for <span class="math inline">\(r_c\)</span> and <span class="math inline">\(d_c\)</span> must also be corrected. For example, a pearson correlation would need to be corrected such that, <span class="math display">\[
+CI_{r_c} = \left[\frac{r_\text{lower-bound}}{\sqrt{r_{xx'}r_{yy'}}},\frac{r_\text{upper-bound}}{\sqrt{r_{xx'}r_{yy'}}}\right]
+\]</span></p>
+</section>
+<section id="correcting-for-range-restriction" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="correcting-for-range-restriction"><span class="header-section-number">7.3</span> Correcting for Range Restriction</h2>
+<p>Range restriction corrections can be quite complex depending on the selection process. The process for correcting Pearson correlations and Cohen’s <span class="math inline">\(d\)</span> for range restriction is laid out in table 3 of <span class="citation" data-cites="wiernik2020">Wiernik and Dahlke (<a href="references.html#ref-wiernik2020" role="doc-biblioref">2020</a>)</span>.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
@@ -345,10 +385,14 @@ Hunter, John E., and Frank L. Schmidt. 1990. <em>Methods of meta-analysis: corre
 <div id="ref-MatthewBJane2023" class="csl-entry" role="listitem">
 Jané, Matthew B. 2023. <em>Artifact Corrections for Effect Sizes: Implementation in r and Application to Meta-Analysis</em>. (n.p.). <a href="https://matthewbjane.quarto.pub/artifact-corrections-for-effect-sizes/">https://matthewbjane.quarto.pub/artifact-corrections-for-effect-sizes/</a>.
 </div>
+<div id="ref-spearman1904" class="csl-entry" role="listitem">
+Spearman, C. 1904. <span>“The Proof and Measurement of Association Between Two Things.”</span> <em>International Journal of Epidemiology</em> 39 (5): 1137–50. <a href="https://doi.org/10.1093/ije/dyq191">https://doi.org/10.1093/ije/dyq191</a>.
+</div>
 <div id="ref-wiernik2020" class="csl-entry" role="listitem">
 Wiernik, Brenton M., and Jeffrey A. Dahlke. 2020. <span>“Obtaining Unbiased Results in Meta-Analysis: The Importance of Correcting for Statistical Artifacts.”</span> <em>Advances in Methods and Practices in Psychological Science</em> 3 (1): 94–123. <a href="https://doi.org/10.1177/2515245919885611">https://doi.org/10.1177/2515245919885611</a>.
 </div>
 </div>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -592,7 +636,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./Standardized-Mean-Differences.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Standardized-Mean-Differences</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Mean Differences</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

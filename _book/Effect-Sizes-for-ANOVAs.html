@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.361">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -115,6 +115,7 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -123,8 +124,8 @@ div.csl-indent {
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://matthewbjane.quarto.pub/effect-size-and-confidence-intervals-guide/social-preview.png">
 <meta name="twitter:creator" content="@MatthewBJane">
-<meta name="twitter:image-height" content="1181">
-<meta name="twitter:image-width" content="2362">
+<meta name="twitter:image-height" content="1417">
+<meta name="twitter:image-width" content="2835">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -138,7 +139,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Standardized-Mean-Differences.html"><strong>Standardized Effect Sizes</strong></a></li><li class="breadcrumb-item"><a href="./Effect-Sizes-for-ANOVAs.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Effect Sizes for ANOVAs</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Standardized-Mean-Differences.html"><strong>Standardized Effect Sizes</strong></a></li><li class="breadcrumb-item"><a href="./Effect-Sizes-for-ANOVAs.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">ANOVAs</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -157,7 +158,7 @@ div.csl-indent {
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Table of Contents</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/MatthewBJane/guide-to-effect-sizes-and-confidence-intervals" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/MatthewBJane/guide-to-effect-sizes-and-confidence-intervals" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
@@ -245,7 +246,7 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Standardized-Mean-Differences.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Standardized-Mean-Differences</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Mean Differences</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -263,7 +264,7 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Effect-Sizes-for-ANOVAs.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Effect Sizes for ANOVAs</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">ANOVAs</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -276,6 +277,12 @@ div.csl-indent {
   <div class="sidebar-item-container"> 
   <a href="./Non-Parametric-Effect-Sizes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Non-Parametric Effect Sizes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Regression</span></span></a>
   </div>
 </li>
       </ul>
@@ -292,19 +299,19 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Converting-to-Cohens-d.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Converting to Cohen’s d</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Converting to Cohen’s d</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Converting-to-Correlation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Converting to Correlations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Converting to Correlations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Converting-to-Odds-Ratio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Converting to Odds Ratios</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Converting to Odds Ratios</span></span></a>
   </div>
 </li>
       </ul>
@@ -321,7 +328,7 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Conclusion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -342,14 +349,39 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#eta-squared-eta2" id="toc-eta-squared-eta2" class="nav-link active" data-scroll-target="#eta-squared-eta2"><span class="header-section-number">11.1</span> Eta-Squared (<span class="math inline">\(\eta^2\)</span>)</a></li>
-  <li><a href="#partial-eta-squared-eta2_p" id="toc-partial-eta-squared-eta2_p" class="nav-link" data-scroll-target="#partial-eta-squared-eta2_p"><span class="header-section-number">11.2</span> Partial Eta-Squared (<span class="math inline">\(\eta^2_p\)</span>)</a></li>
-  <li><a href="#generalized-eta-squared-eta2_g" id="toc-generalized-eta-squared-eta2_g" class="nav-link" data-scroll-target="#generalized-eta-squared-eta2_g"><span class="header-section-number">11.3</span> Generalized Eta-Squared (<span class="math inline">\(\eta^2_G\)</span>)</a></li>
-  <li><a href="#omega-squared-corrections-omega2-omega2_p" id="toc-omega-squared-corrections-omega2-omega2_p" class="nav-link" data-scroll-target="#omega-squared-corrections-omega2-omega2_p"><span class="header-section-number">11.4</span> Omega squared corrections (<span class="math inline">\(\omega^2\)</span>, <span class="math inline">\(\omega^2_p\)</span>)</a>
+  <li><a href="#anovas" id="toc-anovas" class="nav-link active" data-scroll-target="#anovas"><span class="header-section-number">11.1</span> ANOVAs</a></li>
+  <li><a href="#sec-aov-table" id="toc-sec-aov-table" class="nav-link" data-scroll-target="#sec-aov-table"><span class="header-section-number">11.2</span> ANOVA tables</a></li>
+  <li><a href="#one-way-between-subjects-anova" id="toc-one-way-between-subjects-anova" class="nav-link" data-scroll-target="#one-way-between-subjects-anova"><span class="header-section-number">11.3</span> One-way between-subjects ANOVA</a>
   <ul class="collapse">
-  <li><a href="#cohens-f" id="toc-cohens-f" class="nav-link" data-scroll-target="#cohens-f"><span class="header-section-number">11.4.1</span> Cohen’s <span class="math inline">\(f\)</span></a></li>
+  <li><a href="#determining-degrees-of-freedom" id="toc-determining-degrees-of-freedom" class="nav-link" data-scroll-target="#determining-degrees-of-freedom"><span class="header-section-number">11.3.1</span> Determining degrees of freedom</a></li>
+  <li><a href="#calculating-eta-squared-from-f-statistic-and-degrees-of-freedom" id="toc-calculating-eta-squared-from-f-statistic-and-degrees-of-freedom" class="nav-link" data-scroll-target="#calculating-eta-squared-from-f-statistic-and-degrees-of-freedom"><span class="header-section-number">11.3.2</span> Calculating eta-squared from F-statistic and degrees of freedom</a></li>
+  <li><a href="#sec-eta-table" id="toc-sec-eta-table" class="nav-link" data-scroll-target="#sec-eta-table"><span class="header-section-number">11.3.3</span> Calculating eta-squared from an ANOVA table</a></li>
+  <li><a href="#calculating-cohens-d-for-post-hoc-comparisons" id="toc-calculating-cohens-d-for-post-hoc-comparisons" class="nav-link" data-scroll-target="#calculating-cohens-d-for-post-hoc-comparisons"><span class="header-section-number">11.3.4</span> Calculating Cohen’s d for post-hoc comparisons</a></li>
   </ul></li>
-  <li><a href="#reporting-anova-results" id="toc-reporting-anova-results" class="nav-link" data-scroll-target="#reporting-anova-results"><span class="header-section-number">11.5</span> Reporting ANOVA results</a></li>
+  <li><a href="#one-way-repeated-measures-anova" id="toc-one-way-repeated-measures-anova" class="nav-link" data-scroll-target="#one-way-repeated-measures-anova"><span class="header-section-number">11.4</span> One-way repeated measures ANOVA</a>
+  <ul class="collapse">
+  <li><a href="#determining-degrees-of-freedom-1" id="toc-determining-degrees-of-freedom-1" class="nav-link" data-scroll-target="#determining-degrees-of-freedom-1"><span class="header-section-number">11.4.1</span> Determining degrees of freedom</a></li>
+  <li><a href="#eta-squared-from-rmanova-statistics" id="toc-eta-squared-from-rmanova-statistics" class="nav-link" data-scroll-target="#eta-squared-from-rmanova-statistics"><span class="header-section-number">11.4.2</span> Eta-squared from rmANOVA statistics</a></li>
+  </ul></li>
+  <li><a href="#two-way-between-subjects-anova" id="toc-two-way-between-subjects-anova" class="nav-link" data-scroll-target="#two-way-between-subjects-anova"><span class="header-section-number">11.5</span> Two-Way between-subjects ANOVA</a>
+  <ul class="collapse">
+  <li><a href="#determining-degrees-of-freedom-2" id="toc-determining-degrees-of-freedom-2" class="nav-link" data-scroll-target="#determining-degrees-of-freedom-2"><span class="header-section-number">11.5.1</span> Determining degrees of freedom</a></li>
+  <li><a href="#eta-squared-from-two-way-anova-statistics" id="toc-eta-squared-from-two-way-anova-statistics" class="nav-link" data-scroll-target="#eta-squared-from-two-way-anova-statistics"><span class="header-section-number">11.5.2</span> Eta-squared from Two-Way ANOVA statistics</a></li>
+  </ul></li>
+  <li><a href="#two-way-repeated-measures-anova" id="toc-two-way-repeated-measures-anova" class="nav-link" data-scroll-target="#two-way-repeated-measures-anova"><span class="header-section-number">11.6</span> Two-way repeated measures ANOVA</a></li>
+  <li><a href="#determing-degrees-of-freedom" id="toc-determing-degrees-of-freedom" class="nav-link" data-scroll-target="#determing-degrees-of-freedom"><span class="header-section-number">11.7</span> Determing degrees of freedom</a>
+  <ul class="collapse">
+  <li><a href="#eta-squared-from-two-way-rmanova" id="toc-eta-squared-from-two-way-rmanova" class="nav-link" data-scroll-target="#eta-squared-from-two-way-rmanova"><span class="header-section-number">11.7.1</span> Eta-squared from Two-way rmANOVA</a></li>
+  </ul></li>
+  <li><a href="#effect-sizes-for-anovas" id="toc-effect-sizes-for-anovas" class="nav-link" data-scroll-target="#effect-sizes-for-anovas"><span class="header-section-number">11.8</span> Effect Sizes for ANOVAs</a>
+  <ul class="collapse">
+  <li><a href="#sec-eta-squared" id="toc-sec-eta-squared" class="nav-link" data-scroll-target="#sec-eta-squared"><span class="header-section-number">11.8.1</span> Eta-Squared (<span class="math inline">\(\eta^2\)</span>)</a></li>
+  <li><a href="#partial-eta-squared-eta2_p" id="toc-partial-eta-squared-eta2_p" class="nav-link" data-scroll-target="#partial-eta-squared-eta2_p"><span class="header-section-number">11.8.2</span> Partial Eta-Squared (<span class="math inline">\(\eta^2_p\)</span>)</a></li>
+  <li><a href="#generalized-eta-squared-eta2_g" id="toc-generalized-eta-squared-eta2_g" class="nav-link" data-scroll-target="#generalized-eta-squared-eta2_g"><span class="header-section-number">11.8.3</span> Generalized Eta-Squared (<span class="math inline">\(\eta^2_G\)</span>)</a></li>
+  <li><a href="#omega-squared-corrections-omega2-omega2_p" id="toc-omega-squared-corrections-omega2-omega2_p" class="nav-link" data-scroll-target="#omega-squared-corrections-omega2-omega2_p"><span class="header-section-number">11.8.4</span> Omega squared corrections (<span class="math inline">\(\omega^2\)</span>, <span class="math inline">\(\omega^2_p\)</span>)</a></li>
+  <li><a href="#cohens-f" id="toc-cohens-f" class="nav-link" data-scroll-target="#cohens-f"><span class="header-section-number">11.8.5</span> Cohen’s <span class="math inline">\(f\)</span></a></li>
+  </ul></li>
+  <li><a href="#reporting-anova-results" id="toc-reporting-anova-results" class="nav-link" data-scroll-target="#reporting-anova-results"><span class="header-section-number">11.9</span> Reporting ANOVA results</a></li>
   </ul>
 </nav>
     </div>
@@ -373,9 +405,578 @@ div.csl-indent {
 
 </header>
 
-<p>ANOVA (Analysis of Variance) is a statistical method used to compare means across multiple groups. It is mostly used when the outcome variable is continuous and the predictor variables are categorical. Commonly used effect size measures for ANOVAs / F-tests include: eta-squared (<span class="math inline">\(\eta^2\)</span>), partial eta-squared (<span class="math inline">\(\eta_p^2\)</span>), generalized eta-squared (<span class="math inline">\(\eta^2_G\)</span>), omega-squared (<span class="math inline">\(\omega^2\)</span>), partial omega-squared (<span class="math inline">\(\omega\)</span>), generalized omega-squared (<span class="math inline">\(\omega^2_G\)</span>), Cohen’s <span class="math inline">\(f\)</span>.</p>
-<section id="eta-squared-eta2" class="level2" data-number="11.1">
-<h2 data-number="11.1" class="anchored" data-anchor-id="eta-squared-eta2"><span class="header-section-number">11.1</span> Eta-Squared (<span class="math inline">\(\eta^2\)</span>)</h2>
+<section id="anovas" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="anovas"><span class="header-section-number">11.1</span> ANOVAs</h2>
+<p>For ANOVAs/F-tests, you will always need to report two kinds of effects: the omnibus effect of the factor(s) and the effect of planned contrasts or post hoc comparisons.</p>
+<p>For instance, imagine that you are comparing three groups/conditions with a one-way ANOVA. The ANOVA will first return an F-statistic, the degrees of freedom, and the associated p-value. Here, you need to calculate the size of this omnibus factor effect in eta-squared, partial eta-squared, or generalized eta-squared.</p>
+<p>Suppose the omnibus effect is significant. You now know that there is at least one group that differs from the others. You want to know which group(s) differ from the others, and how much they differ. Therefore, you conduct post hoc comparisons on these groups. Because post hoc comparisons compare each group with the others in pairs, you will get a t-statistic and p-value for each comparison. For this, you can calculate and report a standardized mean difference.</p>
+<p>Imagine that you have two independent variables or factors, and you conduct a two-by-two factorial ANOVA. The first thing to do then is look at the interaction. If the interaction is significant, you again report the associated omnibus effect size measures, and proceed to analyze the simple effects. Depending on your research question, you compare the levels of one IV on each level of the other IV. You will report d or g for these simple effects. If the interaction is not significant, you look at the main effects and report the associated omnibus effect. You then proceed to analyze the main effect by comparing the levels of one IV while collapsing/aggregating the levels of the other IV. You will report d or g for these pairwise comparisons. Note that lower-order effects are not directly interpretable if higher-order effects are significant. If you have a significant interaction in a two-way ANOVA, you cannot interpret the main effects directly. If you have a significant three-way interaction in a three-way ANOVA, you cannot interpret the main effects or the two-way interactions directly, regardless of whether they are significant or not.</p>
+</section>
+<section id="sec-aov-table" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="sec-aov-table"><span class="header-section-number">11.2</span> ANOVA tables</h2>
+<p>An ANOVA table generally consists of the grouping factors (+ residuals), the sum of squares, the degrees of freedom, the mean square, the F-statistic, and the p-value. Using base R, we can construct an ANOVA table using the <code>aov()</code> function to generate the ANOVA model and then using <code>summary.aov()</code> to extract the table. For an example case, we will use the <code>palmerpenguins</code> data set package and we will investigate the differences in the body mass (the outcome) of three penguin species (the predictor/grouping variable):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># construct anova model </span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># formula structure: outcome ~ grouping variable</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>ANOVA_mdl <span class="ot">&lt;-</span> <span class="fu">aov</span>(body_mass_g <span class="sc">~</span> species, </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">data =</span> penguins) <span class="co"># dataset</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>ANOVA_table <span class="ot">&lt;-</span> <span class="fu">summary.aov</span>(ANOVA_mdl)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>ANOVA_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             Df    Sum Sq  Mean Sq F value Pr(&gt;F)    
+species       2 146864214 73432107   343.6 &lt;2e-16 ***
+Residuals   339  72443483   213698                   
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+2 observations deleted due to missingness</code></pre>
+</div>
+</div>
+<p>By default, <code>summary.aov()</code> does not report the <span class="math inline">\(\eta^2\)</span> value, however we will discuss this more in <a href="#sec-eta-squared"><span>Section&nbsp;11.8.1</span></a>. The results show that the mean body mass between the three penguin species (Adelie, Gentoo, Chinstrap) differ significantly from one another.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="Effect-Sizes-for-ANOVAs_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="one-way-between-subjects-anova" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="one-way-between-subjects-anova"><span class="header-section-number">11.3</span> One-way between-subjects ANOVA</h2>
+<p>One-way between-subject ANOVA is an extension of independent-samples t-tests. The null hypothesis is that all k means of k independent groups are identical, whereas the alternative hypothesis is that there are at least two means from these k groups differ. The assumptions include: (1) independence of observations, (2) normality of residuals, and (3) equality (or homogeneity) of variances (homoscedasticity).<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>Note. Sometimes you may encounter a between-subject one-way ANOVA which compares only two conditions, particularly when the paper is old. This is essentially a t-test, and the F-statistic is just t-squared. It is preferable to report Cohen’s d for these tests. If you are calculating the effect size for such tests, it’s best to calculate Cohen’s d, or convert the provided eta-squared to Cohen’s d, as Cohen’s d can show the direction of the effect. Subsequent analyses (e.g., power analysis) can also be based on Cohen’s d.</p>
+<p>It’s very easy to determine eta-squared with an F-statistic and the two degrees of freedom from a one-way ANOVA <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. <strong>Note that in the case of a one-way between-subject ANOVA, eta-squared is equal to partial eta-squared.</strong></p>
+<section id="determining-degrees-of-freedom" class="level3" data-number="11.3.1">
+<h3 data-number="11.3.1" class="anchored" data-anchor-id="determining-degrees-of-freedom"><span class="header-section-number">11.3.1</span> Determining degrees of freedom</h3>
+<p>Please refer to the following table to determine the degrees of freedom for ANOVA effects, if they are not reported or if you are doubtful that they have been misreported.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Degrees of freedom</th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Between subjects ANOVA</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Effect</td>
+<td style="text-align: center;"><span class="math inline">\(k-1\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Error</td>
+<td style="text-align: center;"><span class="math inline">\(n-k\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Total</td>
+<td style="text-align: center;"><span class="math inline">\(n-1\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="calculating-eta-squared-from-f-statistic-and-degrees-of-freedom" class="level3" data-number="11.3.2">
+<h3 data-number="11.3.2" class="anchored" data-anchor-id="calculating-eta-squared-from-f-statistic-and-degrees-of-freedom"><span class="header-section-number">11.3.2</span> Calculating eta-squared from F-statistic and degrees of freedom</h3>
+<p>Using the formula below, we can calculate <span class="math inline">\(\eta^2\)</span> of an ANOVA model using the F-statistic and the degrees of freedom,</p>
+<p><span class="math display">\[
+\eta^2 = \frac{df_\text{effect}\times F}{df_\text{effect} \times F + df_\text{error}}.
+\]</span></p>
+<p>In R, we can use the <code>F_to_eta2()</code> function from the <code>effectsize</code> package <span class="citation" data-cites="effectsize">(<a href="references.html#ref-effectsize" role="doc-biblioref">Ben-Shachar, Lüdecke, and Makowski 2020</a>)</span>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(effectsize)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>n <span class="ot">=</span> <span class="dv">154</span> <span class="co"># number of subjects</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>k <span class="ot">=</span> <span class="dv">3</span> <span class="co"># number of groups</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>f <span class="ot">=</span> <span class="fl">84.3</span> <span class="co"># F-statistic</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>df_effect <span class="ot">=</span> k <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>df_error <span class="ot">=</span> n <span class="sc">-</span> k</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="fu">F_to_eta2</span>(<span class="at">f =</span> f,</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">df =</span> df_effect,</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>          <span class="at">df_error =</span> df_error,</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>          <span class="at">alternative =</span> <span class="st">'two.sided'</span>) <span class="co"># obtain two sided CIs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Eta2 (partial) |       95% CI
+-----------------------------
+0.53           | [0.42, 0.61]</code></pre>
+</div>
+</div>
+</section>
+<section id="sec-eta-table" class="level3" data-number="11.3.3">
+<h3 data-number="11.3.3" class="anchored" data-anchor-id="sec-eta-table"><span class="header-section-number">11.3.3</span> Calculating eta-squared from an ANOVA table</h3>
+<p>Let’s use the table from the ANOVA model in <a href="#sec-aov-table"><span>Section&nbsp;11.2</span></a>:</p>
+<div class="cell-output-display">
+<table class="table">
+<caption>One-way ANOVA table</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">Df</th>
+<th style="text-align: right;">Sum Sq</th>
+<th style="text-align: right;">Mean Sq</th>
+<th style="text-align: right;">F value</th>
+<th style="text-align: right;">Pr(&gt;F)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">species</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">146864214</td>
+<td style="text-align: right;">73432107.1</td>
+<td style="text-align: right;">343.6263</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Residuals</td>
+<td style="text-align: right;">339</td>
+<td style="text-align: right;">72443483</td>
+<td style="text-align: right;">213697.6</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>From this table we can use the sum of squares from the grouping variable (species) and the total sum of squares (<span class="math inline">\(SS_\text{total} = SS_\text{effect} + SS_\text{error}\)</span>) to calculate the <span class="math inline">\(\eta^2\)</span> value using the following equation:</p>
+<p><span class="math display">\[
+\eta^2 = \frac{SS_\text{effect}}{SS_\text{total}} = \frac{SS_\text{effect}}{SS_\text{effect} + SS_\text{error}}
+\]</span></p>
+<p>In R, we can use the <code>eta.full.SS()</code> function in the <code>MOTE</code> package <span class="citation" data-cites="MOTE">(<a href="references.html#ref-MOTE" role="doc-biblioref">Buchanan et al. 2019</a>)</span> to obtain <span class="math inline">\(\eta^2\)</span> from an ANOVA table.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MOTE)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>eta <span class="ot">&lt;-</span> <span class="fu">eta.full.SS</span>(<span class="at">dfm =</span> <span class="dv">2</span>,  <span class="co"># effect degrees of freedom</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">dfe =</span> <span class="dv">339</span>, <span class="co"># error degrees of freedom</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">ssm =</span> <span class="dv">146864214</span>, <span class="co"># sum of squares for the effect</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>                   <span class="at">sst =</span> <span class="dv">146864214</span> <span class="sc">+</span> <span class="dv">72443483</span>, <span class="co"># total sum of squares</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>                   <span class="at">Fvalue =</span> <span class="fl">343.6263</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>                   <span class="at">a =</span> .<span class="dv">05</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">eta_squared =</span> <span class="fu">apa</span>(eta<span class="sc">$</span>eta),</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>           <span class="at">etalow =</span> <span class="fu">apa</span>(eta<span class="sc">$</span>etalow),</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>           <span class="at">etahigh =</span> <span class="fu">apa</span>(eta<span class="sc">$</span>etahigh))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  eta_squared etalow etahigh
+1       0.670  0.606   0.722</code></pre>
+</div>
+</div>
+<p>The example code outputs <span class="math inline">\(\eta^2\)</span> = .67 [.61, .72]. This suggests that species accounts for 67% of the total variation in body mass between penguins.</p>
+</section>
+<section id="calculating-cohens-d-for-post-hoc-comparisons" class="level3" data-number="11.3.4">
+<h3 data-number="11.3.4" class="anchored" data-anchor-id="calculating-cohens-d-for-post-hoc-comparisons"><span class="header-section-number">11.3.4</span> Calculating Cohen’s d for post-hoc comparisons</h3>
+<p>In an omnibus ANOVA, the p-value is telling us whether the means from all groups come from the same population mean, however this does not inform us about <em>which</em> groups differ and by how much. Using the same example as before, let’s say we want to answer a specific question such as: what is the difference in body mass between Adelie penguins and Gentoo penguins? To answer this question, we can calculate the raw mean difference between the two groups. In R, we can do that with the following code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Madelie <span class="ot">&lt;-</span> <span class="fu">mean</span>(penguins<span class="sc">$</span>body_mass_g[penguins<span class="sc">$</span>species<span class="sc">==</span><span class="st">'Adelie'</span>], <span class="at">na.rm=</span>T)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>Mgentoo <span class="ot">&lt;-</span> <span class="fu">mean</span>(penguins<span class="sc">$</span>body_mass_g[penguins<span class="sc">$</span>species<span class="sc">==</span><span class="st">'Gentoo'</span>], <span class="at">na.rm=</span>T)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>Mgentoo <span class="sc">-</span> Madelie</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1375.354</code></pre>
+</div>
+</div>
+<p>Based on the mean difference, Gentoo penguins are on average 1375 grams heavier than Adelia penguins in total body mass. We can also calculate a standardized mean difference using the <code>escalc()</code> function in the <code>metafor</code> package <span class="citation" data-cites="metafor">(<a href="references.html#ref-metafor" role="doc-biblioref">Viechtbauer 2010</a>)</span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(metafor)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Means, SDs, and sample sizes for each group</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>Madelie <span class="ot">&lt;-</span> <span class="fu">mean</span>(penguins<span class="sc">$</span>body_mass_g[penguins<span class="sc">$</span>species<span class="sc">==</span><span class="st">'Adelie'</span>], <span class="at">na.rm=</span>T)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>Mgentoo <span class="ot">&lt;-</span> <span class="fu">mean</span>(penguins<span class="sc">$</span>body_mass_g[penguins<span class="sc">$</span>species<span class="sc">==</span><span class="st">'Gentoo'</span>], <span class="at">na.rm=</span>T)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>SDadelie <span class="ot">&lt;-</span> <span class="fu">sd</span>(penguins<span class="sc">$</span>body_mass_g[penguins<span class="sc">$</span>species<span class="sc">==</span><span class="st">'Adelie'</span>], <span class="at">na.rm=</span>T)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>SDgentoo <span class="ot">&lt;-</span> <span class="fu">sd</span>(penguins<span class="sc">$</span>body_mass_g[penguins<span class="sc">$</span>species<span class="sc">==</span><span class="st">'Gentoo'</span>], <span class="at">na.rm=</span>T)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>Nadelie <span class="ot">&lt;-</span> <span class="fu">sum</span>(penguins<span class="sc">$</span>species<span class="sc">==</span><span class="st">'Adelie'</span>, <span class="at">na.rm=</span>T)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>Ngentoo <span class="ot">&lt;-</span> <span class="fu">sum</span>(penguins<span class="sc">$</span>species<span class="sc">==</span><span class="st">'Gentoo'</span>, <span class="at">na.rm=</span>T)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">escalc</span>(<span class="at">measure =</span> <span class="st">'SMD'</span>,</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">m1i =</span> Mgentoo,</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>         <span class="at">m2i =</span> Madelie,</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>         <span class="at">sd1i =</span> SDgentoo,</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>         <span class="at">sd2i =</span> SDadelie,</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>         <span class="at">n1i =</span> Ngentoo,</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>         <span class="at">n2i =</span> Nadelie)</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+      yi     vi    sei      zi   pval  ci.lb  ci.ub 
+1 2.8602 0.0295 0.1716 16.6629 &lt;.0001 2.5237 3.1966 </code></pre>
+</div>
+</div>
+<p>The standardized mean difference between Adelie and Gentoo penguins is <span class="math inline">\(d\)</span> = 2.86 [2.52, 3.19], demonstrating that Gentoo penguins have body mass 2.86 standard deviations larger than Adelie penguins.</p>
+<p>We can also quantify contrasts from summary statistics reported from the ANOVA table and the within group means. We can calculate the standardized mean difference using the means from both groups and the mean squared error (<span class="math inline">\(MSE\)</span>) the following equation:</p>
+<p><span class="math display">\[
+d = \frac{M_1 - M_2}{\sqrt{MSE}}
+\]</span></p>
+<p>This method gives a standardized mean difference equivalent to the Cohen’s <span class="math inline">\(d\)</span> with the pooled standard deviation in the denominator (see chapter on mean differences). Therefore if we obtain the mean squared errors (i.e., MS of residuals) from <a href="#sec-eta-table"><span>Section&nbsp;11.3.3</span></a> and we obtain the means (means: Gentoo = 5076, Adelie = 3701), we can calculate the standardized mean difference as: <span class="math inline">\(\frac{5076 - 3701}{\sqrt{213697.6}} = \frac{1375}{462.27 } = 2.974\)</span>. The discrepency between the standardized mean difference provided by the <code>escalc()</code> function is due to the fact that the function automatically applies a small sample correction factor thus reducing the overall effect.</p>
+<div class="cell-output-display">
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">Df</th>
+<th style="text-align: right;">Sum Sq</th>
+<th style="text-align: right;">Mean Sq</th>
+<th style="text-align: right;">F value</th>
+<th style="text-align: right;">Pr(&gt;F)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">species</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">146864214</td>
+<td style="text-align: right;">73432107.1</td>
+<td style="text-align: right;">343.6263</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Residuals</td>
+<td style="text-align: right;">339</td>
+<td style="text-align: right;">72443483</td>
+<td style="text-align: right;">213697.6</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Beware the assumptions.
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Note that this method is ONLY valid when you are willing to assume equal variances among groups (homoscedasticity), and when you conduct a Fisher’s one-way ANOVA (rather than Welch’s). This method is also impractical if you are calculating from reported statistics, and MSE is not reported (which is typically the case).</p>
+<p>If you are unwilling to assume homogeneity of variances, then calculate Cohen’s d between groups as if there are only two groups for comparison. However, you should know that it also makes little sense to conduct a Fisher’s ANOVA in such situations. You may want to switch to Welch’s ANOVA, which does not assume homoscedasticity. If variances differ greatly, you may want to use alternative standardized effect size measures, such as Glass’ delta, and calculate confidence intervals using bootstrap.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="one-way-repeated-measures-anova" class="level2" data-number="11.4">
+<h2 data-number="11.4" class="anchored" data-anchor-id="one-way-repeated-measures-anova"><span class="header-section-number">11.4</span> One-way repeated measures ANOVA</h2>
+<p>One-way repeated measures ANOVA (rmANOVA) is an extension of paired-samples t-tests, with the difference being it can be used in two or more groups.</p>
+<section id="determining-degrees-of-freedom-1" class="level3" data-number="11.4.1">
+<h3 data-number="11.4.1" class="anchored" data-anchor-id="determining-degrees-of-freedom-1"><span class="header-section-number">11.4.1</span> Determining degrees of freedom</h3>
+<p>Please refer to the following table to determine the degrees of freedom for repeated measure ANOVA effects.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Degrees of freedom</th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Within-subject ANOVA (repeated measures)</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Effect</td>
+<td style="text-align: center;"><span class="math inline">\(k-1\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Error-between</td>
+<td style="text-align: center;"><span class="math inline">\((n-1)\times(k-1)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Error-within</td>
+<td style="text-align: center;"><span class="math inline">\((n-1)\cdot (k-1)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Total (within)</td>
+<td style="text-align: center;"><span class="math inline">\(n\cdot (k-1)\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eta-squared-from-rmanova-statistics" class="level3" data-number="11.4.2">
+<h3 data-number="11.4.2" class="anchored" data-anchor-id="eta-squared-from-rmanova-statistics"><span class="header-section-number">11.4.2</span> Eta-squared from rmANOVA statistics</h3>
+<p>Commonly, we use eta-squared (<span class="math inline">\(\eta^2\)</span>) or partial eta-squared (<span class="math inline">\(\eta_p^2\)</span>) as the effect size measure for one-way rmANOVAs, for which these two are in fact equal. Let’s construct an rmANOVA model use example data from the <code>datarium</code> package <span class="citation" data-cites="datarium">(<a href="references.html#ref-datarium" role="doc-biblioref">Kassambara 2019</a>)</span>. The <code>selfesteem</code> data set simply shows self-esteem scores over three repeated measurements within the same subjects.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">### load in and re-format data</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"selfesteem"</span>, <span class="at">package =</span> <span class="st">"datarium"</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>selfesteem <span class="ot">&lt;-</span> tidyr<span class="sc">::</span><span class="fu">pivot_longer</span>(selfesteem,<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">"t1"</span>,<span class="st">"t2"</span>,<span class="st">"t3"</span>))</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(selfesteem) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"subject"</span>,<span class="st">"time"</span>,<span class="st">"self_esteem"</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="do">####</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>rmANOVA_mdl <span class="ot">=</span> <span class="fu">aov</span>(<span class="at">formula =</span> self_esteem <span class="sc">~</span> time <span class="sc">+</span> <span class="fu">Error</span>(subject),</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>                  <span class="at">data =</span> selfesteem)</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(rmANOVA_mdl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Error: subject
+          Df  Sum Sq Mean Sq F value Pr(&gt;F)
+Residuals  1 0.07667 0.07667               
+
+Error: Within
+          Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+time       2 102.46   51.23   63.07 1.06e-10 ***
+Residuals 26  21.12    0.81                     
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="Effect-Sizes-for-ANOVAs_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>There are two tables displayed here, the table on top displays the between subject effects and the table below shows the within subject effects.The equations and functions to calculate <span class="math inline">\(\eta^2\)</span> mentioned in the one-way between-subjects ANOVAs section also apply here:</p>
+<p><span class="math display">\[
+\eta^2 = \frac{df_\text{effect}\times F}{df_\text{effect} \times F + df_\text{error-within}},
+\]</span></p>
+<p><span class="math display">\[
+\eta^2 = \frac{SS_\text{effect}}{SS_\text{total}}
+\]</span></p>
+<p>Note that here <span class="math inline">\(SS_\text{total}\)</span> does not include <span class="math inline">\(SS_\text{error-between}\)</span> because we are not interested in it by conducting a rmANOVA. This analysis targets an effect that we think should happen on each subject, regardless of how these subjects will vary from each other. In other words, between-subjects variance can be large or small, but we do not care about it when we examine whether there is an effect or not across repeated measures. Therefore the total sum of squares can be defined as</p>
+<p><span class="math display">\[
+SS_\text{total} = SS_\text{effect} + SS_\text{error-within}
+\]</span></p>
+<p>Therefore we can calculate <span class="math inline">\(\eta^2\)</span> from the rmANOVA table as,</p>
+<p><span class="math display">\[
+\eta^2 = \frac{102.46}{21.12 + 102.46} = .83
+\]</span></p>
+<p>We can plug the rmANOVA model into the <code>eta_squared()</code> function from the <code>effectsize</code> package in R <span class="citation" data-cites="effectsize">(<a href="references.html#ref-effectsize" role="doc-biblioref">Ben-Shachar, Lüdecke, and Makowski 2020</a>)</span> to calculate <span class="math inline">\(\eta^2\)</span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(effectsize)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">eta_squared</span>(rmANOVA_mdl,</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># Effect Size for ANOVA (Type I)
+
+Group  | Parameter | Eta2 (partial) |       95% CI
+--------------------------------------------------
+Within |      time |           0.83 | [0.69, 0.89]</code></pre>
+</div>
+</div>
+<p>As expected, we find the same point-estimate from our hand calculation. To calculate <span class="math inline">\(\eta^2\)</span> from the F-statistic and degrees of freedom we can use the <code>MOTE</code> package <span class="citation" data-cites="MOTE">(<a href="references.html#ref-MOTE" role="doc-biblioref">Buchanan et al. 2019</a>)</span> as we did in <a href="#sec-eta-table"><span>Section&nbsp;11.3.3</span></a></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MOTE)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>eta <span class="ot">&lt;-</span> <span class="fu">eta.full.SS</span>(<span class="at">dfm =</span> <span class="dv">2</span>,  <span class="co"># effect degrees of freedom</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">dfe =</span> <span class="dv">26</span>, <span class="co"># error degrees of freedom</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">ssm =</span> <span class="fl">102.46</span>, <span class="co"># sum of squares for the effect</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>                   <span class="at">sst =</span> <span class="fl">102.46</span> <span class="sc">+</span> <span class="fl">21.12</span>, <span class="co"># total sum of squares</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>                   <span class="at">Fvalue =</span> <span class="fl">63.07</span>,</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>                   <span class="at">a =</span> .<span class="dv">05</span>)</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">eta_squared =</span> <span class="fu">apa</span>(eta<span class="sc">$</span>eta),</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>           <span class="at">etalow =</span> <span class="fu">apa</span>(eta<span class="sc">$</span>etalow),</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>           <span class="at">etahigh =</span> <span class="fu">apa</span>(eta<span class="sc">$</span>etahigh))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  eta_squared etalow etahigh
+1       0.829  0.644   0.910</code></pre>
+</div>
+</div>
+<p>Note the discrepency between confidence intervals returned by <code>MOTE</code> and <code>effectsize</code> this is due to differences in the calculation.</p>
+</section>
+</section>
+<section id="two-way-between-subjects-anova" class="level2" data-number="11.5">
+<h2 data-number="11.5" class="anchored" data-anchor-id="two-way-between-subjects-anova"><span class="header-section-number">11.5</span> Two-Way between-subjects ANOVA</h2>
+<p>Two-way between-subjects ANOVA is used when there are two predictor grouping variables in the model. Note again that between subjects means that each group contain different subjects.</p>
+<section id="determining-degrees-of-freedom-2" class="level3" data-number="11.5.1">
+<h3 data-number="11.5.1" class="anchored" data-anchor-id="determining-degrees-of-freedom-2"><span class="header-section-number">11.5.1</span> Determining degrees of freedom</h3>
+<p>Please refer to the following table to determine the degrees of freedom for two-way ANOVA effects <span class="citation" data-cites="postTwoWay">(<a href="references.html#ref-postTwoWay" role="doc-biblioref">Morse 2018</a>)</span>. Note that <span class="math inline">\(k_1\)</span> is the number of groups in the first variable, and <span class="math inline">\(k_2\)</span> is the number of groups in the second variable.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Degrees of freedom</th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Within subjects ANOVA</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Main Effect (of one variable)</td>
+<td style="text-align: center;"><span class="math inline">\(k_1-1\)</span> or <span class="math inline">\(k_2-1\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Interaction Effect</td>
+<td style="text-align: center;"><span class="math inline">\((k_1-1)\times (k_2-1)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Error</td>
+<td style="text-align: center;"><span class="math inline">\(n-k_1\cdot k_2\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Total</td>
+<td style="text-align: center;"><span class="math inline">\(n-1\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eta-squared-from-two-way-anova-statistics" class="level3" data-number="11.5.2">
+<h3 data-number="11.5.2" class="anchored" data-anchor-id="eta-squared-from-two-way-anova-statistics"><span class="header-section-number">11.5.2</span> Eta-squared from Two-Way ANOVA statistics</h3>
+<p>For Two-way ANOVAs we can obtain <span class="math inline">\(\eta^2_p\)</span> for each predictor in the model. Let’s construct our ANOVA model using data from the <code>palmerpenguins</code> dataset <span class="citation" data-cites="palmerpenguins">(<a href="references.html#ref-palmerpenguins" role="doc-biblioref">Horst, Hill, and Gorman 2020</a>)</span>. In this example we want to see how the species and the sex of the penguin explains variance in body mass.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>ANOVA2_mdl <span class="ot">&lt;-</span> <span class="fu">aov</span>(body_mass_g <span class="sc">~</span> species <span class="sc">+</span> sex <span class="sc">+</span> species<span class="sc">:</span>sex,</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">data =</span> penguins)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ANOVA2_mdl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             Df    Sum Sq  Mean Sq F value   Pr(&gt;F)    
+species       2 145190219 72595110 758.358  &lt; 2e-16 ***
+sex           1  37090262 37090262 387.460  &lt; 2e-16 ***
+species:sex   2   1676557   838278   8.757 0.000197 ***
+Residuals   327  31302628    95727                     
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+11 observations deleted due to missingness</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="Effect-Sizes-for-ANOVAs_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>The results show that species, sex, and the interaction between the two account for substantial variance in body mass. We can obtain the contributions of species, sex, and their interaction by computing the partial eta-squared value (<span class="math inline">\(\eta_p^2\)</span>). To do this using similar formulas to <span class="math inline">\(\eta^2\)</span> from the one-way ANOVAs. The difference between the formulas for <span class="math inline">\(\eta_p^2\)</span> anf <span class="math inline">\(\eta^2\)</span> is that <span class="math inline">\(\eta_p^2\)</span> does not use the total sum of squares in the denominator, instead it uses the residual sum of squares (<span class="math inline">\(SS_\text{error}\)</span>) and the sum of squares from the effect of interest (<span class="math inline">\(SS_\text{effect}\)</span>; i.e., species or sex but not both). For example,</p>
+<p><span class="math display">\[
+\small{\text{For species:}\;\;\;\; \eta_p^2= \frac{SS_\text{effect}}{SS_\text{effect} + SS_\text{error}} = \frac{145190219}{145190219+ 31302628} = .82}
+\]</span> <span class="math display">\[
+\small{\text{For sex:}\;\;\;\; \eta_p^2= \frac{SS_\text{effect}}{SS_\text{effect} + SS_\text{error}} = \frac{37090262}{37090262 + 31302628} = .54}
+\]</span> <span class="math display">\[
+\small{\text{For sex}\times\text{species:}\;\;\;\; \eta_p^2= \frac{SS_\text{effect}}{SS_\text{effect} + SS_\text{error}} = \frac{1676557}{1676557+ 31302628} = .05}
+\]</span> We can also easily do this in R using the <code>eta_squared</code> function in the <code>effectsize</code> package <span class="citation" data-cites="effectsize">(<a href="references.html#ref-effectsize" role="doc-biblioref">Ben-Shachar, Lüdecke, and Makowski 2020</a>)</span> and setting the argument <code>partial = TRUE</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(effectsize)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">eta_squared</span>(ANOVA2_mdl,</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">partial =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># Effect Size for ANOVA (Type I)
+
+Parameter   | Eta2 (partial) |       95% CI
+-------------------------------------------
+species     |           0.82 | [0.79, 0.85]
+sex         |           0.54 | [0.48, 0.60]
+species:sex |           0.05 | [0.01, 0.10]</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="two-way-repeated-measures-anova" class="level2" data-number="11.6">
+<h2 data-number="11.6" class="anchored" data-anchor-id="two-way-repeated-measures-anova"><span class="header-section-number">11.6</span> Two-way repeated measures ANOVA</h2>
+<p>A two-way repeated measures ANOVA (rmANOVA) would indicate that subjects are exposed to each condition along two variables.</p>
+</section>
+<section id="determing-degrees-of-freedom" class="level2" data-number="11.7">
+<h2 data-number="11.7" class="anchored" data-anchor-id="determing-degrees-of-freedom"><span class="header-section-number">11.7</span> Determing degrees of freedom</h2>
+<p>Please refer to the following table to determine the degrees of freedom for two-way rmANOVA effects <span class="citation" data-cites="postTwoWay">(<a href="references.html#ref-postTwoWay" role="doc-biblioref">Morse 2018</a>)</span>. Note that <span class="math inline">\(k_1\)</span> is the number of groups in the first variable, and <span class="math inline">\(k_2\)</span> is the number of groups in the second variable.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Degrees of freedom</th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Between subjects ANOVA</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Main Effect (of one variable)</td>
+<td style="text-align: center;"><span class="math inline">\(k_1-1\)</span> or <span class="math inline">\(k_2-1\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Interaction Effect</td>
+<td style="text-align: center;"><span class="math inline">\((k_1-1)\times (k_2-1)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Error-between</td>
+<td style="text-align: center;"><span class="math inline">\((k_1 \cdot k_2) - 1\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Error-within</td>
+<td style="text-align: center;"><span class="math inline">\((n - 1)\times (k_1\cdot k_2 - 1)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Total</td>
+<td style="text-align: center;"><span class="math inline">\(n-1\)</span></td>
+</tr>
+</tbody>
+</table>
+<section id="eta-squared-from-two-way-rmanova" class="level3" data-number="11.7.1">
+<h3 data-number="11.7.1" class="anchored" data-anchor-id="eta-squared-from-two-way-rmanova"><span class="header-section-number">11.7.1</span> Eta-squared from Two-way rmANOVA</h3>
+<p>For a two-way repeated measures ANOVA, we can use the <code>weightloss</code> data set from the <code>datarius</code> package <span class="citation" data-cites="datarium">(<a href="references.html#ref-datarium" role="doc-biblioref">Kassambara 2019</a>)</span>. This data set contains a diet condition and a control condition that tracked subjects across time (3 time points) for each of condition.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="do">### load in and re-format data</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"weightloss"</span>, <span class="at">package =</span> <span class="st">"datarium"</span>)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>weightloss <span class="ot">&lt;-</span> tidyr<span class="sc">::</span><span class="fu">pivot_longer</span>(weightloss,<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">"t1"</span>,<span class="st">"t2"</span>,<span class="st">"t3"</span>))</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(weightloss) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"subject"</span>,<span class="st">"diet"</span>,<span class="st">"exercises"</span>,<span class="st">"time"</span>, <span class="st">"weight_loss"</span>)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>weightloss <span class="ot">&lt;-</span> weightloss[weightloss<span class="sc">$</span>diet<span class="sc">==</span><span class="st">'no'</span>,] <span class="co"># remove the diet intervention trials</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="do">####</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>rmANOVA2_mdl <span class="ot">=</span> <span class="fu">aov</span>(<span class="at">formula =</span> weight_loss <span class="sc">~</span> time <span class="sc">+</span> exercises <span class="sc">+</span> time<span class="sc">:</span>exercises <span class="sc">+</span> <span class="fu">Error</span>(subject),</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>                   <span class="at">data =</span> weightloss)</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(rmANOVA2_mdl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Error: subject
+          Df Sum Sq Mean Sq F value Pr(&gt;F)
+Residuals 11  20.64   1.877               
+
+Error: Within
+               Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+time            2 129.26   64.63   50.57 3.45e-13 ***
+exercises       1 101.03  101.03   79.05 3.16e-12 ***
+time:exercises  2  92.55   46.28   36.21 9.26e-11 ***
+Residuals      55  70.29    1.28                     
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="Effect-Sizes-for-ANOVAs_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>From the table and graph above, we can see that there is substantial within-person change in weight loss under the exercise condition and no discernible increase in weight loss without exercising. This suggests that there is a substantial interaction effect. Like we did in the between-subjects two-way ANOVA, we can calculate the partial eta squared values from the ANOVA table</p>
+<p><span class="math display">\[
+\small{\text{For time:}\;\;\;\; \eta_p^2= \frac{SS_\text{effect}}{SS_\text{effect} + SS_\text{error-within}} = \frac{129.26}{129.26+ 70.29} = .65}
+\]</span> <span class="math display">\[
+\small{\text{For exercise:}\;\;\;\; \eta_p^2= \frac{SS_\text{effect}}{SS_\text{effect} + SS_\text{error-within}} = \frac{101.03}{101.03 + 70.29} = .59}
+\]</span> <span class="math display">\[
+\small{\text{For sex}\times\text{species:}\;\;\;\; \eta_p^2= \frac{SS_\text{effect}}{SS_\text{effect} + SS_\text{error-within}} = \frac{92.55}{92.55+ 70.29} = .57}
+\]</span></p>
+<p>Remember for the partial eta-squared, the denominator is not the total sum of squares rather it is the effect sum of squares and the error. In the repeated measures ANOVA, the error should only be for the within subject error because the variance between subjects is not something we are interested about. We can also calculate this in R using the <code>eta_squared()</code> function again.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(effectsize)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">eta_squared</span>(rmANOVA2_mdl,</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">partial =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># Effect Size for ANOVA (Type I)
+
+Group  |      Parameter | Eta2 (partial) |       95% CI
+-------------------------------------------------------
+Within |           time |           0.65 | [0.49, 0.75]
+Within |      exercises |           0.59 | [0.42, 0.70]
+Within | time:exercises |           0.57 | [0.39, 0.69]</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="effect-sizes-for-anovas" class="level2" data-number="11.8">
+<h2 data-number="11.8" class="anchored" data-anchor-id="effect-sizes-for-anovas"><span class="header-section-number">11.8</span> Effect Sizes for ANOVAs</h2>
+<p>ANOVA (Analysis of Variance) is a statistical method used to compare means across multiple groups or conditions. It is mostly used when the outcome variable is continuous and the predictor variables are categorical. Commonly used effect size measures for ANOVAs / F-tests include: eta-squared (<span class="math inline">\(\eta^2\)</span>), partial eta-squared (<span class="math inline">\(\eta_p^2\)</span>), generalized eta-squared (<span class="math inline">\(\eta^2_G\)</span>), omega-squared (<span class="math inline">\(\omega^2\)</span>), partial omega-squared (<span class="math inline">\(\omega\)</span>), generalized omega-squared (<span class="math inline">\(\omega^2_G\)</span>), Cohen’s <span class="math inline">\(f\)</span>.</p>
+<section id="sec-eta-squared" class="level3" data-number="11.8.1">
+<h3 data-number="11.8.1" class="anchored" data-anchor-id="sec-eta-squared"><span class="header-section-number">11.8.1</span> Eta-Squared (<span class="math inline">\(\eta^2\)</span>)</h3>
 <p>Eta-squared is the ratio between the between-group variance and the total variance. It describes the proportion of the total variability in the data that are accounted for by a particular factor. Therefore, it is a measure of <em>variance explained</em>. To calculate eta-squared (<span class="math inline">\(\eta^2\)</span>) we need to first calculate the total sum of squares (<span class="math inline">\(SS_{\text{total}}\)</span>) and the effect sum of squares (<span class="math inline">\(SS_{\text{effect}}\)</span>),</p>
 <p><span class="math display">\[
 SS_{\text{total}} = \sum_{i=1}^n (y_i-\bar{y})^2
@@ -395,20 +996,20 @@ SE_{\eta^2}=\sqrt{\frac{4\eta^2\left(1-\eta^2\right)^2\left(n+k-1\right)^2}{\lef
 <p>The sampling distribution for <span class="math inline">\(\eta^2\)</span> is asymmetric as all the values are bounded in the range, 0 to 1. The confidence interval surrounding <span class="math inline">\(\eta^2\)</span> will likewise be asymmetric so instead of calculating the confidence interval from the standard error, we can instead use a non-central F-distribution using the degrees of freedom between groups (e.g., for three groups: <span class="math inline">\(df_b=k-1=3-1=2\)</span>) and the degrees of freedom within groups (e.g., for 100 subjects and three groups: <span class="math inline">\(df_b=n-k=100-3=97\)</span>) to obtain the confidence intervals. Another option is to use bootstrapping procedure <span class="citation" data-cites="BootES">(i.e., resampling the observed data points to construct a sampling distribution around <span class="math inline">\(\eta^2\)</span>, see <a href="references.html#ref-BootES" role="doc-biblioref">Kirby and Gerlanc 2013</a>)</span> and then take the .025 and .975 quantiles of that distribution. The R code below will compute the proper confidence interval.</p>
 <p>Where <span class="math inline">\(n\)</span> is the total sample size and <span class="math inline">\(k\)</span> is the number of predictors. In R, we can calculate <span class="math inline">\(\eta^2\)</span> from a one-way ANOVA using the penguin data set from the <code>palmerpenguins</code> data package. The <code>aov</code> function in base R allows the analyst to model an ANOVA with categorical predictors on the right side (species) of the <code>~</code> and the outcome on the left side (body mass of penguin). We can then use the <code>eta_squared</code> function in the <code>effectsize</code> package to calculate the point estimate and confidence intervals.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example:</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># group: species</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># outcome: body mass</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(effectsize)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># One-Way ANOVA</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>mdl1 <span class="ot">&lt;-</span> <span class="fu">aov</span>(<span class="at">data =</span> penguins,</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>           body_mass_g <span class="sc">~</span> species)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">eta_squared</span>(mdl1, </span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>            <span class="at">partial =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>            <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example:</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co"># group: species</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co"># outcome: body mass</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(effectsize)</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="co"># One-Way ANOVA</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>mdl1 <span class="ot">&lt;-</span> <span class="fu">aov</span>(<span class="at">data =</span> penguins,</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>           body_mass_g <span class="sc">~</span> species)</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="fu">eta_squared</span>(mdl1, </span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>            <span class="at">partial =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>            <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Effect Size for ANOVA (Type I)
 
@@ -419,17 +1020,17 @@ species   | 0.67 | [0.62, 0.71]</code></pre>
 </div>
 <p>The species of the penguin explains the majority of the variation in body mass showing an eta-squared value of <span class="math inline">\(\eta^2\)</span> = .67 [.62, .71]. Let us now do the same thing with a two-way ANOVA, using both <code>species</code> and <code>sex</code> as our categorical predictors.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example:</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># group: species and sex</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># outcome: body mass</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Two-Way ANOVA</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>mdl2 <span class="ot">&lt;-</span> <span class="fu">aov</span>(<span class="at">data =</span> penguins,</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>           body_mass_g <span class="sc">~</span> species <span class="sc">+</span> sex)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">eta_squared</span>(mdl2, </span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">partial =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example:</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co"># group: species and sex</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co"># outcome: body mass</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Two-Way ANOVA</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>mdl2 <span class="ot">&lt;-</span> <span class="fu">aov</span>(<span class="at">data =</span> penguins,</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>           body_mass_g <span class="sc">~</span> species <span class="sc">+</span> sex)</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="fu">eta_squared</span>(mdl2, </span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">partial =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Effect Size for ANOVA (Type I)
 
@@ -441,8 +1042,8 @@ sex       | 0.17 | [0.10, 0.24]</code></pre>
 </div>
 <p>Notice that the <span class="math inline">\(\eta^2\)</span> does not change for species since the sum of squares is divided by the total sum of squares rather than the residual sum of squares (see partial eta squared). The example shows an eta-squared value for species of <span class="math inline">\(\eta^2\)</span> = .67 [.62, .72] and for sex <span class="math inline">\(\eta^2\)</span> = .17 [.10, .24].</p>
 </section>
-<section id="partial-eta-squared-eta2_p" class="level2" data-number="11.2">
-<h2 data-number="11.2" class="anchored" data-anchor-id="partial-eta-squared-eta2_p"><span class="header-section-number">11.2</span> Partial Eta-Squared (<span class="math inline">\(\eta^2_p\)</span>)</h2>
+<section id="partial-eta-squared-eta2_p" class="level3" data-number="11.8.2">
+<h3 data-number="11.8.2" class="anchored" data-anchor-id="partial-eta-squared-eta2_p"><span class="header-section-number">11.8.2</span> Partial Eta-Squared (<span class="math inline">\(\eta^2_p\)</span>)</h3>
 <p>Partial eta-squared is the most commonly reported effect size measure for F-tests. It describes the proportion of variability associated with an effect when the variability associated with all other effects identified in the analysis has been removed from consideration (hence, it is “partial”). If you have access to an ANOVA table, the partial eta-squared for an effect is calculated as:</p>
 <p><span class="math display">\[
 \eta_p^2 = \frac{ SS_{\text{effect}}}{SS_{\text{effect}}+SS_{\text{error}}}
@@ -454,18 +1055,18 @@ sex       | 0.17 | [0.10, 0.24]</code></pre>
 </ol>
 <p>In R, let us compare the partial eta-squared values for a one-way ANOVA and a two-way ANOVA using the <code>eta_squared</code> function in the <code>effectsize</code> package.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example:</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># group: species</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># outcome: body mass</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># One-Way ANOVA</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>mdl1 <span class="ot">&lt;-</span> <span class="fu">aov</span>(<span class="at">data =</span> penguins,</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>           body_mass_g <span class="sc">~</span> species)</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="fu">eta_squared</span>(mdl1, </span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">partial =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>            <span class="at">alternative =</span> <span class="st">"two.sided"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example:</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co"># group: species</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="co"># outcome: body mass</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="co"># One-Way ANOVA</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>mdl1 <span class="ot">&lt;-</span> <span class="fu">aov</span>(<span class="at">data =</span> penguins,</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>           body_mass_g <span class="sc">~</span> species)</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="fu">eta_squared</span>(mdl1, </span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">partial =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>            <span class="at">alternative =</span> <span class="st">"two.sided"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>For one-way between subjects designs, partial eta squared is equivalent
   to eta squared. Returning eta squared.</code></pre>
@@ -480,17 +1081,17 @@ species   | 0.67 | [0.62, 0.71]</code></pre>
 </div>
 <p>The species of the penguin explains the majority of the variation in body mass showing a partial eta-squared value of <span class="math inline">\(\eta^2\)</span> = <span class="math inline">\(\eta^2_p\)</span> = .67 [.62, .71]. Let us now do the same thing with a two-way ANOVA, using both <code>species</code> and <code>sex</code> as our categorical predictors.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example:</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># group: species and sex</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># outcome: body mass</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Two-Way ANOVA</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>mdl2 <span class="ot">&lt;-</span> <span class="fu">aov</span>(<span class="at">data =</span> penguins,</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>           body_mass_g <span class="sc">~</span> species <span class="sc">+</span> sex)</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="fu">eta_squared</span>(mdl2, </span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">partial =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example:</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co"># group: species and sex</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="co"># outcome: body mass</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Two-Way ANOVA</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>mdl2 <span class="ot">&lt;-</span> <span class="fu">aov</span>(<span class="at">data =</span> penguins,</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>           body_mass_g <span class="sc">~</span> species <span class="sc">+</span> sex)</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a><span class="fu">eta_squared</span>(mdl2, </span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">partial =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Effect Size for ANOVA (Type I)
 
@@ -502,12 +1103,12 @@ sex       |           0.53 | [0.46, 0.59]</code></pre>
 </div>
 <p>Once we run a two-way ANOVA, the eta-squared value for species begins to differ. The example shows a partial eta-squared value for species of <span class="math inline">\(\eta^2_p\)</span> = .81 [.78, .84] and for sex <span class="math inline">\(\eta^2\)</span> = .53 [.46, .59].</p>
 </section>
-<section id="generalized-eta-squared-eta2_g" class="level2" data-number="11.3">
-<h2 data-number="11.3" class="anchored" data-anchor-id="generalized-eta-squared-eta2_g"><span class="header-section-number">11.3</span> Generalized Eta-Squared (<span class="math inline">\(\eta^2_G\)</span>)</h2>
+<section id="generalized-eta-squared-eta2_g" class="level3" data-number="11.8.3">
+<h3 data-number="11.8.3" class="anchored" data-anchor-id="generalized-eta-squared-eta2_g"><span class="header-section-number">11.8.3</span> Generalized Eta-Squared (<span class="math inline">\(\eta^2_G\)</span>)</h3>
 <p>Generalized eta-squared was devised to allow effect size comparisons across studies with different designs, which eta-squared and partial eta-squared cannot help with (refer to for details). If you can (either you are confident that you calculated it right, or the statistical software that you use just happens to return this measure), report generalized eta-squared in addition to eta-squared or partial eta-squared. The biggest advantage of generalized eta-squared is that it facilitates meta-analysis, which is important for the accumulation of knowledge. To calculate generalized eta-squared, the denominator should be the sums of squares of all the non-manipulated variables (i.e., variance of purely individual differences in the outcome rather than individual differences in treatment effects). Note the formula will depend on the design of the study. In R, the <code>eta_squared</code> function in the <code>effectsize</code> package supports the calculation of generalized eta-squared by using the <code>generalized=TRUE</code> argument.</p>
 </section>
-<section id="omega-squared-corrections-omega2-omega2_p" class="level2" data-number="11.4">
-<h2 data-number="11.4" class="anchored" data-anchor-id="omega-squared-corrections-omega2-omega2_p"><span class="header-section-number">11.4</span> Omega squared corrections (<span class="math inline">\(\omega^2\)</span>, <span class="math inline">\(\omega^2_p\)</span>)</h2>
+<section id="omega-squared-corrections-omega2-omega2_p" class="level3" data-number="11.8.4">
+<h3 data-number="11.8.4" class="anchored" data-anchor-id="omega-squared-corrections-omega2-omega2_p"><span class="header-section-number">11.8.4</span> Omega squared corrections (<span class="math inline">\(\omega^2\)</span>, <span class="math inline">\(\omega^2_p\)</span>)</h3>
 <p>Similar to Hedges’ correction for small sample bias in standardized mean differences, <span class="math inline">\(\eta^2\)</span> is also biased. We can apply a correction to <span class="math inline">\(\eta^2\)</span> and obtain a relatively unbiased estimate of the population proportion of variance explained by the predictor. To calculate <span class="math inline">\(\omega\)</span>, we need to calculate the within group mean squared errors:</p>
 <p><span class="math display">\[
 MS_{\text{within}} = \frac{1}{n}\sum_{i=1}^n (y_i-\hat{y}_i)^2.
@@ -526,20 +1127,20 @@ MS_{\text{error}} = \frac{SS_{\text{error}}}{n}
 \]</span></p>
 <p>In R, we can use the <code>omega_squared</code> function in the <code>effectsize</code> package to calculate both <span class="math inline">\(\omega^2\)</span> and <span class="math inline">\(\omega^2_p\)</span>. For the first example we will use a one-way ANOVA.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example:</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># group: species</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># outcome: body mass</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># One-Way ANOVA</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>mdl1 <span class="ot">&lt;-</span> <span class="fu">aov</span>(<span class="at">data =</span> penguins,</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>           body_mass_g <span class="sc">~</span> species)</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co"># omega-squared</span></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="fu">omega_squared</span>(mdl1, </span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>            <span class="at">partial =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>            <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example:</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="co"># group: species</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="co"># outcome: body mass</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="co"># One-Way ANOVA</span></span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>mdl1 <span class="ot">&lt;-</span> <span class="fu">aov</span>(<span class="at">data =</span> penguins,</span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>           body_mass_g <span class="sc">~</span> species)</span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a><span class="co"># omega-squared</span></span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a><span class="fu">omega_squared</span>(mdl1, </span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a>            <span class="at">partial =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>            <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Effect Size for ANOVA (Type I)
 
@@ -547,10 +1148,10 @@ Parameter | Omega2 |       95% CI
 ---------------------------------
 species   |   0.67 | [0.61, 0.71]</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># partial omega-squared</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">omega_squared</span>(mdl1, </span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">partial =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># partial omega-squared</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">omega_squared</span>(mdl1, </span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">partial =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>For one-way between subjects designs, partial omega squared is
   equivalent to omega squared. Returning omega squared.</code></pre>
@@ -565,18 +1166,18 @@ species   |   0.67 | [0.61, 0.71]</code></pre>
 </div>
 <p>The species of the penguin explains the majority of the variation in body mass showing an omega-squared value of <span class="math inline">\(\omega^2\)</span> = .67 [.61, .71]. Note that the partial and non-partial omega squared values do not show a difference as expected in a one-way ANOVA. Let us now do the same thing with a two-way ANOVA, using both <code>species</code> and <code>sex</code> as our categorical predictors.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example:</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># group: species and sex</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># outcome: body mass</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Two-Way ANOVA</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>mdl2 <span class="ot">&lt;-</span> <span class="fu">aov</span>(<span class="at">data =</span> penguins,</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>           body_mass_g <span class="sc">~</span> species <span class="sc">+</span> sex)</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co"># omega-squared</span></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="fu">omega_squared</span>(mdl2, </span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">partial =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>            <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example:</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="co"># group: species and sex</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="co"># outcome: body mass</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Two-Way ANOVA</span></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>mdl2 <span class="ot">&lt;-</span> <span class="fu">aov</span>(<span class="at">data =</span> penguins,</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>           body_mass_g <span class="sc">~</span> species <span class="sc">+</span> sex)</span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a><span class="co"># omega-squared</span></span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a><span class="fu">omega_squared</span>(mdl2, </span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">partial =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>            <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Effect Size for ANOVA (Type I)
 
@@ -585,10 +1186,10 @@ Parameter | Omega2 |       95% CI
 species   |   0.67 | [0.62, 0.72]
 sex       |   0.17 | [0.10, 0.24]</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># partial omega-squared</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">omega_squared</span>(mdl2, </span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">partial =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># partial omega-squared</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">omega_squared</span>(mdl2, </span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">partial =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Effect Size for ANOVA (Type I)
 
@@ -599,8 +1200,9 @@ sex       |             0.53 | [0.46, 0.58]</code></pre>
 </div>
 </div>
 <p>Once we run a two-way ANOVA, the eta-squared value for species &nbsp;diverge. The example shows a partial eta-squared value for species of <span class="math inline">\(\omega^2_p\)</span> = .81 [.78, .84] and for sex <span class="math inline">\(\omega^2\)</span> = .53 [.46, .58].</p>
-<section id="cohens-f" class="level3" data-number="11.4.1">
-<h3 data-number="11.4.1" class="anchored" data-anchor-id="cohens-f"><span class="header-section-number">11.4.1</span> Cohen’s <span class="math inline">\(f\)</span></h3>
+</section>
+<section id="cohens-f" class="level3" data-number="11.8.5">
+<h3 data-number="11.8.5" class="anchored" data-anchor-id="cohens-f"><span class="header-section-number">11.8.5</span> Cohen’s <span class="math inline">\(f\)</span></h3>
 <p>Cohen’s <span class="math inline">\(f\)</span> is defined as the ratio of the standard deviations of the group means and the common standard deviation within each of the groups (note that ANOVA assumes equal variances among groups). Cohen’s <span class="math inline">\(f\)</span> is the effect size measure asked for by G*Power for power analysis for F-tests. This can be calculated easily from the eta-squared value,</p>
 <p><span class="math display">\[
 f = \sqrt{\frac{\eta^2}{1-\eta^2}}
@@ -612,15 +1214,15 @@ f = \sqrt{\frac{\omega^2}{1-\omega^2}}
 <p>Cohen’s <span class="math inline">\(f\)</span> can be interpreted as “the average Cohen’s <span class="math inline">\(d\)</span> (i.e., standardized mean difference) between groups”. Note that there is no directionality to this effect size (<span class="math inline">\(f\)</span> is always greater than zero), therefore two studies showing the same <span class="math inline">\(f\)</span> with the same groups, can have very different patterns of group mean differences. Note that Cohen’s <span class="math inline">\(f\)</span> is also often reported as <span class="math inline">\(f^2\)</span>. The confidence intervals for Cohen’s <span class="math inline">\(f\)</span> can be computed from the upper bounds and lower bounds of the confidence intervals from eta-square or omega-square using the formulas to calculate <span class="math inline">\(f\)</span> (e.g., for the upper bound <span class="math inline">\(f_{UP} = \sqrt{\frac{\eta^2_{UP}}{1-\eta^2_{UP}}}\)</span>).</p>
 <p>In R, we can use the <code>cohens_f</code> function in the <code>effectsize</code> package to calculate Cohen’s <span class="math inline">\(f\)</span>. We will again use example data from the <code>palmerpenguins</code> package.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example:</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co"># group: species</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co"># outcome: body mass</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ANOVA</span></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>mdl <span class="ot">&lt;-</span> <span class="fu">aov</span>(<span class="at">data =</span> penguins,</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>           body_mass_g <span class="sc">~</span> species)   </span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="fu">cohens_f</span>(mdl,<span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example:</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="co"># group: species</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="co"># outcome: body mass</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ANOVA</span></span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>mdl <span class="ot">&lt;-</span> <span class="fu">aov</span>(<span class="at">data =</span> penguins,</span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>           body_mass_g <span class="sc">~</span> species)   </span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a><span class="fu">cohens_f</span>(mdl,<span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>For one-way between subjects designs, partial eta squared is equivalent
   to eta squared. Returning eta squared.</code></pre>
@@ -636,29 +1238,29 @@ species   |      1.42 | [1.27, 1.57]</code></pre>
 <p>In the example above, the difference in body mass between the three penguin species was very large showing a Cohen’s <span class="math inline">\(f\)</span> of 1.42 [1.27, 1.57].</p>
 </section>
 </section>
-<section id="reporting-anova-results" class="level2" data-number="11.5">
-<h2 data-number="11.5" class="anchored" data-anchor-id="reporting-anova-results"><span class="header-section-number">11.5</span> Reporting ANOVA results</h2>
+<section id="reporting-anova-results" class="level2" data-number="11.9">
+<h2 data-number="11.9" class="anchored" data-anchor-id="reporting-anova-results"><span class="header-section-number">11.9</span> Reporting ANOVA results</h2>
 <p>For ANOVAs/F-tests, you will always need to report two kinds of effects: the omnibus effect of the factor(s) and the effect of planned contrasts or post hoc comparisons.</p>
 <p>For instance, imagine that you are comparing three groups/conditions with a one-way ANOVA. The ANOVA will first return an F-statistic, the degrees of freedom, and the associated p-value. Here, you need to calculate the size of this omnibus factor effect in eta-squared, partial eta-squared, or generalized eta-squared. Suppose the omnibus effect is significant. You now know that there is at least one group that differs from the others. You want to know which group(s) differ from the others, and how much they differ. Therefore, you conduct post hoc comparisons on these groups. Because post hoc comparisons compare each group with the others in pairs, you will get a <em>t</em>-statistic and p-value for each comparison. For this, you need to calculate and report Cohen’s <span class="math inline">\(d\)</span> or Hedges’ <span class="math inline">\(g\)</span>.</p>
 <p>Imagine that you have two independent variables or factors, and you conduct a two-by-two factorial ANOVA. The first thing to do then is look at the interaction. If the interaction is significant, you again report the associated omnibus effect size measures, and proceed to analyze the simple effects. Depending on your research question, you compare the levels of one IV on each level of the other IV. You will report d or g for these simple effects. If the interaction is not significant, you look at the main effects and report the associated omnibus effect. You then proceed to analyze the main effect by comparing the levels of one IV while collapsing/aggregating the levels of the other IV. You will report <span class="math inline">\(d\)</span> or <span class="math inline">\(g\)</span> for these pairwise comparisons.</p>
 <p>Note that lower-order effects are not directly interpretable if higher-order effects are significant. If you have a significant interaction in a two-way ANOVA, you cannot interpret the main effects directly. If you have a significant three-way interaction in a three-way ANOVA, you cannot interpret the main effects or the two-way interactions directly, regardless of whether they are significant or not.</p>
 <p>In R, we can use the <code>summary</code> function to display the anova table. We can also append the table to include, for example, partial omega squared values and their respective confidence intervals</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ANOVA mdl</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>mdl <span class="ot">&lt;-</span> <span class="fu">aov</span>(<span class="at">data =</span> penguins,</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>           body_mass_g <span class="sc">~</span> species <span class="sc">+</span> sex)   </span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate partial omega-squared values</span></span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>omega_values <span class="ot">&lt;-</span> <span class="fu">omega_squared</span>(mdl, <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="co"># create table of partial omega-squared values</span></span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>omega_table <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">omega_sq =</span> MOTE<span class="sc">::</span><span class="fu">apa</span>(<span class="fu">c</span>(omega_values<span class="sc">$</span>Omega2_partial,<span class="cn">NA</span>)),</span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>                     <span class="at">omega_low =</span> MOTE<span class="sc">::</span><span class="fu">apa</span>(<span class="fu">c</span>(omega_values<span class="sc">$</span>CI_low,<span class="cn">NA</span>)),</span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>                     <span class="at">omega_high =</span> MOTE<span class="sc">::</span><span class="fu">apa</span>(<span class="fu">c</span>(omega_values<span class="sc">$</span>CI_high,<span class="cn">NA</span>)))</span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="co"># append omega values to summary of anova table</span></span>
-<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(<span class="fu">summary</span>(mdl)[[<span class="dv">1</span>]],</span>
-<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>      omega_table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ANOVA mdl</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>mdl <span class="ot">&lt;-</span> <span class="fu">aov</span>(<span class="at">data =</span> penguins,</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>           body_mass_g <span class="sc">~</span> species <span class="sc">+</span> sex)   </span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate partial omega-squared values</span></span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>omega_values <span class="ot">&lt;-</span> <span class="fu">omega_squared</span>(mdl, <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a><span class="co"># create table of partial omega-squared values</span></span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a>omega_table <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">omega_sq =</span> MOTE<span class="sc">::</span><span class="fu">apa</span>(<span class="fu">c</span>(omega_values<span class="sc">$</span>Omega2_partial,<span class="cn">NA</span>)),</span>
+<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a>                     <span class="at">omega_low =</span> MOTE<span class="sc">::</span><span class="fu">apa</span>(<span class="fu">c</span>(omega_values<span class="sc">$</span>CI_low,<span class="cn">NA</span>)),</span>
+<span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a>                     <span class="at">omega_high =</span> MOTE<span class="sc">::</span><span class="fu">apa</span>(<span class="fu">c</span>(omega_values<span class="sc">$</span>CI_high,<span class="cn">NA</span>)))</span>
+<span id="cb46-12"><a href="#cb46-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-13"><a href="#cb46-13" aria-hidden="true" tabindex="-1"></a><span class="co"># append omega values to summary of anova table</span></span>
+<span id="cb46-14"><a href="#cb46-14" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(<span class="fu">summary</span>(mdl)[[<span class="dv">1</span>]],</span>
+<span id="cb46-15"><a href="#cb46-15" aria-hidden="true" tabindex="-1"></a>      omega_table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             Df    Sum Sq    Mean Sq  F value        Pr(&gt;F) omega_sq omega_low
 species       2 145190219 72595109.6 724.2080 3.079053e-121    0.813     0.781
@@ -673,13 +1275,38 @@ Residuals           NA</code></pre>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-effectsize" class="csl-entry" role="listitem">
+Ben-Shachar, Mattan S., Daniel Lüdecke, and Dominique Makowski. 2020. <span>“<span class="nocase">e</span>ffectsize: Estimation of Effect Size Indices and Standardized Parameters.”</span> <em>Journal of Open Source Software</em> 5 (56): 2815. <a href="https://doi.org/10.21105/joss.02815">https://doi.org/10.21105/joss.02815</a>.
+</div>
+<div id="ref-MOTE" class="csl-entry" role="listitem">
+Buchanan, Erin M., Amber Gillenwaters, John E. Scofield, and K. D. Valentine. 2019. <em><span class="nocase">MOTE: Measure of the Effect</span>: Package to Assist in Effect Size Calculations and Their Confidence Intervals</em>. <a href="http://github.com/doomlab/MOTE">http://github.com/doomlab/MOTE</a>.
+</div>
+<div id="ref-palmerpenguins" class="csl-entry" role="listitem">
+Horst, Allison Marie, Alison Presmanes Hill, and Kristen B Gorman. 2020. <em>Palmerpenguins: Palmer Archipelago (Antarctica) Penguin Data</em>. <a href="https://doi.org/10.5281/zenodo.3960218">https://doi.org/10.5281/zenodo.3960218</a>.
+</div>
+<div id="ref-datarium" class="csl-entry" role="listitem">
+Kassambara, Alboukadel. 2019. <em>Datarium: Data Bank for Statistical Analysis and Visualization</em>. <a href="https://CRAN.R-project.org/package=datarium">https://CRAN.R-project.org/package=datarium</a>.
+</div>
 <div id="ref-BootES" class="csl-entry" role="listitem">
 Kirby, Kris N, and Daniel Gerlanc. 2013. <span>“BootES: An r Package for Bootstrap Confidence Intervals on Effect Sizes.”</span> <em>Behavior Research Methods</em> 45: 905–27.
+</div>
+<div id="ref-postTwoWay" class="csl-entry" role="listitem">
+Morse, David. 2018. <span>“How to Calculate Degrees of Freedom When Using Two Way ANOVA with Unequal Sample Size?”</span>
 </div>
 <div id="ref-olkin1995" class="csl-entry" role="listitem">
 Olkin, Ingram, and Jeremy D. Finn. 1995. <span>“Correlations Redux.”</span> <em>Psychological Bulletin</em> 118 (1): 155–64. <a href="https://doi.org/10.1037/0033-2909.118.1.155">https://doi.org/10.1037/0033-2909.118.1.155</a>.
 </div>
+<div id="ref-metafor" class="csl-entry" role="listitem">
+Viechtbauer, Wolfgang. 2010. <span>“Conducting Meta-Analyses in <span>R</span> with the <span class="nocase">metafor</span> Package.”</span> <em>Journal of Statistical Software</em> 36 (3): 1–48. <a href="https://doi.org/10.18637/jss.v036.i03">https://doi.org/10.18637/jss.v036.i03</a>.
 </div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>There are variants of ANOVAs that can have each of these assumptions violated.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>See this forum <a href="https://stats.stackexchange.com/a/98998">discussion</a> for explanation.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->

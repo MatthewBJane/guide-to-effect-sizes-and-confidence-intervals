@@ -165,7 +165,7 @@ h6 <- ggplot(data=NULL,aes(x=data6[,1],y=data6[,2])) +
 The standard error of the Pearson correlation coefficient is,
 
 $$
-SE_r = \frac{1-r^2}{\sqrt{n-1}}
+SE_r = \sqrt{\frac{\left(1-r^2\right)^2}{n-1}}
 $$
 
 Unlike Cohen's $d$ and other effect size measures, The correlation coefficient is bounded by -1 and positive 1, with positive 1 being a perfectly positive correlation, -1 being a perfectly negative correlation, and zero indicating no correlation between the two variables. The bounding has the consequence of making the confidence interval asymmetric around $r$ (e.g., if the correlation is positive, the lower bound is farther away from $r$ than the upper bound is). It is important to note that with a correlation of zero, the confidence interval is symmetric and approximately normal. Instead, to obtain the confidence intervals of $r$, we first need to apply a Fisher's Z transformation. A Fisher's Z transformation is a hyperbolic arctangent transformation of a Pearson correlation coefficient and can be computed as,
@@ -211,3 +211,5 @@ data.frame(r = MOTE::apa(r),
 ```
 
 The output shows that the correlation and its confidence intervals are $r$ = 0.50, 95% CI \[0.26, 0.68\].
+
+

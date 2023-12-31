@@ -1,61 +1,240 @@
+# Differences in Variability
 
-# Differences in Variance
-
-Occasionally researchers would like to compare the variance between two conditions or groups rather than the mean.
-
-## Variance Ratio ($VR$)
-
-The variance ratio can be calculated by taking the variance within one group and dividing it by the variance in another group,
+Occasionally researchers would like to compare the variations between two conditions or groups rather than the mean. Two commonly used are the natural logarithms of variability ratio ($lnVR$) and the coefficient of variance ratio ($lnCVR$). The latter of these can be useful when there may be a mean-variance relationship present (i.e., variances tend to increase with mean values) in order to account for this. An lnVR or lnCVR of zero therefore would indicate no difference in variation between the two groups, an lnVR or lnCVR of \>0 would indicate larger variance in group 1, and an lnVR or lnCVR of \<0 would indicate larger variance in group 2. There are both independent and dependent versions of these effect sizes [see @senior2020]. To obtain confidence intervals of a the lnVR or lnCVR then we, for example 95% confidence intervals, we merely multiply the standard error for the parameter by 1.96 similarly to other effect size statistics,
 
 $$
-VR=\frac{S^2_1}{S_2^2}
-$$
-A $VR$ of 1 would indicate no difference between the variances, a $VR$ of >1 would indicate larger variance in group 1, and $VR$ of <1 would indicate larger variance in group 2. To obtain confidence intervals of a variance ratio, we need to first take the log-transform of the variance ratio and calculate the standard error of the log-variance ratio (LVR),
-
-$$
-LVR = \log(VR)
+CI_{lnVR/lnCVR}=lnVR \pm 1.96\cdot SE_{lnVR/lnCVR}
 $$
 
-$$
-SE_{LVR} = \sqrt{\frac{1}{2(n_1-1)} + \frac{1}{2(n_2-1)}}
-$$
+## Natural Logarithm of Variability Ratio for Independent Groups ($lnVR_\text{ind}$)
 
-The 95% confidence intervals for the variance ratio can then be calculated by back-transforming the CI of the log-variance ratio,
+The variability ratio for independent groups can be calculated by taking the natural logarithm of the *standard deviation* within one group divided by the standard deviation in another group,
 
 $$
-CI_{VR} = \exp(LVR \pm 1.96\times SE_{LVR})
+lnVR_\text{ind}=\ln\left(\frac{S_T}{S_C}\right) + CF
 $$
-In R, we can simply use base R to calculate the $VR$ and it's confidence intervals
 
-```{r, echo=TRUE}
+Where $CF$ is a small sample correction factor calculated as,
+
+$$
+CF=\frac{1}{2(n_T-1)}-\frac{1}{2(n_C-1)}
+$$
+
+A $lnVR$ of zero therefore would indicate no difference in variation between the two groups, a $lnVR$ of \>0 would indicate larger variance in group 1, and $lnVR$ of \<0 would indicate larger variance in group 2. The standard error of the VR can be calculated as,
+
+$$
+SE_{lnVR_\text{ind}}=\sqrt{\frac{n_T}{2(n_T-1)^2}+\frac{n_C}{2(n_C-1)^2}}
+$$
+
+In R, we can simply use the metafor packages `escalc()` function from the `metafor` package [@metafor] as follows:
+
+
+```{r, echo=TRUE, message=FALSE}
 # Example:
 # Group 1: standard deviation = 4.5, sample size = 50
 # Group 2: standard deviation = 3.5, sample size = 50
 
+library(metafor)
+
+# prepare the data
 SD1 <- 4.5
 SD2 <- 3.5
 n1 <- n2 <- 50
 
-VR <- SD1^2 / SD2^2
+lnVRind <- escalc(
+    measure = "VR",
+    sd1i = SD1,
+    sd2i = SD2,
+    n1i = n1,
+    n2i = n2
+  )
+
+
+lnVRind$SE <- sqrt(lnVRind$vi)
 
 # calculate confidence interval
-LVR <- log(VR)
-SE_LVR <- sqrt(1/(2*(n1-1)) + 1/(2*(n2-1)))
-
-VRlow <- exp(LVR - SE_LVR)
-VRhigh <- exp(LVR + SE_LVR)
+lnVRind_low <- lnVRind$yi - 1.96*lnVRind$SE
+lnVRind_high <- lnVRind$yi + 1.96*lnVRind$SE
 
 # print the VR value and confidence intervals
-data.frame(VR = MOTE::apa(VR), 
-           VRlow = MOTE::apa(VRlow), 
-           VRhigh = MOTE::apa(VRhigh))
+data.frame(lnVRind = MOTE::apa(lnVRind$yi),
+           lnVRind_low = MOTE::apa(lnVRind_low),
+           lnVRind_high = MOTE::apa(lnVRind_high))
 
 ```
 
 
-From the example, we obtain a variance ratio of $VR$ = 1.65 [1.43, 1.91].
+From the example, we obtain a natural log variability ratio of $lnVR_\text{ind}$ = 0.25 \[-0.03, 0.53\].
 
 
 
+## Natural Logarithm of Variability Ratio for Dependent Groups ($lnVR_\text{dep}$)
+
+The variability ratio for dependent groups can similarly be calculated by taking the natural logarithm of the *standard deviation* within one group divided by the *standard deviation* in another group,
+
+$$
+lnVR_\text{dep}=\ln\left(\frac{S_T}{S_C}\right)
+$$
+
+Note, the correction factor for small sample size bias is not relevant here as due to its calculation its value is zero. 
+
+$$
+SE_{lnVR_\text{dep}}=\sqrt{\frac{n}{n-1} - \frac{r^2}{n-1} +  \frac{r^4\left(S^8_T+S^8_C\right)}{2(n-1)^2 S^4_T+S^4_C}}
+$$
+
+In R, we can simply use the metafor packages `escalc()` function as follows:
 
 
+```{r,echo=TRUE, message=FALSE}
+# Example:
+# Group 1: standard deviation = 4.5
+# Group 2: standard deviation = 3.5
+# Sample size = 50
+# Correlation = 0.4
+
+library(metafor)
+
+# prepare the data
+SD1 <- 4.5
+SD2 <- 3.5
+n <- 50
+r <- 0.4
+
+# use escalc to compute lnVRdep
+lnVRdep <- escalc(
+  measure = "VRC",
+  sd1i = SD1,
+  sd2i = SD2,
+  ni = n1,
+  ri = r
+)
+
+
+lnVRdep$SE <- sqrt(lnVRdep$vi)
+
+# calculate confidence interval
+lnVRdep_low <- lnVRdep$yi - 1.96*lnVRdep$SE
+lnVRdep_high <- lnVRdep$yi + 1.96*lnVRdep$SE
+
+# print the VR value and confidence intervals
+data.frame(lnVRdep = MOTE::apa(lnVRdep$yi),
+           lnVRdep_low = MOTE::apa(lnVRdep_low),
+           v_high = MOTE::apa(lnVRdep_high))
+
+
+```
+
+
+## Natural Logarithm of Coefficient of Variation Ratio for independent groups (lnCVR_\text{ind})
+
+The coefficient of variation ratio for independent groups can be calculated by taking the natural logarithm of the coefficient of variation within one group divided by the coefficient of variation in another group,
+
+$$
+lnCVR_\text{ind}=\ln\left(\frac{CV_T}{CV_C}\right) + CF
+$$
+
+Where $CV_T =S_T / M_T$, $CV_C =S_C / M_C$, and $M$ indicates the mean of the respective group. The correction factor, $CF$, is a small sample size bias correction factor that combines that from the lnRR (presented earlier) and the lnVR calculated as,
+
+$$
+CF=\frac{1}{2(n_T-1)}-\frac{1}{2(n_C-1)} + \frac{S_T^2}{2(n_TM_T^2)} + \frac{S_C^2}{2(n_CM_C^2)}
+$$
+In R, we can simply use the `escalc()` function from the `metafor` package as follows:
+
+```{r,message=FALSE}
+# Example:
+# Group 1: mean = 22.4, standard deviation = 4.5, sample size = 50
+# Group 2: mean = 20.1, standard deviation = 3.5, sample size = 50
+
+library(metafor)
+
+# prepare the data
+M1 <- 22.4
+M2 <- 20.1
+SD1 <- 4.5
+SD2 <- 3.5
+n1 <- n2 <- 50
+
+lnCVRind <- escalc(
+  measure = "CVR",
+  m1i = M1,
+  m2i = M2,
+  sd1i = SD1,
+  sd2i = SD2,
+  n1i = n1,
+  n2i = n2
+)
+
+lnCVRind$SE <- sqrt(lnCVRind$vi) 
+
+# calculate confidence interval
+lnCVRind_low <- lnCVRind$yi - 1.96*lnCVRind$SE
+lnCVRind_high <- lnCVRind$yi + 1.96*lnCVRind$SE
+
+# print the VR value and confidence intervals
+data.frame(lnCVRind = MOTE::apa(lnCVRind$yi),
+           lnCVRind_low = MOTE::apa(lnCVRind_low),
+           lnCVRind_high = MOTE::apa(lnCVRind_high))
+
+```
+
+
+## Natural Logarithm of Coefficient of Variation Ratio for independent groups ($lnCVR_\text{dep}$)
+
+The coefficient of variation ratio for dependent groups can be similarly calculated by taking the natural logarithm of the coefficient of variation within one group divided by the coefficient of variation in another group,
+
+$$
+lnCVR_\text{dep}=\ln\left(\frac{CV_T}{CV_C}\right) + CF
+$$
+
+Where $CV_T =S_T / M_T$, $CV_C =S_C / M_C$ and CF is a small sample size bias correction factor that combines that from the $lnVR$ (presented earlier) and the $lnVR$ (note again for dependent cases this is zero and so omitted) calculated as,
+
+$$
+CF = \frac{S^2_T}{2n M_T^2} - \frac{S^2_C}{2nM_C^2}
+$$
+
+The standard error of the $lnCVR_\text{dep}$ can be calculated as,
+
+
+$$
+\small{SE_{lnCVR_\text{dep}} = \sqrt{\frac{S^2_T}{n M_T^2} + \frac{S^2_T}{nM_T^2} + \frac{S^4_T}{2n^2 M_T^4} + \frac{S^4_T}{2n^2 M_T^4} + \frac{2rS_CS_T}{n M_C M_T} + \frac{r^2S^2_T S^2_C (M^4_T + M^4_C)}{2n^2M_T^4M^4_C}}}
+$$
+In R, we can simply use the metafor packages escalc() function as follows:
+
+```{r}
+# Example:
+# Group 1: standard deviation = 4.5
+# Group 2: standard deviation = 3.5
+# Sample size = 50
+# Correlation = 0.4
+library(metafor)
+
+# prepare the data
+M1 <- 22.4
+M2 <- 20.1
+SD1 <- 4.5
+SD2 <- 3.5
+n <- 50
+r <- 0.4
+
+lnCVRdep <- escalc(
+  measure = "CVRC",
+  m1i = M1,
+  m2i = M2,
+  sd1i = SD1,
+  sd2i = SD2,
+  ni = n1,
+  ri = r
+)
+
+lnCVRdep$SE <- sqrt(lnCVRdep$vi)
+
+# calculate confidence interval
+lnCVRdep_low <- lnCVRdep$yi - 1.96*lnCVRdep$SE
+lnCVRdep_high <- lnCVRdep$yi + 1.96*lnCVRdep$SE
+
+# print the CVR value and confidence intervals
+data.frame(lnCVRdep = MOTE::apa(lnCVRdep$yi),
+           lnCVRdep_low = MOTE::apa(lnCVRdep_low),
+           lnCVRdep_high = MOTE::apa(lnCVRdep_high))
+
+```

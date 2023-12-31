@@ -1,0 +1,200 @@
+# Regression
+
+Regression is a method of predicting an outcome variable from one or more predictor variables. 
+
+## Regression Overview
+
+
+In a simple linear regression there is only one predictor ($x$) and one outcome ($y$) in the regression model,
+
+$$
+y = b_0 + b_1 x + e
+$$
+
+We can visualize this model by showing data from the palmer penguins data package:
+
+```{r,echo=FALSE}
+library(palmerpenguins)
+mdl <- lm(bill_length_mm ~ flipper_length_mm,data = penguins)
+fit.c = predict(mdl)
+
+library(ggplot2)
+ggplot(data=penguins[!is.na(penguins$species) & !is.na(penguins$flipper_length_mm) & !is.na(penguins$bill_length_mm),],
+       aes(x = flipper_length_mm,y = bill_length_mm)) + 
+  ggdist::theme_ggdist() + theme(aspect.ratio = 1) + 
+  geom_point(color='skyblue3') + 
+  geom_line(data=NULL,aes(y = fit.c),linewidth=1.5,color='skyblue4') +
+  xlab('Flipper Length (mm)')+
+  ylab('Bill Length (mm)') +
+  ggtitle('Simple Linear Regression')
+
+```
+
+where $b_0$ is the intercept coefficient, $b_1$ is the slope coefficient, and $e$ is the error term that is normally distributed with a mean of zero and a variance of $\sigma^2$. For a simple linear regression we can obtain an unstandardized regression coefficient by finding the optimal value of $b_0$ and $b_1$ that minimizes the variance in $e$, namely, $\sigma^2$. In a multiple regression we can model $y$ as a function of multiple predictor variables such that,
+
+
+$$
+y = b_0 + b_1 x_{1} + b_2 x_{2} +... + e
+$$
+Where the coefficients are all optimized jointly to minimize the error variance. The line produced by the regression equation is our predicted values of $y_i$, however it can also be interpreted as the mean of $y$ given some value of $x$. In a regression equation we can construct more complex models that include non-linear terms such as interactions or polynomials (or any sort of function of $x$). For example, we can create a model where we include a main effect, $x_1$, a quadratic polynomial term, $x^2_1$ and an interaction term, $x_1 x_2$,
+
+$$
+y_i = b_0 + b_1 x_{1} + b_2 x^2_{2}  + b_2 x_{1} x_{2} + e_i
+$$
+
+
+
+
+## Effect Sizes for a Linear Regression
+
+
+If we want to calculate the variance explained in the outcome by all the predictor variables, we can compute an $R^2$ value. The $R^2$ value can be interpreted one of two ways:
+
+1. the variance in $y$ explained by the predictor variables
+2. the square of the correlation between predicted $y$ values and observed (actual) $y$ values
+
+Likewise we can also take the square root of $R^2$ to get the correlation between predicted and observed $y$ values. We can construct an linear regression model quite easily in base R using the `lm()` function. We will use the `palmerpenguins` dataset for our example.
+
+```{r}
+library(palmerpenguins)
+
+
+mdl <- lm(bill_length_mm ~ flipper_length_mm + bill_depth_mm, 
+          data = penguins)
+
+summary(mdl)
+
+```
+
+We will notice that the linear regression summary returns two $R^2$ values. The first one is the traditional $R^2$ and the other is the adjusted $R^2$. The adjusted $R^2_\text{adj}$ applies a correction factor since $R^2$ it is often bias when there are more predictor variables and a smaller sample size. If we want to know the contribution for each term in the regression model, we can also use semi-partial $sr^2$ values that are similar to partial eta-squared in the ANOVA section of this book. In R, we can calculate $sr^2$ with the `r2_semipartial()` function in the `effectsize` package [@effectsize]:
+
+
+```{r}
+library(effectsize)
+
+r2_semipartial(mdl,alternative = "two.sided")
+
+```
+
+
+A standardized effect size for each term could also be calculated from standardizing the regression coefficients. Standardized regression coefficients are calculated by re-scaling the predictor and outcome variables to be z-scores (i.e., setting the mean and variance to be zero and one, respectively). 
+```{r}
+stand_mdl <- lm(scale(bill_length_mm) ~ scale(flipper_length_mm) + scale(bill_depth_mm), 
+                data = penguins)
+
+summary(stand_mdl)
+```
+
+Alternatively, we can use the `standardise` function in the `effectsize` package:
+
+```{r}
+standardise(mdl)
+```
+
+
+## Pearson correlation vs regression coefficients in simple linear regressions
+
+A slope coefficient in a simple linear regression model can be defined as the covariance between predictor $x$ and outcome $y$ divided by the variance in $x$,
+
+$$
+b_1 = \frac{\text{Cov}(x,y)}{S_x^2}
+$$
+
+Where $S_x$ is the standard deviation of $x$ (the square of the standard deviation is the variance). A Pearson correlation is defined as,
+
+$$
+r = \frac{\text{Cov}(x,y)}{S_xS_y}
+$$
+
+We can see that these formulas are quite similar, in fact we can express $r$ as a function of $b_1$ such that,
+
+$$
+r = b_1 \frac{S_x}{S_y}
+$$
+
+Which means that if $S_x=S_y$ then $r = b_1$. Furthermore, if the regression coefficient is standardized this would make the outcome and predictor variable to both have a variance of 1, thus making $S_x=S_y = 1$. Therefore a standardized regression coefficient is equal to a pearson correlation.
+
+
+## Multi-Level Regression models
+
+We can allow the regression coefficients such as the intercept and slope to vary randomly with respect to some grouping variable. For example, lets say we think that the intercept will vary between the different species of penguins when we look at the relationship between body mass and bill depth. Using the `lme4` package in R, we can construct a model that allows the intercept coefficient to vary between species.
+
+```{r,message=FALSE}
+library(palmerpenguins)
+library(lme4)
+
+
+ml_mdl <- lmer(bill_length_mm ~ 1 + flipper_length_mm + (1 | species),
+            data = penguins)
+summary(ml_mdl)
+
+```
+
+Note in the table that we have random effects and fixed effects. The random effects shows the grouping (categorical) variable that the parameter is allowed to vary on and then it shows the parameter that is varying, which in our case is the intercept coefficient. It also includes the variance of the intercept, which is the extent to which the intercept varies between species. For the fixed effect terms, we see the intercept displayed as well as the slope, this shows the **mean** of the intercept across species and, since the slope is equal across species, the slope is just a single value. Let's visualize how this model looks:
+
+
+```{r,echo=FALSE,message=FALSE}
+
+fit.c = predict(ml_mdl, re.form = NULL)
+
+library(ggplot2)
+ggplot(data=penguins[!is.na(penguins$species) & !is.na(penguins$flipper_length_mm) & !is.na(penguins$bill_length_mm),],
+       aes(x = flipper_length_mm,y = bill_length_mm, group = species, color = species, shape = species)) + 
+  ggdist::theme_ggdist() + theme(aspect.ratio = 1) + 
+  geom_point() + 
+  geom_line(data=NULL,aes(y = fit.c),linewidth=1.5) +
+  xlab('Flipper Length (mm)')+
+  ylab('Bill Length (mm)') +
+  ggtitle('Random Intercepts')
+
+```
+
+
+Notice that in the plot above the slopes are fixed and equal between each species and only the intercepts (i.e., the vertical height of each line) differs. We can also allow the slope to vary if we may choose by editing the formula:
+
+
+```{r,message=FALSE}
+library(palmerpenguins)
+library(lme4)
+
+
+ml_mdl <- lmer(bill_length_mm ~ 1 + flipper_length_mm + (1 + flipper_length_mm | species),
+            data = penguins)
+summary(ml_mdl)
+
+```
+
+Varying the slope will include `flipper_length_mm` in the random effects terms. Also note that the summary returns the correlation between random effect terms, which may be useful to know if there is a strong relationship between the intercept and slope across species. Now we see that the random effects terms now include the slope coefficient corresponding to the `flipper_length_mm` predictor variable. Let's visualize 
+
+```{r,echo=FALSE,message=FALSE}
+
+fit.c = predict(ml_mdl, re.form = NULL)
+
+library(ggplot2)
+ggplot(data=penguins[!is.na(penguins$species) & !is.na(penguins$flipper_length_mm) & !is.na(penguins$bill_length_mm),],
+       aes(x = flipper_length_mm,y = bill_length_mm, group = species, color = species, shape = species)) + 
+  ggdist::theme_ggdist() + theme(aspect.ratio = 1) + 
+  geom_point() + 
+  geom_line(data=NULL,aes(y = fit.c),linewidth=1.5) +
+  xlab('Flipper Length (mm)')+
+  ylab('Bill Length (mm)') +
+  ggtitle('Random Intercepts and Slopes')
+
+```
+
+The plot above shows slight variation in the slope between the three species, however the slope does not vary all that much. For multi-level models we can compute a conditional $R^2$ and a marginal $R^2$ which are each described below
+
+- **Marginal** $R^2$:  the variance explained solely by the fixed effects
+- **Conditional** $R^2$: the variance explained in the whole model, including both the fixed effects and random effects terms.
+
+In R, we can use the `MuMIn` package [@mumin] to compute both the marginal and conditional $R^2$:
+
+
+```{r,message=FALSE,warning=FALSE}
+library(MuMIn)
+
+r.squaredGLMM(ml_mdl)
+```
+
+
+

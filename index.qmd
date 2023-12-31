@@ -14,7 +14,11 @@ Effect sizes and confidence intervals are critical metrics for interpreting resu
 
 ### Guidelines for contribution {.unnumbered}
 
-All are encouraged to contribute to this Guide. Please note that this Guide is in continuous development such that it will remain a work in progress for an indefinite period of time. This is intended because we hope the Guide to always reflect the state of the art on the topics of effect sizes and confidence intervals. To contribute, use the following google doc: .
+All are encouraged to contribute to this Guide. Please note that this Guide is in continuous development such that it will remain a work in progress for an indefinite period of time. This is intended because we hope the Guide to always reflect the state of the art on the topics of effect sizes and confidence intervals. To contribute, there are now two options:
+
+1. You can suggest edits and make comments in the following google doc: [mgto.org/effectsizeguide](https://mgto.org/effectsizeguide).
+2. You can suggest edits directly in the online book using Hypothes.is. To do this you will need to create a free account on hypothes.is ([hypothes.is/signup](https://hypothes.is/signup); this will take about a minute). Then when you navigate to the online book, you can open the panel on the top right of the screen. There you can suggest edits and create comments with code and latex!
+
 
 ### Notes {.unnumbered}
 
@@ -32,4 +36,33 @@ All are encouraged to contribute to this Guide. Please note that this Guide is i
 If you believe you have made sufficient contribution that qualifies you as an author, and you would like to be listed as an author of this Guide, please do not hesitate and list your name and contact information below. The administrators (M. B. J., Q. X., S. K. Y., and G. F.) of this Guide will verify your contribution and add you to the author list. We welcome comments from any person, regardless of whether they want to be an author. You are also welcome to request content to be added to this Guide (please see the Things to add to the guide section in the end).
 
 The authorship order is such that M. B. J. and Q. X. will be the first two authors, S. K. Y. will be second author, and G. F. will be the last and the corresponding author. All other contributors will be listed alphabetically in the middle and are all considered joint third authors. Contributors are by default given investigation, writing - original draft, and writing - review & editing CRediT authorship roles. It is possible to take on more roles if contributors prefer. Any change in this authorship order rule will have to be approved by all who are already listed as an author.
+
+### Cite this book {.unnumbered}
+
+This will change soon, but for now you can cite this book with the following citation:
+
+**APA:**
+
+Jané, M. B., Xiao, Q., Yeung, S. K., Ben-Shachar, M. S., Caldwell, A. R., Cousineau, D., Dunleavy, D. J., Elsherif, M., Johnson, B. T., Moreau, D., Riesthuis, P., Röseler, L., Steele, J., Vieira, F. F., Zloteanu, M., & Feldman, G. (2024). Guide to effect sizes and confidence intervals. https://matthewbjane.quarto.pub/effect-size-and-confidence-intervals-guide/
+
+
+**BibTeX:**
+
+``` default
+@misc{EffectSizeGuide, 
+  url={https://matthewbjane.quarto.pub/effect-size-and-confidence-intervals-guide/},
+  title={Guide to effect sizes and confidence intervals}, 
+  author={Jané, Matthew B and Xiao, Qinyu and Yeung, Siu Kit and Ben-Shachar, Mattan S and Caldwell, Aaron R and Cousineau, Denis and Dunleavy, Daniel J and Elsherif, Mahmoud and Johnson, Blair T and Moreau, David and Riesthuis, Paul and Röseler, Lukas and Steele, James and Vieira, Felipe F. and Zloteanu, Mircea and Feldman, Gilad},
+  year={2024},
+  note={Preprint: https://osf.io/d8c4g/. License: CC BY 4.0}
+} 
+```
+
+
+
+
+
+
+
+
 
