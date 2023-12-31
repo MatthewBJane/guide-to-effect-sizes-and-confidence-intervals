@@ -8,7 +8,7 @@
 
 <meta name="keywords" content="collaboration, confidence interval, effect size, open educational resource, open scholarship, open science">
 
-<title>Guide to Effect Sizes and Confidence Intervals - 12&nbsp; Differences in Variance</title>
+<title>Guide to Effect Sizes and Confidence Intervals - 12&nbsp; Differences in Variability</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -139,7 +139,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Standardized-Mean-Differences.html"><strong>Standardized Effect Sizes</strong></a></li><li class="breadcrumb-item"><a href="./Differences-in-Variance.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Differences in Variance</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Standardized-Mean-Differences.html"><strong>Standardized Effect Sizes</strong></a></li><li class="breadcrumb-item"><a href="./Differences-in-Variance.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Variability Differences</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -270,7 +270,7 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Differences-in-Variance.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Differences in Variance</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Variability Differences</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -361,7 +361,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Differences in Variance</span></h1>
+<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Differences in Variability</span></h1>
 </div>
 
 
@@ -496,6 +496,39 @@ lnCVR_\text{ind}=\ln\left(\frac{CV_T}{CV_C}\right) + CF
 CF=\frac{1}{2(n_T-1)}-\frac{1}{2(n_C-1)} + \frac{S_T^2}{2(n_TM_T^2)} + \frac{S_C^2}{2(n_CM_C^2)}
 \]</span> In R, we can simply use the <code>escalc()</code> function from the <code>metafor</code> package as follows:</p>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example:</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Group 1: mean = 22.4, standard deviation = 4.5, sample size = 50</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Group 2: mean = 20.1, standard deviation = 3.5, sample size = 50</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(metafor)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># prepare the data</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>M1 <span class="ot">&lt;-</span> <span class="fl">22.4</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>M2 <span class="ot">&lt;-</span> <span class="fl">20.1</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>SD1 <span class="ot">&lt;-</span> <span class="fl">4.5</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>SD2 <span class="ot">&lt;-</span> <span class="fl">3.5</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>n1 <span class="ot">&lt;-</span> n2 <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>lnCVRind <span class="ot">&lt;-</span> <span class="fu">escalc</span>(</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">measure =</span> <span class="st">"CVR"</span>,</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">m1i =</span> M1,</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">m2i =</span> M2,</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">sd1i =</span> SD1,</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">sd2i =</span> SD2,</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">n1i =</span> n1,</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">n2i =</span> n2</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>lnCVRind<span class="sc">$</span>SE <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(lnCVRind<span class="sc">$</span>vi) </span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate confidence interval</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>lnCVRind_low <span class="ot">&lt;-</span> lnCVRind<span class="sc">$</span>yi <span class="sc">-</span> <span class="fl">1.96</span><span class="sc">*</span>lnCVRind<span class="sc">$</span>SE</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>lnCVRind_high <span class="ot">&lt;-</span> lnCVRind<span class="sc">$</span>yi <span class="sc">+</span> <span class="fl">1.96</span><span class="sc">*</span>lnCVRind<span class="sc">$</span>SE</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="co"># print the VR value and confidence intervals</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">lnCVRind =</span> MOTE<span class="sc">::</span><span class="fu">apa</span>(lnCVRind<span class="sc">$</span>yi),</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>           <span class="at">lnCVRind_low =</span> MOTE<span class="sc">::</span><span class="fu">apa</span>(lnCVRind_low),</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>           <span class="at">lnCVRind_high =</span> MOTE<span class="sc">::</span><span class="fu">apa</span>(lnCVRind_high))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  lnCVRind lnCVRind_low lnCVRind_high
 1    0.143       -0.147         0.433</code></pre>
@@ -512,46 +545,46 @@ lnCVR_\text{dep}=\ln\left(\frac{CV_T}{CV_C}\right) + CF
 <p><span class="math display">\[
 CF = \frac{S^2_T}{2n M_T^2} - \frac{S^2_C}{2nM_C^2}
 \]</span></p>
-<p>The standard error of the lnCVR_{DEP} can be calculated as,</p>
+<p>The standard error of the <span class="math inline">\(lnCVR_\text{dep}\)</span> can be calculated as,</p>
 <p><span class="math display">\[
 \small{SE_{lnCVR_\text{dep}} = \sqrt{\frac{S^2_T}{n M_T^2} + \frac{S^2_T}{nM_T^2} + \frac{S^4_T}{2n^2 M_T^4} + \frac{S^4_T}{2n^2 M_T^4} + \frac{2rS_CS_T}{n M_C M_T} + \frac{r^2S^2_T S^2_C (M^4_T + M^4_C)}{2n^2M_T^4M^4_C}}}
 \]</span> In R, we can simply use the metafor packages escalc() function as follows:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example:</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Group 1: standard deviation = 4.5</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Group 2: standard deviation = 3.5</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample size = 50</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Correlation = 0.4</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(metafor)</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># prepare the data</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>M1 <span class="ot">&lt;-</span> <span class="fl">22.4</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>M2 <span class="ot">&lt;-</span> <span class="fl">20.1</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>SD1 <span class="ot">&lt;-</span> <span class="fl">4.5</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>SD2 <span class="ot">&lt;-</span> <span class="fl">3.5</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">50</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fl">0.4</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>lnCVRdep <span class="ot">&lt;-</span> <span class="fu">escalc</span>(</span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">measure =</span> <span class="st">"CVRC"</span>,</span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">m1i =</span> M1,</span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">m2i =</span> M2,</span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">sd1i =</span> SD1,</span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">sd2i =</span> SD2,</span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">ni =</span> n1,</span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">ri =</span> r</span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>lnCVRdep<span class="sc">$</span>SE <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(lnCVRdep<span class="sc">$</span>vi)</span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate confidence interval</span></span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>lnCVRdep_low <span class="ot">&lt;-</span> lnCVRdep<span class="sc">$</span>yi <span class="sc">-</span> <span class="fl">1.96</span><span class="sc">*</span>lnCVRdep<span class="sc">$</span>SE</span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>lnCVRdep_high <span class="ot">&lt;-</span> lnCVRdep<span class="sc">$</span>yi <span class="sc">+</span> <span class="fl">1.96</span><span class="sc">*</span>lnCVRdep<span class="sc">$</span>SE</span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a><span class="co"># print the CVR value and confidence intervals</span></span>
-<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">lnCVRdep =</span> MOTE<span class="sc">::</span><span class="fu">apa</span>(lnCVRdep<span class="sc">$</span>yi),</span>
-<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>           <span class="at">lnCVRdep_low =</span> MOTE<span class="sc">::</span><span class="fu">apa</span>(lnCVRdep_low),</span>
-<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>           <span class="at">lnCVRdep_high =</span> MOTE<span class="sc">::</span><span class="fu">apa</span>(lnCVRdep_high))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example:</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Group 1: standard deviation = 4.5</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Group 2: standard deviation = 3.5</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample size = 50</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Correlation = 0.4</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(metafor)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># prepare the data</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>M1 <span class="ot">&lt;-</span> <span class="fl">22.4</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>M2 <span class="ot">&lt;-</span> <span class="fl">20.1</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>SD1 <span class="ot">&lt;-</span> <span class="fl">4.5</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>SD2 <span class="ot">&lt;-</span> <span class="fl">3.5</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fl">0.4</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>lnCVRdep <span class="ot">&lt;-</span> <span class="fu">escalc</span>(</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">measure =</span> <span class="st">"CVRC"</span>,</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">m1i =</span> M1,</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">m2i =</span> M2,</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">sd1i =</span> SD1,</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">sd2i =</span> SD2,</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">ni =</span> n1,</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">ri =</span> r</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>lnCVRdep<span class="sc">$</span>SE <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(lnCVRdep<span class="sc">$</span>vi)</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate confidence interval</span></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>lnCVRdep_low <span class="ot">&lt;-</span> lnCVRdep<span class="sc">$</span>yi <span class="sc">-</span> <span class="fl">1.96</span><span class="sc">*</span>lnCVRdep<span class="sc">$</span>SE</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>lnCVRdep_high <span class="ot">&lt;-</span> lnCVRdep<span class="sc">$</span>yi <span class="sc">+</span> <span class="fl">1.96</span><span class="sc">*</span>lnCVRdep<span class="sc">$</span>SE</span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a><span class="co"># print the CVR value and confidence intervals</span></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">lnCVRdep =</span> MOTE<span class="sc">::</span><span class="fu">apa</span>(lnCVRdep<span class="sc">$</span>yi),</span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>           <span class="at">lnCVRdep_low =</span> MOTE<span class="sc">::</span><span class="fu">apa</span>(lnCVRdep_low),</span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>           <span class="at">lnCVRdep_high =</span> MOTE<span class="sc">::</span><span class="fu">apa</span>(lnCVRdep_high))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  lnCVRdep lnCVRdep_low lnCVRdep_high
 1    0.143       -0.120         0.406</code></pre>
