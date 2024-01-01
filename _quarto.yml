@@ -107,7 +107,7 @@ book:
     affiliations:
       - name: University of Hong Kong
         department: Department of Psychology
-  date: "10/28/2023"
+  date: "01/01/2024"
   date-format: "YYYY"
   chapters:
     - text: "Home"
