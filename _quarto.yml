@@ -66,6 +66,7 @@ book:
       - id: id6
         name: University of Birmingham
   - name: Blair T. Johnson
+    orcid: 0000-0002-2688-0398
     email: blair.t.johnson@uconn.edu
     affiliations:
       - name: University of Connecticut

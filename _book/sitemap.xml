@@ -2,90 +2,90 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://matthewbjane.quarto.pub/effect-size-and-confidence-intervals-guide/index.html</loc>
-    <lastmod>2024-01-01T20:51:58.228Z</lastmod>
+    <lastmod>2024-01-01T20:55:59.931Z</lastmod>
   </url>
   <url>
     <loc>https://matthewbjane.quarto.pub/effect-size-and-confidence-intervals-guide/Defining-Effect-Sizes.html</loc>
-    <lastmod>2024-01-01T20:51:03.117Z</lastmod>
+    <lastmod>2024-01-01T20:54:50.696Z</lastmod>
   </url>
   <url>
     <loc>https://matthewbjane.quarto.pub/effect-size-and-confidence-intervals-guide/Benchmarks.html</loc>
-    <lastmod>2024-01-01T20:51:03.123Z</lastmod>
+    <lastmod>2024-01-01T20:54:50.701Z</lastmod>
   </url>
   <url>
     <loc>https://matthewbjane.quarto.pub/effect-size-and-confidence-intervals-guide/Reporting-Effect-Sizes.html</loc>
-    <lastmod>2024-01-01T20:51:03.126Z</lastmod>
+    <lastmod>2024-01-01T20:54:50.704Z</lastmod>
   </url>
   <url>
     <loc>https://matthewbjane.quarto.pub/effect-size-and-confidence-intervals-guide/Interpreting-Confidence-Intervals.html</loc>
-    <lastmod>2024-01-01T20:51:03.129Z</lastmod>
+    <lastmod>2024-01-01T20:54:50.707Z</lastmod>
   </url>
   <url>
     <loc>https://matthewbjane.quarto.pub/effect-size-and-confidence-intervals-guide/Reporting-Confidence-Intervals.html</loc>
-    <lastmod>2024-01-01T20:51:03.131Z</lastmod>
+    <lastmod>2024-01-01T20:54:50.711Z</lastmod>
   </url>
   <url>
     <loc>https://matthewbjane.quarto.pub/effect-size-and-confidence-intervals-guide/Useful-R-Packages.html</loc>
-    <lastmod>2024-01-01T20:51:03.135Z</lastmod>
+    <lastmod>2024-01-01T20:54:50.715Z</lastmod>
   </url>
   <url>
     <loc>https://matthewbjane.quarto.pub/effect-size-and-confidence-intervals-guide/Artifacts-and-Bias.html</loc>
-    <lastmod>2024-01-01T20:51:03.138Z</lastmod>
+    <lastmod>2024-01-01T20:54:50.718Z</lastmod>
   </url>
   <url>
     <loc>https://matthewbjane.quarto.pub/effect-size-and-confidence-intervals-guide/Standardized-Mean-Differences.html</loc>
-    <lastmod>2024-01-01T20:51:03.164Z</lastmod>
+    <lastmod>2024-01-01T20:54:50.746Z</lastmod>
   </url>
   <url>
     <loc>https://matthewbjane.quarto.pub/effect-size-and-confidence-intervals-guide/Correlations.html</loc>
-    <lastmod>2024-01-01T20:51:03.167Z</lastmod>
+    <lastmod>2024-01-01T20:54:50.749Z</lastmod>
   </url>
   <url>
     <loc>https://matthewbjane.quarto.pub/effect-size-and-confidence-intervals-guide/Categorical-Proportional-Data.html</loc>
-    <lastmod>2024-01-01T20:51:03.178Z</lastmod>
+    <lastmod>2024-01-01T20:54:50.759Z</lastmod>
   </url>
   <url>
     <loc>https://matthewbjane.quarto.pub/effect-size-and-confidence-intervals-guide/Effect-Sizes-for-ANOVAs.html</loc>
-    <lastmod>2024-01-01T20:51:03.195Z</lastmod>
+    <lastmod>2024-01-01T20:54:50.777Z</lastmod>
   </url>
   <url>
     <loc>https://matthewbjane.quarto.pub/effect-size-and-confidence-intervals-guide/Differences-in-Variance.html</loc>
-    <lastmod>2024-01-01T20:51:03.202Z</lastmod>
+    <lastmod>2024-01-01T20:54:50.786Z</lastmod>
   </url>
   <url>
     <loc>https://matthewbjane.quarto.pub/effect-size-and-confidence-intervals-guide/Non-Parametric-Effect-Sizes.html</loc>
-    <lastmod>2024-01-01T20:51:03.211Z</lastmod>
+    <lastmod>2024-01-01T20:54:50.795Z</lastmod>
   </url>
   <url>
     <loc>https://matthewbjane.quarto.pub/effect-size-and-confidence-intervals-guide/Regression.html</loc>
-    <lastmod>2024-01-01T20:51:03.216Z</lastmod>
+    <lastmod>2024-01-01T20:54:50.801Z</lastmod>
   </url>
   <url>
     <loc>https://matthewbjane.quarto.pub/effect-size-and-confidence-intervals-guide/Converting-to-Cohens-d.html</loc>
-    <lastmod>2024-01-01T20:51:03.219Z</lastmod>
+    <lastmod>2024-01-01T20:54:50.805Z</lastmod>
   </url>
   <url>
     <loc>https://matthewbjane.quarto.pub/effect-size-and-confidence-intervals-guide/Converting-to-Correlation.html</loc>
-    <lastmod>2024-01-01T20:51:03.224Z</lastmod>
+    <lastmod>2024-01-01T20:54:50.808Z</lastmod>
   </url>
   <url>
     <loc>https://matthewbjane.quarto.pub/effect-size-and-confidence-intervals-guide/Converting-to-Odds-Ratio.html</loc>
-    <lastmod>2024-01-01T20:51:03.227Z</lastmod>
+    <lastmod>2024-01-01T20:54:50.812Z</lastmod>
   </url>
   <url>
     <loc>https://matthewbjane.quarto.pub/effect-size-and-confidence-intervals-guide/Conclusion.html</loc>
-    <lastmod>2024-01-01T20:51:03.229Z</lastmod>
+    <lastmod>2024-01-01T20:54:50.815Z</lastmod>
   </url>
   <url>
     <loc>https://matthewbjane.quarto.pub/effect-size-and-confidence-intervals-guide/references.html</loc>
-    <lastmod>2024-01-01T20:51:03.233Z</lastmod>
+    <lastmod>2024-01-01T20:54:50.820Z</lastmod>
   </url>
   <url>
     <loc>https://matthewbjane.quarto.pub/effect-size-and-confidence-intervals-guide/Guide-to-Effect-Sizes-and-Confidence-Intervals.pdf</loc>
-    <lastmod>2024-01-01T20:50:56.955Z</lastmod>
+    <lastmod>2024-01-01T20:54:44.700Z</lastmod>
   </url>
   <url>
     <loc>https://matthewbjane.quarto.pub/effect-size-and-confidence-intervals-guide/Guide-to-Effect-Sizes-and-Confidence-Intervals.docx</loc>
-    <lastmod>2024-01-01T20:51:02.628Z</lastmod>
+    <lastmod>2024-01-01T20:54:50.204Z</lastmod>
   </url>
 </urlset>
