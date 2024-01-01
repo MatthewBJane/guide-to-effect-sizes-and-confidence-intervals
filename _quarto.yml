@@ -10,7 +10,7 @@ book:
     image: social-preview.png
     creator: "@MatthewBJane"
     title: "Guide to Effect Sizes and Confidence Intervals"
-  site-url: https://matthewbjane.quarto.pub/effect-size-and-confidence-intervals-guide/
+  site-url: https://matthewbjane.quarto.pub/guide-to-effect-sizes-and-confidence-intervals/
   sidebar: 
     background: 'white'
     border: true
