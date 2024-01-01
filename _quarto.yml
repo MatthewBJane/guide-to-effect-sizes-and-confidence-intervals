@@ -125,8 +125,6 @@ book:
       href: Reporting-Confidence-Intervals.qmd
     - text: "Using R"
       href: Useful-R-Packages.qmd
-    - text: "Artifacts and Bias in Effect Sizes"
-      href: Artifacts-and-Bias.qmd
     - part: "**Standardized Effect Sizes**"
       chapters:
         - text: "Mean Differences"
@@ -143,6 +141,8 @@ book:
           href: Non-Parametric-Effect-Sizes.qmd
         - text: "Regression"
           href: Regression.qmd
+        - text: "Artifacts and Bias in Effect Sizes"
+          href: Artifacts-and-Bias.qmd
     - part: "**Converting Between Effect Sizes**"
       chapters:
         - text: "Converting to Cohen's d"
