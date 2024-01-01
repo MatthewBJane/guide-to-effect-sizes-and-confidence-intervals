@@ -402,7 +402,7 @@ eta_squared(ANOVA2_mdl,
 
 A two-way repeated measures ANOVA (rmANOVA) would indicate that subjects are exposed to each condition along two variables.
 
-## Determing degrees of freedom
+### Determing degrees of freedom
 
 Please refer to the following table to determine the degrees of freedom for two-way rmANOVA effects [@postTwoWay]. Note that $k_1$ is the number of groups in the first variable, and $k_2$ is the number of groups in the second variable.
 
@@ -486,6 +486,13 @@ ANOVA (Analysis of Variance) is a statistical method used to compare means acros
 
 
 
+| Type                | Description | Section|
+|:------|:---------|:----:|
+| $\eta^2$ - eta-squared | Measures the variance explained of the whole ANOVA model.  | @sec-eta-squared|
+| $\eta^2_p$ - Partial eta-squared | Measures the variance explained by a specific factor in the model. | @sec-etap|
+| $\eta^2_G$ - Generalized eta-squared | Similar to $\eta^2$, but uses the sum of squares of all non-manipulated variables in the calculation. This allows meta-analysts to compare $\eta_G$ across different designs.  | @sec-etaG|
+| $\omega^2,\omega^2_p,\omega^2_G$ - Omega squared corrections | Corrections to bias observed in $\eta^2$ measures. Can be interpreted in the same way as $\eta^2$.  | @sec-omega|
+| $f$ - Cohen's *f* | This effect size can be interpreted as the average Cohen's $d$ between each group.   | @sec-f|
 
 ### Eta-Squared ($\eta^2$) {#sec-eta-squared}
 
@@ -552,7 +559,7 @@ eta_squared(mdl2,
 
 Notice that the $\eta^2$ does not change for species since the sum of squares is divided by the total sum of squares rather than the residual sum of squares (see partial eta squared). The example shows an eta-squared value for species of $\eta^2$ = .67 \[.62, .72\] and for sex $\eta^2$ = .17 \[.10, .24\].
 
-### Partial Eta-Squared ($\eta^2_p$)
+### Partial Eta-Squared ($\eta^2_p$) {#sec-etap}
 
 Partial eta-squared is the most commonly reported effect size measure for F-tests. It describes the proportion of variability associated with an effect when the variability associated with all other effects identified in the analysis has been removed from consideration (hence, it is "partial"). If you have access to an ANOVA table, the partial eta-squared for an effect is calculated as:
 
@@ -600,11 +607,11 @@ eta_squared(mdl2,
 
 Once we run a two-way ANOVA, the eta-squared value for species begins to differ. The example shows a partial eta-squared value for species of $\eta^2_p$ = .81 \[.78, .84\] and for sex $\eta^2$ = .53 \[.46, .59\].
 
-### Generalized Eta-Squared ($\eta^2_G$)
+### Generalized Eta-Squared ($\eta^2_G$) {#sec-etaG}
 
 Generalized eta-squared was devised to allow effect size comparisons across studies with different designs, which eta-squared and partial eta-squared cannot help with (refer to for details). If you can (either you are confident that you calculated it right, or the statistical software that you use just happens to return this measure), report generalized eta-squared in addition to eta-squared or partial eta-squared. The biggest advantage of generalized eta-squared is that it facilitates meta-analysis, which is important for the accumulation of knowledge. To calculate generalized eta-squared, the denominator should be the sums of squares of all the non-manipulated variables (i.e., variance of purely individual differences in the outcome rather than individual differences in treatment effects). Note the formula will depend on the design of the study. In R, the `eta_squared` function in the `effectsize` package supports the calculation of generalized eta-squared by using the `generalized=TRUE` argument.
 
-### Omega squared corrections ($\omega^2$, $\omega^2_p$)
+### Omega squared corrections ($\omega^2$, $\omega^2_p$) {#sec-omega}
 
 Similar to Hedges' correction for small sample bias in standardized mean differences, $\eta^2$ is also biased. We can apply a correction to $\eta^2$ and obtain a relatively unbiased estimate of the population proportion of variance explained by the predictor. To calculate $\omega$, we need to calculate the within group mean squared errors:
 
@@ -674,9 +681,9 @@ omega_squared(mdl2,
               alternative = "two.sided")
 ```
 
-Once we run a two-way ANOVA, the eta-squared value for species  diverge. The example shows a partial eta-squared value for species of $\omega^2_p$ = .81 \[.78, .84\] and for sex $\omega^2$ = .53 \[.46, .58\].
+Once we run a two-way ANOVA, the eta-squared value for species diverge. The example shows a partial eta-squared value for species of $\omega^2_p$ = .81 \[.78, .84\] and for sex $\omega^2$ = .53 \[.46, .58\].
 
-### Cohen's $f$
+### Cohen's $f$ {#sec-f}
 
 Cohen's $f$ is defined as the ratio of the standard deviations of the group means and the common standard deviation within each of the groups (note that ANOVA assumes equal variances among groups). Cohen's $f$ is the effect size measure asked for by G\*Power for power analysis for F-tests. This can be calculated easily from the eta-squared value,
 

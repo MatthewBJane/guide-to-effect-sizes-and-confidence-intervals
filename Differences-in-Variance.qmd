@@ -6,7 +6,22 @@ $$
 CI_{lnVR/lnCVR}=lnVR \pm 1.96\cdot SE_{lnVR/lnCVR}
 $$
 
-## Natural Logarithm of Variability Ratio for Independent Groups ($lnVR_\text{ind}$)
+
+#### **Here is a table for every effect size discussed in this chapter:** {.unnumbered}
+
+| Type                | Description | Section|
+|:------|:---------|:----:|
+| **Variability Ratios (VR)**   |     | @sec-vr|
+| $lnVR_\text{ind}$ - Natural Logarithm of variability ratio for independent groups | Used to compare the standard deviations (i.e., the variability) between two groups.  | @sec-vr-ind|
+| $lnVR_\text{dep}$ - Natural Logarithm of variability ratio for dependent groups | Used to compare the standard deviations (i.e., the variability) between paired groups (i.e., repeated measures designs). | @sec-vr-dep|
+|   **Coefficient of Variation Ratios (CVR)**    |     | @sec-cvr |
+|  $lnCVR_\text{ind}$ - Natural Logarithm of coefficient variation ratio for independent groups | Used to compare the variation between two groups. More useful than a variability ratio ($lnVR_\text{ind}$) when there is a relationship between the mean and variance. | @sec-cvr-ind |
+|  $lnCVR_\text{dep}$ - Natural Logarithm of coefficient variation ratio for dependent groups | Used to compare the variation between paired groups (i.e., repeated measures). More useful than a variability ratio ($lnVR_\text{dep}$) when there is a relationship between the mean and variance. | @sec-cvr-ind |
+
+
+## Variability Ratios {#sec-vr}
+
+### Natural Logarithm of Variability Ratio for Independent Groups ($lnVR_\text{ind}$) {#sec-vr-ind}
 
 The variability ratio for independent groups can be calculated by taking the natural logarithm of the *standard deviation* within one group divided by the standard deviation in another group,
 
@@ -68,7 +83,7 @@ From the example, we obtain a natural log variability ratio of $lnVR_\text{ind}$
 
 
 
-## Natural Logarithm of Variability Ratio for Dependent Groups ($lnVR_\text{dep}$)
+### Natural Logarithm of Variability Ratio for Dependent Groups ($lnVR_\text{dep}$) {#sec-vr-dep}
 
 The variability ratio for dependent groups can similarly be calculated by taking the natural logarithm of the *standard deviation* within one group divided by the *standard deviation* in another group,
 
@@ -125,7 +140,10 @@ data.frame(lnVRdep = MOTE::apa(lnVRdep$yi),
 ```
 
 
-## Natural Logarithm of Coefficient of Variation Ratio for independent groups (lnCVR_\text{ind})
+
+## Coefficient of Variation Ratios {#sec-cvr}
+
+### Natural Logarithm of Coefficient of Variation Ratio for independent groups (lnCVR_\text{ind}) {#sec-cvr-ind}
 
 The coefficient of variation ratio for independent groups can be calculated by taking the natural logarithm of the coefficient of variation within one group divided by the coefficient of variation in another group,
 
@@ -178,7 +196,7 @@ data.frame(lnCVRind = MOTE::apa(lnCVRind$yi),
 ```
 
 
-## Natural Logarithm of Coefficient of Variation Ratio for independent groups ($lnCVR_\text{dep}$)
+### Natural Logarithm of Coefficient of Variation Ratio for independent groups ($lnCVR_\text{dep}$) {#sec-cvr-dep}
 
 The coefficient of variation ratio for dependent groups can be similarly calculated by taking the natural logarithm of the coefficient of variation within one group divided by the coefficient of variation in another group,
 

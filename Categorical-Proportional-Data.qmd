@@ -2,7 +2,23 @@
 
 For dichotomous relationships that involve proportions, there are many variations of effect sizes that one can use. Commonly used effect size measures for statistical procedures on categorical data include: phi coefficient ($\phi$), Cramer's $V$, Cohen's $h$, Cohen's $\omega$, odds ratio ($OR$), risk difference ($RD$), and relative risk ($RR$).
 
-## Phi Coefficient ($\phi$)
+
+#### **Here is a table for every effect size discussed in this chapter:** {.unnumbered}
+
+
+| Type                | Description | Section|
+|:------|:---------|:----:|
+| $\phi$ - phi coefficient | Pearson correlation between two binary variables (i.e., 2x2 contingency tables).  | @sec-phi|
+| $V$ - Cramer's *V* |  Measures the association between categorical variables. Similar to a $\phi$ coefficient, but meant for contingency tables larger than 2x2. | @sec-v|
+| $h$ - Cohen's *h* | Pearson correlation between two binary variables. Difficult to interpret.  | @sec-h|
+| $w$ - Cohen's *w* | Association between two categorical variables and it is computed identically to the $\phi$ coefficient. If computed on a 2x2 contingency table, it will have an identical value to $\phi$.  | @sec-w|
+| $\boldsymbol{פ}$ - Ben-Shachar's Fei | A correction to Cohen's $w$ for one dimensional count tables.   | @sec-fei|
+| $OR$ - Odds Ratio | Ratio of odds of an event occurring between treatment and control groups  | @sec-or|
+| $RD$ - Risk Difference | Difference between proportions in treatment and control groups.  | @sec-rd|
+| $RR$ - Relative Risk | Ratio of proportions in the treatment and control groups.  | @sec-rr|
+
+
+## Phi Coefficient ($\phi$) {#sec-phi}
 
 Phi coefficient ($\phi$) is a measure of association between two binary variables (therefore, it ONLY applies to 2 by 2 contingency tables, i.e., each variable has only two levels). It is a special case of the Pearson correlation coefficient and an $r$ for two binary variables is equal to phi. Note that unlike $r$ that ranges from -1 to 1, phi ranges from 0 to 1. Also, the sign of $r$ indicates the direction of association, whereas to get the direction of an association given a 2 by 2 contingency table, we need to look at the table itself; phi only provides a measure of strength. The 2 by 2 contingency table is illustrated by @tbl-contingency.
 
@@ -44,7 +60,7 @@ phi_coefficient
 
 In our example we obtained a phi coefficient of $\phi$ = .50 \[0.31, 0.69\].
 
-## Cramer's $V$
+## Cramer's $V$ {#sec-v}
 
 Cramer's V, sometimes also referred to as Cramer's phi ($\phi$), is a generalized effect size measure of the association between two nominal variables. It applies to contingency tables of any size ($2\times 2$, $3\times 3$, $3\times 4$, $5\times 3$, etc.). Cramer's $V$ on a $2\times 2$ contingency table is equivalent to the phi coefficient. For an illustration of a higher order contingency table, @tbl-contingency-2 represents a $3\times 4$ contingency table of two variables.
 
@@ -105,7 +121,7 @@ data.frame(V = MOTE::apa(V$output$cramersV),
 
 In our example we obtained a Cramer's $V$ of $V$ = .44 \[.31, .56\].
 
-## Cohen's $h$
+## Cohen's $h$ {#sec-h}
 
 Cohen's $h$ is a measure of distance between two proportions or probabilities. It is sometimes also referred to as the "difference between arcsines". For a given proportion $p$, its arcsine transformation is given by [equation 6.2.1, @cohen1988]:
 
@@ -149,7 +165,7 @@ cohens_h(contingency_table)
 
 From the example, the R code outputted a Cohen's $h$ value of $h$ = .93 \[0.52, 1.34\].
 
-## Cohen's $w$
+## Cohen's $w$ {#sec-w}
 
 Cohen's $w$ is a measurem of association analogous to the phi coefficient but on tables that are larger than 2x2. Although Cohen's $w$ is useful for power analyses, it is not so useful as a stand-alone effect size. As @cohen1988 states (pp. 221):
 
@@ -183,7 +199,7 @@ cohens_w(contingency_table,
 
 From the example code, the `cohens_w` function returned Cohen's $w$ value of $w$ = .45 \[0.24, 0.65\].
 
-## Ben-Shachar's Fei (פ)
+## Ben-Shachar's Fei (פ) {#sec-fei}
 
 @benshachar2023 introduced a new effect size for one-dimensional tables of counts/proportions that they label with the Hebrew letter, פ. Ben-Shachar's פ is a correction to Cohen's $w$ that adjusts for the expected value and consequently bounds the value between 0 and 1. The equation for פ is defined as,
 
@@ -215,7 +231,7 @@ fei(observed_counts,
 
 From the example code, the `fei` function returned Ben-Shachar's פ value of .39 \[0.31, 0.47\].
 
-## Odds Ratio ($OR$)
+## Odds Ratio ($OR$) {#sec-or}
 
 Odds ratio measures the effect size between two binary variables. It is commonly used in medical and behavioral intervention research, and notably, in meta-analysis.
 
@@ -269,7 +285,7 @@ oddsratio(contingency_table,
 
 The code output for this example shows an odds ratio of $OR$ = 0.40 \[0.17, 0.93\]
 
-## Risk Difference ($RD$)
+## Risk Difference ($RD$) {#sec-rd}
 
 Risk difference can be used to interpret the difference between two proportions. If we use the contingency table from @tbl-contingency-OR, and calculate a risk difference between the treatment group and the control group. We can first calculate the proportion of cases where the outcome is $Y=1$ *within* the control group and the treatment group:
 
@@ -327,7 +343,7 @@ data.frame(
 
 ```
 
-## Relative Risk ($RR$)
+## Relative Risk ($RR$) {#sec-rr}
 
 The relative risk, often referred to as the "risk ratio," calculates the ratio between the proportion of cases in the treatment group and the proportion of cases in the control group. It provides a straightforward interpretation: "individuals receiving the treatment have a $RR$ times higher odds of experiencing the outcome compared to controls." To calculate relative riskm, first we need to calculate the proportion of outcome cases in the treatment and control group
 

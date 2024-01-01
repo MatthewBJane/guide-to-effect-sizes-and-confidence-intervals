@@ -6,12 +6,24 @@ If the scores you are analyzing are not metric (i.e., ordinal) due to the use of
 
 We will briefly discuss here two groups of tests that can be applied to the independent and paired samples then present 3 effect sizes that can accompany these tests as well as their calculations and examples in R.
 
+#### **Here is a table for every effect size discussed in this chapter:** {.unnumbered}
+
+| Type                | Description | Section|
+|:------|:---------|:----:|
+| **Rank-Biserial Correlation**   |     | @sec-rrb|
+| $r_{rb}$ (dependent groups) - Rank-biserial correlation on dependent groups | A measure of dominance between dependent groups (i.e., repeated measure designs). | @sec-rrb-dep|
+| $r_{rb}$ (independent groups) - Rank Biserial Correlation on independent groups | A measure of dominance between two independent groups. | @sec-rrb-dep|
+|   **Concordance Probability**    |     | @sec-conc-prob |
+|  $p_c$ - Concordance probability | A simple transformation of the rank-biserial correlation and it represents the probability of superiority in one group relative to the other group. This section shows R code for both independent and dependent samples. | @sec-conc-prob |
+|   **Wilcoxon-Mann-Whitney Odds**    |     | @sec-odds |
+|  $O_{WMW}$ - Wilcoxon-Mann-Whitney Odds | Also known as the Generalized Odds Ratio, it transforms the concordance probability to an Odds Ratio. This section shows R code for both independent and dependent samples. | @sec-odds |
+
 ## Wilcoxon-Mann-Whitney tests
 
 A non-parametric alternative to the t-test is the Wilcoxon-Mann-Whitney (WMW) group of tests. When comparing two independent samples this is called a Wilcoxon rank-sum test, but sometimes referred to as a Mann-Whitney U Test. When using it on paired samples, or one sample, it is a signed rank test. These are generally referred to as tests of "symmetry" [@divine2018wilcoxon].
 
 
-```{r,echo=TRUE, warning=FALSE}
+```{r,echo=TRUE, warning=FALSE,message=FALSE}
 # Paired samples ---- 
 
 data(sleep)
@@ -51,7 +63,7 @@ $$
 These tests are relatively new so there are very few packages offer Brunner-Munzel. Moreover, @karch2021psychologists argues that the stochastic superiority effect size ($\hat{p}$) offers a nuanced way to interpret group differences by visualizing observations as competitors in a contest. Propounded by scholars like @cliff1993dominance and @divine2018wilcoxon, it views each observation from one group in a duel with every observation from another. If an observation from the first group surpasses its counterpart, it "wins," and the group garners a point; tied observations yield half a point to each group. This concept can be further elucidated through a bubble plot, where placement above, below, or on the diagonal indicates the dominance of one group's observation over the other. Other interpretations, like transforming p to the Wilcoxon-Mann-Whitney (WMW) odds or Cliff's δ offer deeper insights. There are implementations of the Brunner-Munzel test in a few packages in R (i.e. `lawstat`, `rankFD`, and `brunnermunzel`). @karch2021psychologists recommends the `brunnermunzel.permutation.test` function from the `brunnermunzel` package. The `TOSTER` R package can also provide coverage [@TOSTER; @caldwell].
 
 
-```{r,echo=TRUE, warning=FALSE}
+```{r,echo=TRUE, warning=FALSE,message=FALSE}
 # Install package for data cleaning
 # install.packages('janitor')
 library(janitor)
@@ -93,11 +105,14 @@ TOSTER::brunner_munzel(
 
 Since the mean and standard deviation are not estimated for a WMW or Brunner-Munzel test, it would be inappropriate to present a standardized mean difference (e.g., Cohen's d) to accompany these tests. Instead, a rank based effect size (i.e., based on the ranks of the observed values) can be reported to accompany the non-parametric statistical tests.
 
-### Rank-Biserial Correlation
 
-The rank-biserial correlation ($r_{rb}$) is considered a measure of dominance. The correlation represents the difference between the proportion of favorable and unfavorable pairs or signed ranks. Larger values indicate that more of X is larger than more of Y, with a value of (−1) indicates that all observations in the second, $Y$, group are larger than the first, $X$, group, and a value of (+1) indicates that all observations in the first group are larger than the second.
 
-#### Paired Samples Calculation {.unnumbered}
+
+### Rank-Biserial Correlation {#sec-rrb}
+
+The rank-biserial correlation ($r_{rb}$) is considered a measure of dominance. The correlation represents the difference between the proportion of favorable and unfavorable pairs or signed ranks. Larger values indicate that more of $X$ is larger than more of $Y$, with a value of (−1) indicates that all observations in the second, $Y$, group are larger than the first, $X$, group, and a value of (+1) indicates that all observations in the first group are larger than the second.
+
+#### Dependent Groups {#sec-rrb-dep}
 
 1.  Calculate difference scores between pairs:
 
@@ -130,8 +145,10 @@ $$
 5.  For paired samples, or one sample, the standard error is calculated as the following:
 
 $$
-SE_{r_{rb}} = \sqrt{ \frac {(2 \cdot nd^3 + 3 \cdot nd^2 + nd) / 6} {(nd^2 + nd) / 2} }
-$$ 6. The confidence intervals can then be calculated by Z-transforming the correlation.
+SE_{r_{rb}} = \sqrt{ \frac {2(2 n^3 + 3 n^2 + n)} {6(n^2 + n)} }
+$$ 
+
+6. The confidence intervals can then be calculated by Z-transforming the correlation.
 
 $$
 Z_{rb} = \text{arctanh}(r_{rb})
@@ -146,10 +163,59 @@ $$
 8.  Then the confidence interval can be calculated and then back-transformed.
 
 $$
-CI_{rb} = \text{tanh}(Z_{rb}  \pm  1.96 \cdot SE_{Z_{rb}})
+CI_{r_{rb}} = \text{tanh}(Z_{rb}  \pm  1.96 \cdot SE_{Z_{rb}})
 $$
+In R, we can use the `ses_calc()` function in `TOSTER` package [@TOSTER]. For the following example, we will calculate the rank-biserial correlation in the sleep dataset:
 
-#### Two Sample Calculation {.unnumbered}
+```{r,echo=TRUE, warning=FALSE,message=FALSE}
+# Dependent groups
+
+data(sleep)
+library(TOSTER)
+
+# When sample sizes are small
+# a permutation version should be used.
+# When this is done a seed should be set.
+set.seed(2124)
+ses_calc(extra ~ group,
+         data = sleep,
+         paired = TRUE)
+
+```
+
+The example shows a rank-biserial correlation is $r_{rb}$ = .982 [.938, .995]. This suggests that nearly every individual in the sample showed an increase in condition 2 relative to condition 1. As you can see from the figure below, only one individual showed a decline (individual shown in red).
+
+
+```{r,echo=FALSE,message=FALSE,warning=FALSE}
+library(ggplot2)
+library(ggdist)
+library(dplyr)
+
+data(sleep)
+
+df <- tidyr::pivot_wider(sleep,id_cols = "ID",names_from = "group",values_from = "extra")
+
+Diff <- df$`2` - df$`1`
+
+sleep <- cbind(sleep, Difference = c(Diff,Diff))
+
+ggplot(data=sleep, aes(x = group, y = extra)) +
+  geom_line(aes(group = ID, color = Difference>0),alpha = .5,size=2) +
+  geom_point(aes( color = Difference>0), alpha = .5,size=3) +
+  theme_ggdist() + theme(aspect.ratio = 1,text=element_text(size=16)) +
+  ylab('Increase in Hours of Sleep')+
+  xlab('') +
+  scale_x_discrete(labels = c("Control", "Intervention"))
+  
+  
+
+```
+
+
+
+
+
+#### Independent Groups {#sec-rrb-ind}
 
 1.  Calculate the ranks for each observation across all observations of in group 1 and 2
 
@@ -194,34 +260,21 @@ $$
 7.  Then the confidence interval can be calculated and then back-transformed.
 
 $$
-CI_{rb} = \text{tanh}(Z_{rb}  \pm  1.96 \cdot SE_{Z_{rb}})
+CI_{r_{rb}} = \text{tanh}(Z_{rb}  \pm  1.96 \cdot SE_{Z_{rb}})
 $$
 
-#### Calculation in R {.unnumbered}
+
 
 In R, we can use `ses_calc` in the `TOSTER` package can be utilized to calculate $r_{rb}$.
 
 ```{r,echo=TRUE, warning=FALSE}
-# Paired samples
-
-data(sleep)
-library(TOSTER)
-
-# When sample sizes are small
-# a permutation version should be used.
-# When this is done a seed should be set.
-set.seed(2124)
-ses_calc(extra ~ group,
-         data = sleep,
-         paired = TRUE)
-
-
 # Two Sample
-# data import from likert
+# install the janitor package for data cleaning
+# clean and import data from likert
 data(mass, package = "likert")
 df_mass = mass |>
   as.data.frame() |>
-  clean_names() 
+  janitor::clean_names() 
 
 # function needs input as a numeric
 # ordered factors can be converted to ranks
@@ -234,11 +287,11 @@ ses_calc(
 )
 ```
 
-### Concordance Probability
+The example shows a rank-biserial correlation is $r_{rb}$ = -.45 [-.78, .08]. 
+
+### Concordance Probability {#sec-conc-prob}
 
 In the two sample case, concordance probability is the probability that a randomly chosen subject from one group has a response that is larger than that of a randomly chosen subject from the other group. In the two sample case, this is roughly equivalent to the statistic of the Brunner-Munzel test. In the paired sample case, it is the probability that a randomly chosen difference score ($D$) will have a positive (+) sign plus 0.5 times the probability of a tie (no/zero difference). The concordance probability can go by many names. It is also referred to as the c-index, the non-parametric probability of superiority, or the non-parametric common language effect size (CLES).
-
-#### Calculation {.unnumbered}
 
 The calculation of concordance can be derived from the rank-biserial correlation. The concordance probability ($p_c$) can be converted from the correlation.
 
@@ -246,10 +299,11 @@ $$
 p_c = \frac{r_{rb} + 1 }{2} 
 $$
 
-#### Calculation in R {.unnumbered}
+In R, we can use the `ses_calc()` function again along with the sleep data set. For repeated measures experiments, the concordance probability in dependent groups can be calculated utilizing the `paired=TRUE` argument in the `ses_calc()` function:
 
 ```{r,echo=TRUE}
-# Paired samples
+# Dependent Groups
+library(TOSTER)
 
 data(sleep)
 
@@ -257,8 +311,13 @@ ses_calc(extra ~ group,
          data = sleep,
          paired = TRUE,
          ses = "c")
+```
 
-# Two Sample
+
+For two independent groups, the concordance probability can be calculated similarly without specifying the `paired` argument:
+
+```{r}
+# Independent Groups
 # data import from likert
 data(mass, package = "likert")
 df_mass = mass |>
@@ -270,26 +329,27 @@ ses_calc(rank(math_relates_to_my_life) ~ gender,
          ses = "c")
 ```
 
-### Wilcoxon-Mann-Whitney Odds
+### Wilcoxon-Mann-Whitney Odds {#sec-odds}
 
 The Wilcoxon-Mann-Whitney odds [@o2006exploiting], also known as the "Generalized Odds Ratio"[@agresti1980generalized], essentially transforms the concordance probability into an odds ratio.
 
-#### Calculation {.unnumbered}
-
-The odds can be converted from the concordance by taking the logit of the concordance. This will provide the log odds. The exponential value of the log-odds will provide the odds on a more interpretable scale.
+The odds can be converted from the concordance by taking the logit of the concordance. This will provide the log odds.
 
 $$
 O_{WMW} = \exp \left[\text{logit}(p_c)\right]
 $$
 
+The exponential value of the log-odds will provide the odds on a more interpretable scale. Taking just the logit of the concordance probability would give us the log odds such that,
+
+
 $$
 \log(O_{WMW}) = \text{logit}(p_c)
 $$
 
-#### Calculation in R {.unnumbered}
+In R, we can calculate $O_{WMW}$ by using the `ses_calc()` function from the `TOSTER` package:
 
 ```{r,echo=TRUE}
-# Paired samples ----
+# Dependent Groups
 
 data(sleep)
 
@@ -297,8 +357,14 @@ TOSTER::ses_calc(extra ~ group,
                        data = sleep,
                        paired = TRUE,
                  ses = "odds")
+```
 
-# Two Sample ------
+
+We can also calculate $O_{WMW}$ in independent groups using the same function:
+
+```{r,echo=TRUE}
+# Independent Groups
+
 # data import from likert
 data(mass, package = "likert")
 df_mass = mass |>

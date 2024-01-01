@@ -8,28 +8,24 @@ Therefore, it is crucial to recognize that benchmarks are only general guideline
 
 | Effect Size                   | Reference                                  |      Small      | Medium | Large |
 |-----------------------|---------------|:----------:|:----------:|:----------:|
-| *Mean Differences*            |                                            |                 |        |       |
-| Cohen's $d$ or Hedges' $g$    | @cohen1988[^benchmarks-1]                  |      0.20       |  0.50  | 0.80  |
-|                               |                                            |      0.18       |  0.37  | 0.60  |
-|                               | @lovakov2021[^benchmarks-2]                |      0.15       |  0.36  | 0.65  |
-| *Correlational*               |                                            |                 |        |       |
-| Correlation Coefficient ($r$) | @cohen1988                                 |       .10       |  .30   |  .50  |
-|                               | @richard2003[^benchmarks-3][^benchmarks-4] |       .10       |  .20   |  .30  |
-|                               | @lovakov2021                               |       .12       |  .24   |  .41  |
-|                               | @paterson2016                              |       .12       |  .20   |  .31  |
-|                               | @bosco2015                                 |       .09       |  .18   |  .26  |
-| Cohen's $f^2$                 |                                            |       .02       |  .25   |  .40  |
-| eta-squared ($\eta^2$)        | @cohen1988                                 |       .01       |  .06   |  .14  |
-| Cohen's $q$                   |                                            |                 |        |       |
-| Cohen's f                     | @cohen1988                                 |       .10       |  .25   |  .40  |
-| *Categorical*                 |                                            |                 |        |       |
-| Cohen's omega                 | @cohen1988                                 |      0.10       |  0.30  | 0.50  |
-| Phi                           | @cohen1988                                 |       .10       |  .30   |  .50  |
-| Cramer's V                    |                                            | [^benchmarks-5] |        |       |
-| Odds ratio                    |                                            |                 |        |       |
-| Relative risk                 |                                            |                 |        |       |
-| Risk difference               |                                            |                 |        |       |
-| Cohen's $h$                   | @cohen1988                                 |       0.2       |  0.5   |  0.8  |
+| **Mean Differences**            |   ||        |       |
+| Cohen's $d$ or Hedges' $g$    | @cohen1988[^benchmarks-1]  |      0.20       |  0.50  | 0.80 |
+|                               |                            |      0.18       |  0.37  | 0.60  |
+|                               | @lovakov2021[^benchmarks-2]|    0.15  |  0.36  | 0.65  |
+| **Correlational**             |       |                 |        |       |
+| Correlation Coefficient ($r$) | @cohen1988     |    .10       |  .30   |  .50  |
+|      | @richard2003[^benchmarks-3][^benchmarks-4] | .10       |  .20   |  .30  |
+|                               | @lovakov2021|       .12       |  .24   |  .41  |
+|                               | @paterson2016 |     .12       |  .20   |  .31  |
+|                               | @bosco2015  |       .09       |  .18   |  .26  |
+| Cohen's $f^2$                 |             |       .02       |  .25   |  .40  |
+| eta-squared ($\eta^2$)        | @cohen1988  |       .01       |  .06   |  .14  |
+| Cohen's f                     | @cohen1988  |       .10       |  .25   |  .40  |
+| **Categorical**               |             |                 |        |       |
+| Cohen's $w$                   | @cohen1988  |      0.10       |  0.30  | 0.50  |
+| Phi                           | @cohen1988  |       .10       |  .30   |  .50  |
+| Cramer's $V$                  |             | [^benchmarks-5] |        |       |
+| Cohen's $h$                   | @cohen1988  |       0.2       |  0.5   |  0.8  |
 
 [^benchmarks-1]: @sawilowsky2009 expanded Cohen's benchmarks to include very small effects ($d$ = 0.01), very large effects ($d$ = 1.20), and huge effects ($d$ = 2.0). It has to be noted that very large and huge effects are very rare in experimental social psychology.
 
